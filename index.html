@@ -4,9 +4,54 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./src/css/index.css" />
 		<title>Tony Shop</title>
 	</head>
 	<body>
-		<h1>esto es una tieda nueva</h1>
+		<nav class="navbar">
+			<figure class="container_logo">
+				<img class="logo" src="./public/tony's_shop2.png" alt="logo shop" />
+			</figure>
+			<ul class="container_items">
+				<li class="item">
+					<a class="ancor_item" href="">Spare parts</a>
+				</li>
+				<li class="item">
+					<a class="ancor_item" href="">Gadgets</a>
+				</li>
+				<li class="item openList">
+					Cart
+					<div class="container_list">
+						<div class="list_flex">
+							<div class="list_item">
+								<figure>
+									<img
+										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
+										alt="img product"
+										class="img_item"
+									/>
+								</figure>
+								<div>
+									<h3>Nombre producto</h3>
+									<p>description</p>
+								</div>
+								<button class="btn_delete">
+									<figure>
+										<img
+											class="delete_icon"
+											src="./public/icons/bin.png"
+											alt="delete item"
+										/>
+									</figure>
+								</button>
+							</div>
+							<div class="container_list_buttton">
+								<button class="btn_cart">Pay</button>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
 	</body>
 </html>

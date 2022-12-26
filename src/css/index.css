@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+
+/* variables */
+:root {
+	--darkBlue: #041562;
+	--blue: #11468f;
+	--red: #da1212;
+	--white: #eeeeee;
+	--font_bold: 500;
+}
+
+/* navbar styles */
+.navbar {
+	width: 100%;
+	height: 80px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	position: fixed;
+	top: 0px;
+	z-index: 5;
+	background: var(--white);
+}
+
+.container_items {
+	display: flex;
+	/* ojo */
+	background: var(--white);
+}
+
+.container_logo {
+	width: 200px;
+	height: 80px;
+}
+
+.logo {
+	width: 100%;
+	height: 100%;
+}
+
+.item {
+	width: 100px;
+	height: auto;
+
+	text-align: center;
+	list-style: none;
+	padding: 28px 5px;
+	color: var(--darkBlue);
+	background-color: var(--white);
+}
+
+.item:hover {
+	border-bottom: 3px solid var(--red);
+	font-weight: bold;
+}
+
+.ancor_item {
+	text-decoration: none;
+	color: var(--darkBlue);
+}
+
+/* shoping cart style*/
+
+.openList {
+	position: relative;
+}
+
+.container_list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	width: 300px;
+	height: 0;
+	top: 0px;
+	right: 0px;
+	opacity: 0;
+	z-index: -1;
+	background: var(--white);
+	transition: 0.5s ease-in-out;
+	border-radius: 0 0 15px 15px;
+}
+
+.openList:hover .container_list {
+	height: auto;
+	opacity: 1;
+	top: 80px;
+	transition: 0.5s ease-in-out;
+	background: var(--white);
+}
+
+.list_flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.list_item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 90%;
+	height: 80px;
+	gap: 27px;
+	border-bottom: 1px solid var(--red);
+}
+
+.img_item {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.btn_delete {
+	cursor: pointer;
+}
+
+.delete_icon {
+	width: 15px;
+	height: 15px;
+}
+
+.container_list_buttton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+	margin: 10px 0px;
+}
+
+.btn_cart {
+	width: 80%;
+	height: 40px;
+	background: var(--blue);
+	color: var(--white);
+	border-radius: 30px;
+	cursor: pointer;
+}
