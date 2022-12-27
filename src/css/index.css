@@ -94,7 +94,7 @@
 }
 
 .openList:hover .container_list {
-	height: auto;
+	height: 300px;
 	opacity: 1;
 	top: 80px;
 	transition: 0.5s ease-in-out;
@@ -117,7 +117,7 @@
 	align-items: center;
 
 	width: 90%;
-	height: 80px;
+	height: 100%;
 	gap: 27px;
 	border-bottom: 1px solid var(--red);
 }
@@ -153,5 +153,10 @@
 	background: var(--blue);
 	color: var(--white);
 	border-radius: 30px;
+	cursor: pointer;
+}
+
+.btn_cart:hover {
+	box-shadow: 0 0 15px var(--blue);
 	cursor: pointer;
 }
