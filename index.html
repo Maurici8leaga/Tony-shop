@@ -123,12 +123,63 @@
 		</nav>
 
 		<header class="header">
-			<div class="container_intro">
-				<h1 class="title">TONY'S MOTO SHOP</h1>
-				<p class="headerText">Where you can find anything for you vehicule</p>
-				<button class="btn_displayProducts">
-					<a href="">Show Products</a>
-				</button>
+			<div class="slides" tabindex="0" aria-label="carousel">
+				<!-- el Tabindex="0" es para hacer elemetos como los div que no son focus los hace focus -->
+				<div
+					class="slide_item slide-1"
+					id="slide-1"
+					tabindex="0"
+					aria-label="slide 1 of 3"
+				>
+					<div class="container_intro">
+						<h1 class="title">TONY'S MOTO SHOP</h1>
+						<p class="headerText">
+							Where you can find anything for you vehicule
+						</p>
+						<button class="btn_displayProducts">
+							<a href="">Check Products</a>
+						</button>
+					</div>
+				</div>
+				<!-- el arial-label es para que los que usan screen-reader sepan como funciona el carousel -->
+				<div
+					class="slide_item slide-2"
+					id="slide-2"
+					tabindex="0"
+					aria-label="slide 2 of 3"
+				>
+					<div class="container_intro">
+						<h2 class="title_secundary">
+							We have a wide variety of spare parts for your motorcycle
+						</h2>
+						<button class="btn_displayProducts">
+							<a href="">See Spare Parts</a>
+						</button>
+					</div>
+				</div>
+				<div
+					class="slide_item slide-3"
+					id="slide-3"
+					tabindex="0"
+					aria-label="slide 3 of 3"
+				>
+					<div class="container_intro">
+						<h2 class="title_secundary">
+							We have all the gadgets to make your trip more comfortable and
+							safe
+						</h2>
+
+						<button class="btn_displayProducts">
+							<a href="">See Gadgets</a>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="carousel_nav">
+				<a href="#slide-1" class="btn-slider" aria-label="Go to slide 1"></a>
+				<a href="#slide-2" class="btn-slider" aria-label="Go to slide 2"></a>
+				<a href="#slide-3" class="btn-slider" aria-label="Go to slide 3"></a>
 			</div>
 		</header>
 	</body>

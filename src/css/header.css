@@ -8,41 +8,132 @@
 }
 
 .header {
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* carousel */
+
+.slides {
+	width: 100%;
 	display: flex;
+	/* este es para indicarle que haga scroll solo en el eje x */
+	overflow-x: scroll;
+	/* el "x" hace que se pueda ajustar el diseño mientras se hace el scroll */
+	/* y el mandatory obliga al browser hacer scroll al item mas cercano una vez que el scroll halla terminado */
+	scroll-snap-type: x mandatory;
+	/* el smooth es para hacer delicado los scroll */
+	scroll-behavior: smooth;
+	/* esto permite ocultar la barra de scroll de la pantalla */
+	scrollbar-width: none;
+}
+/* se agrega este para poder desaparecer la barra del scroll de navegadores y de los webkit que tienen parpadeos */
+.slides::-webkit-scrollbar {
+	display: none;
+}
+
+.slide_item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* este flex-shrink es para achicar el contendio y dependiendo de su valor sera el tamaño a achicar */
+	flex-shrink: 0;
+
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	margin: 0 1rem;
+
+	/* este start lo que hace es que le determina donde detenerce una vez que se hace el scroll */
+	scroll-snap-align: start;
+	transform: scale(1);
+	transform-origin: center center;
+	transition: transform 0.5s;
+}
+
+.slide-1 {
+	background-color: var(--white);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url("../../public/imgBackgrounds/motor2.jpeg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.slide-2 {
+	background-color: var(--white);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url("../../public/imgBackgrounds/pexels-jess-loiterton-9269111.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.slide-3 {
+	background-color: var(--white);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		url("../../public/imgBackgrounds/motoGadgets.jpeg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.carousel_nav {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	bottom: 80px;
+	gap: 20px;
+}
+
+.btn-slider {
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 
-	width: 100%;
-	height: 100vh;
-	margin-top: 80px;
+	position: relative;
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0.5rem;
 
+	border-radius: 50%;
+	text-decoration: none;
 	background-color: var(--white);
-	background-image: url("../../public/imgBackgrounds/motor2.jpeg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-attachment: fixed;
-
-	/* animation: carousel 5s infinite;
-	animation-timing-function: linear; */
+	color: #000;
 }
 
+.btn-slider:hover,
+.btn-slider:active {
+	background-color: var(--red);
+	color: #fff;
+}
+
+/* contennt */
 .container_intro {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
-	/* align-items: flex-start;
-	/* cuando el elemento flex es column este alinia el elemento flex en el eje Y del lado de arriba de la pag con respecto al resto de la pag */
-	/* justify-content: flex-start; */
+	width: 70%;
 	gap: 20px;
+	text-align: center;
 	color: var(--white);
 }
 
 .title {
 	font-size: 70px;
 	font-weight: bold;
+}
+
+.title_secundary {
+	font-size: 50px;
 }
 
 .headerText {
@@ -56,7 +147,9 @@
 	width: 200px;
 	height: 50px;
 	line-height: 50px;
+	margin-top: 50px;
 	border-radius: 30px;
+	font-size: 16px;
 
 	text-decoration: none;
 	cursor: pointer;
@@ -71,32 +164,4 @@
 
 .btn_displayProducts:hover {
 	box-shadow: 0 0 15px var(--blue);
-}
-
-/* animations */
-@keyframes carousel {
-	0% {
-		/* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-			url("../../public/imgBackgrounds/motor.jpeg"); */
-		background-image: url("../../public/imgBackgrounds/motor.jpeg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	50% {
-		/* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-			url("../../public/imgBackgrounds/pexels-jess-loiterton-9269111.jpg"); */
-		background-image: url("../../public/imgBackgrounds/pexels-jess-loiterton-9269111.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-	100% {
-		/* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-			url("../../public/imgBackgrounds/motoGadgets.jpeg"); */
-		background-image: url("../../public/imgBackgrounds/motoGadgets.jpeg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
 }
