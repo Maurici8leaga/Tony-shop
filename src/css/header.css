@@ -49,12 +49,36 @@
 	font-size: 22px;
 }
 
+.btn_displayProducts {
+	display: block;
+	text-align: center;
+
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 30px;
+
+	text-decoration: none;
+	cursor: pointer;
+	background: var(--blue);
+	color: var(--white);
+}
+
+.btn_displayProducts a {
+	text-decoration: none;
+	color: var(--white);
+}
+
+.btn_displayProducts:hover {
+	box-shadow: 0 0 15px var(--blue);
+}
+
 /* animations */
 @keyframes carousel {
 	0% {
 		/* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
 			url("../../public/imgBackgrounds/motor.jpeg"); */
-		background-image: url("../../public/imgBackgrounds/motor2.jpeg");
+		background-image: url("../../public/imgBackgrounds/motor.jpeg");
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
