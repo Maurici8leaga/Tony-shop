@@ -6,6 +6,7 @@
 	border: 0;
 	box-sizing: border-box;
 	font-family: "Roboto", sans-serif;
+	scroll-behavior: smooth;
 }
 
 /* variables */
@@ -15,6 +16,16 @@
 	--red: #da1212;
 	--white: #eeeeee;
 	--font_bold: 500;
+}
+
+/* containers */
+.container {
+	position: relative;
+	min-height: 100vh;
+}
+
+.wrap-container {
+	padding-bottom: 30vh;
 }
 
 /* navbar styles */

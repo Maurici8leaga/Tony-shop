@@ -55,7 +55,7 @@
 .slide-1 {
 	background-color: var(--white);
 	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-		url("../../public/imgBackgrounds/motor2.jpeg");
+		url("../../public/imgBackgrounds/motor.jpeg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -123,6 +123,7 @@
 
 	width: 70%;
 	gap: 20px;
+	margin-top: 140px;
 	text-align: center;
 	color: var(--white);
 }
@@ -137,7 +138,7 @@
 }
 
 .headerText {
-	font-size: 22px;
+	font-size: 26px;
 }
 
 .btn_displayProducts {
