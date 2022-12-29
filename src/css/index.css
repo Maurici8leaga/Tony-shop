@@ -41,12 +41,15 @@
 	top: 0px;
 	z-index: 5;
 	background: var(--white);
+	/* transition for scroll */
+	transition: 0.3s ease-in-out;
 }
 
 .container_items {
 	display: flex;
-	/* ojo */
 	background: var(--white);
+	/* transition for scroll */
+	transition: 0.3s ease-in-out;
 }
 
 .container_logo {
@@ -67,7 +70,9 @@
 	list-style: none;
 	padding: 28px 5px;
 	color: var(--darkBlue);
-	background-color: var(--white);
+	/* background-color: var(--white); */
+	/* transition for scroll */
+	transition: 0.3s ease-in-out;
 }
 
 .item:hover {
@@ -78,6 +83,8 @@
 .ancor_item {
 	text-decoration: none;
 	color: var(--darkBlue);
+	/* transition for scroll */
+	transition: 0.3s ease-in-out;
 }
 
 /* shoping cart style*/
@@ -105,11 +112,12 @@
 }
 
 .openList:hover .container_list {
-	height: 300px;
+	height: auto;
+	max-height: 350px;
 	opacity: 1;
-	top: 80px;
+	top: 79px;
 	transition: 0.5s ease-in-out;
-	background: var(--white);
+	/* background: var(--white); */
 }
 
 .list_flex {
@@ -120,6 +128,7 @@
 
 	width: 100%;
 	height: 100%;
+	overflow: scroll;
 }
 
 .list_item {
@@ -128,7 +137,9 @@
 	align-items: center;
 
 	width: 90%;
-	height: 100%;
+	height: 55px;
+	/* height: 100%; */
+	margin: 5px 0px;
 	gap: 27px;
 	border-bottom: 1px solid var(--red);
 }
@@ -141,6 +152,7 @@
 
 .btn_delete {
 	cursor: pointer;
+	background: transparent;
 }
 
 .delete_icon {
@@ -170,4 +182,30 @@
 .btn_cart:hover {
 	box-shadow: 0 0 15px var(--blue);
 	cursor: pointer;
+}
+
+/* styles only when the navbar do scroll */
+.navbar.scroll {
+	background: var(--blue);
+}
+
+.container_items.scroll {
+	background: var(--blue);
+}
+
+.ancor_item.scroll {
+	color: var(--white);
+}
+
+.item.scroll {
+	color: var(--white);
+}
+
+.container_list.scroll {
+	background: var(--blue);
+}
+
+.btn_cart.scroll {
+	background: var(--white);
+	color: var(--darkBlue);
 }

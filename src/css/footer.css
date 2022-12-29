@@ -10,7 +10,7 @@
 footer {
 	position: absolute;
 	bottom: 0;
-	background: var(--darkBlue);
+	background: var(--blue);
 	color: white;
 	height: auto;
 	width: 100vw;
@@ -81,7 +81,7 @@ footer {
 	justify-content: center;
 	align-items: center;
 
-	background: var(--darkBlue);
+	background: var(--blue);
 	width: 100vw;
 	padding: 0px 20px 35px 20px;
 }

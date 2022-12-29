@@ -8,25 +8,26 @@
 		<link rel="stylesheet" href="./src/css/header.css" />
 		<link rel="stylesheet" href="./src/css/products.css" />
 		<link rel="stylesheet" href="./src/css/footer.css" />
+		<link rel="stylesheet" href="./src/css/modal.css" />
 		<title>Tony Shop</title>
 	</head>
 	<body>
 		<div class="container">
 			<div class="wrap-container">
-				<nav class="navbar">
+				<nav class="navbar" id="navbar">
 					<figure class="container_logo">
 						<img class="logo" src="./public/tony's_shop2.png" alt="logo shop" />
 					</figure>
-					<ul class="container_items">
+					<ul class="container_items" id="container_items">
 						<li class="item">
 							<a class="ancor_item" href="#spareParts">Spare parts</a>
 						</li>
 						<li class="item">
 							<a class="ancor_item" href="#gadgets">Gadgets</a>
 						</li>
-						<li class="item openList">
+						<li class="item openList" id="item_cart">
 							Cart
-							<div class="container_list">
+							<div class="container_list" id="container_list">
 								<div class="list_flex">
 									<div class="list_item">
 										<figure>
@@ -38,13 +39,12 @@
 										</figure>
 										<div>
 											<h3>Nombre producto</h3>
-											<p>description</p>
 										</div>
 										<button class="btn_delete">
 											<figure>
 												<img
 													class="delete_icon"
-													src="./public/icons/bin.png"
+													src="./public/icons/delete.png"
 													alt="delete item"
 												/>
 											</figure>
@@ -60,13 +60,12 @@
 										</figure>
 										<div>
 											<h3>Nombre producto</h3>
-											<p>description</p>
 										</div>
 										<button class="btn_delete">
 											<figure>
 												<img
 													class="delete_icon"
-													src="./public/icons/bin.png"
+													src="./public/icons/delete.png"
 													alt="delete item"
 												/>
 											</figure>
@@ -82,13 +81,12 @@
 										</figure>
 										<div>
 											<h3>Nombre producto</h3>
-											<p>description</p>
 										</div>
 										<button class="btn_delete">
 											<figure>
 												<img
 													class="delete_icon"
-													src="./public/icons/bin.png"
+													src="./public/icons/delete.png"
 													alt="delete item"
 												/>
 											</figure>
@@ -104,13 +102,54 @@
 										</figure>
 										<div>
 											<h3>Nombre producto</h3>
-											<p>description</p>
 										</div>
 										<button class="btn_delete">
 											<figure>
 												<img
 													class="delete_icon"
-													src="./public/icons/bin.png"
+													src="./public/icons/delete.png"
+													alt="delete item"
+												/>
+											</figure>
+										</button>
+									</div>
+									<div class="list_item">
+										<figure>
+											<img
+												src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
+												alt="img product"
+												class="img_item"
+											/>
+										</figure>
+										<div>
+											<h3>Nombre producto</h3>
+										</div>
+										<button class="btn_delete">
+											<figure>
+												<img
+													class="delete_icon"
+													src="./public/icons/delete.png"
+													alt="delete item"
+												/>
+											</figure>
+										</button>
+									</div>
+									<div class="list_item">
+										<figure>
+											<img
+												src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
+												alt="img product"
+												class="img_item"
+											/>
+										</figure>
+										<div>
+											<h3>Nombre producto</h3>
+										</div>
+										<button class="btn_delete">
+											<figure>
+												<img
+													class="delete_icon"
+													src="./public/icons/delete.png"
 													alt="delete item"
 												/>
 											</figure>
@@ -118,7 +157,7 @@
 									</div>
 
 									<div class="container_list_buttton">
-										<button class="btn_cart">Pay</button>
+										<button class="btn_cart" id="btn_cart">Pay</button>
 									</div>
 								</div>
 							</div>
@@ -205,88 +244,12 @@
 						<hr />
 					</div>
 
+					<div id="modal" class="bgModal">
+						<!-- aqui va el modal -->
+					</div>
+
 					<div class="grid" id="grid_1">
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Tapa emblema de parrilla</h2>
-							<p class="price">$900</p>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://http2.mlstatic.com/D_NQ_NP_684854-MLV49003505738_022022-O.jpg"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
+						<!-- aqui va los card -->
 					</div>
 				</section>
 
@@ -297,87 +260,7 @@
 					</div>
 
 					<div class="grid" id="grid_2">
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://http2.mlstatic.com/D_NQ_NP_898252-MLV51917006904_102022-V.jpg"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Casco abatible americano</h2>
-							<p class="price">$1900</p>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://http2.mlstatic.com/D_NQ_NP_684854-MLV49003505738_022022-O.jpg"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
-						<article class="card">
-							<figure class="containImg">
-								<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
-									alt="imag product"
-									class="imgCard"
-								/>
-							</figure>
-							<h2 class="nameProduct">Nombre</h2>
-							<div>
-								<p class="price">$900</p>
-								<button class="buy">comprar</button>
-							</div>
-						</article>
+						<!-- aqui va los cards -->
 					</div>
 				</section>
 			</div>
@@ -389,10 +272,10 @@
 							<p>Products</p>
 							<ul class="footer_list">
 								<li>
-									<a class="ancor_item" href="#spareParts">Spare parts</a>
+									<a href="#spareParts">Spare parts</a>
 								</li>
 								<li>
-									<a class="ancor_item" href="#gadgets">Gadgets</a>
+									<a href="#gadgets">Gadgets</a>
 								</li>
 							</ul>
 						</div>
@@ -442,12 +325,12 @@
 					<div class="footer-copyright">
 						<p>copyright &copy;2022</p>
 						<p>&copy;Mauricio Oleaga 2022-2023. All Rights Reserved.</p>
-						<a class="ancor_item" href="https://github.com/Maurici8leaga"
-							>Web service desing</a
-						>
+						<a href="https://github.com/Maurici8leaga">Web service desing</a>
 					</div>
 				</div>
 			</footer>
 		</div>
+
+		<script src="./src/js/index.js" type="module"></script>
 	</body>
 </html>

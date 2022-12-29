@@ -1,0 +1,130 @@
+/* variables */
+:root {
+	--darkBlue: #041562;
+	--blue: #11468f;
+	--red: #da1212;
+	--white: #eeeeee;
+	--font_bold: 500;
+}
+
+.bgModal {
+	/* este bgModa sera el background oscuro del modal */
+
+	/* colocamos posicion fixed para que el modal se mueva atraves de toda la pag como el navbar */
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* colocamos este clip-path para que cuando cargue la pag el modal parezca oculto */
+	clip-path: circle(0% at 50% 50%);
+	transition: clip-path 0.5s ease-in-out;
+	background: rgba(0, 0, 0, 50%);
+}
+
+.modal {
+	/* colocamos relative el position del modal para que el boton dentro puedan ser absolutos */
+	position: relative;
+	width: 600px;
+	height: 500px;
+	background: white;
+	border-radius: 15px;
+}
+
+.modal_flex_row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal_flex_column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 300px;
+	height: 500px;
+	padding: 15px;
+	color: var(--darkBlue);
+}
+
+.container_modal_img {
+	width: 300px;
+	height: 500px;
+}
+
+.img_modal {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 15px 0px 0px 15px;
+}
+
+.description_modal {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.text_modal {
+	font-size: 16px;
+	text-align: justify;
+	margin: 15px 0px;
+}
+
+.price_modal {
+	margin: 20px 0px;
+	font-size: 16px;
+}
+
+.btn_addCart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 30px;
+	font-size: 16px;
+
+	text-decoration: none;
+	cursor: pointer;
+	background: transparent;
+	color: var(--blue);
+	border: 1px solid var(--blue);
+}
+
+.btn_addCart:hover {
+	box-shadow: 0 0 15px var(--blue);
+}
+
+.btn_addCart img {
+	display: flex;
+
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+}
+
+.btn_close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	background: transparent;
+}
+
+.btn_close img {
+	width: 15px;
+	height: 15px;
+}
+
+hr {
+	width: 80%;
+	border: 1px solid var(--red);
+}
