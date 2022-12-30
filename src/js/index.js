@@ -10,7 +10,7 @@ import {
 	btn_cart,
 } from "./node.js";
 import { viewCardSpareParts, viewCardGadgets } from "./printCard.js";
-import { viewModal } from "./printModal.js";
+import { viewModal, addingItem } from "./printModal.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 	// print cards within grid
@@ -24,6 +24,10 @@ window.openModal = (id) => {
 
 window.closeModal = () => {
 	modal.style.clipPath = "circle(0% at 50% 50%)";
+};
+
+window.addCart = (id) => {
+	addingItem(id);
 };
 
 // function for change the style of navbar when the user make scroll
