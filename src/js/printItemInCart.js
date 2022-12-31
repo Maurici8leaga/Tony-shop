@@ -1,20 +1,22 @@
-import { list_products } from "../../utils/data.js";
-import { list_item, item_cart } from "./node.js";
+import { list_item } from "./node.js";
+import { findElementById } from "./printModal.js";
 
-export const templateItem = () => {
+export const templateItem = (item) => {
+	const { img, name, id } = item;
+
 	return `									
-    <li class="list_item">
+    <li class="list_item" id='${id}'>
         <figure>
             <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzij8nGCrz_HKfacDH9n6L0XldajEde4pGR3WakDZA1UdSP-cI5fQz5HGcKtnR6OIO0o&usqp=CAU"
+                src="public/imgProducts/${img}"
                 alt="img product"
                 class="img_item"
             />
         </figure>
         <div>
-            <h3>Nombre producto</h3>
+            <h3>${name}</h3>
         </div>
-        <button class="btn_delete">
+        <button class="btn_delete" onclick="deleteItem('${id}')">
             <figure>
                 <img
                     class="delete_icon"
@@ -26,19 +28,68 @@ export const templateItem = () => {
     </li>`;
 };
 
-item_cart.addEventListener("mouseover", () => {
-	const arrayOfItems = localStorage.getItem("element_cart");
-	const list_ofItems_inCart = JSON.parse(arrayOfItems);
+const templateEmptyCart = () => {
+	return `
+        <li class="list_item noItem" id='noItem'>
+            <p>No tienes nada aun</p>
+        </li>
+    `;
+};
 
-	if (list_ofItems_inCart && list_ofItems_inCart.length > 0) {
-		// list_ofItems_inCart.map((item) => {
-		// 	const divItem = document.createElement("div");
-		// 	list_item.innerHTML = templateItem(item);
-		// 	list_item.appendChild(divItem);
-		// 	// console.log(item);
-		// });
-		console.log("esto son las list_ofItems_inCart", list_ofItems_inCart.length);
+export const loadingItems = () => {
+	const getingItems = localStorage.getItem("element_cart");
+	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
+	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
+	// traemos la data del storage para asi solo imprimir solo lo la cantidad que tenga
+
+	if (arrayOfItems.length > 0) {
+		// por cada elemento que tenga el array se creara un div
+		arrayOfItems.map((item) => {
+			// printing the item in shoping cart
+			const divItem = document.createElement("div");
+			list_item.innerHTML += templateItem(item);
+			// se debe usar += ya que este adition assigment va agregar siempre 1 item mas al innerHtml
+			list_item.appendChild(divItem);
+		});
 	} else {
-		return console.log("el carritto esta vacio");
+		const divItem = document.createElement("div");
+		list_item.innerHTML += templateEmptyCart();
+		list_item.appendChild(divItem);
+		// para poder hacer que aparezca el div se le cambia el style asi
+		const noItem = document.getElementById("noItem");
+		noItem.style.visibility = "visible";
 	}
-});
+};
+
+// export const statusShopingCart = () => {
+// 	const getingItems = localStorage.getItem("element_cart");
+// 	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
+// 	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
+
+// 	const noItem = document.getElementById("noItem");
+// 	if (arrayOfItems.length == 0 && noItem) {
+// 		noItem.style.visibility = "visible";
+// 	} else if (arrayOfItems.length > 0 && noItem) {
+// 		noItem.style.visibility = "hidden";
+// 		noItem.style.height = "0px";
+// 	}
+// };
+
+export const deletingItem = (id) => {
+	const getingItems = localStorage.getItem("element_cart");
+	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
+	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
+	// const itemForDelete = findElementById(id, arrayOfItems);
+
+	// create a new array without the item selected
+	let newArrayOfItems = arrayOfItems.filter((item) => item.id !== id);
+
+	// remove element from de DOM
+	const liOfItem = document.getElementById(`${id}`);
+	liOfItem.remove();
+	const noItem = document.getElementById("noItem");
+
+	if (arrayOfItems == 0) noItem.style.visibility = "visible";
+	// guardamoos ell nuevo array en el store
+	localStorage.setItem("element_cart", JSON.stringify(newArrayOfItems));
+};

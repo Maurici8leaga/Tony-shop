@@ -11,11 +11,15 @@ import {
 } from "./node.js";
 import { viewCardSpareParts, viewCardGadgets } from "./printCard.js";
 import { viewModal, addingItem } from "./printModal.js";
+import { loadingItems, deletingItem } from "./printItemInCart.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 	// print cards within grid
 	viewCardSpareParts();
 	viewCardGadgets();
+
+	// loading item that are in the storage
+	loadingItems();
 });
 
 window.openModal = (id) => {
@@ -28,6 +32,11 @@ window.closeModal = () => {
 
 window.addCart = (id) => {
 	addingItem(id);
+	closeModal();
+};
+
+window.deleteItem = (id) => {
+	deletingItem(id);
 };
 
 // function for change the style of navbar when the user make scroll
