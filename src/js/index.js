@@ -40,7 +40,7 @@ window.deleteItem = (id) => {
 };
 
 // function for change the style of navbar when the user make scroll
-window.onscroll = function () {
+window.onscroll = () => {
 	// onscroll permite acceder a las propiedades de la pagina al hacer scroll
 	if (window.pageYOffset > 0) {
 		// pageYOffset sera los pixeles que tenga al hacer scroll en el eje y

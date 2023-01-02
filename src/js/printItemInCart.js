@@ -87,9 +87,14 @@ export const deletingItem = (id) => {
 	// remove element from de DOM
 	const liOfItem = document.getElementById(`${id}`);
 	liOfItem.remove();
-	const noItem = document.getElementById("noItem");
+	if (arrayOfItems.length === 0) {
+		console.log("ya no hay nada");
+	}
+	// const noItem = document.getElementById("noItem");
+	// if (noItem && arrayOfItems.length === 0) {
+	// 	noItem.style.visibility = "hidden";
+	// }
 
-	if (arrayOfItems == 0) noItem.style.visibility = "visible";
 	// guardamoos ell nuevo array en el store
 	localStorage.setItem("element_cart", JSON.stringify(newArrayOfItems));
 };
