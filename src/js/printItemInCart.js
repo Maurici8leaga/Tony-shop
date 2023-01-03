@@ -6,25 +6,29 @@ export const templateItem = (item) => {
 
 	return `									
     <li class="list_item" id='${id}'>
-        <figure>
-            <img
-                src="public/imgProducts/${img}"
-                alt="img product"
-                class="img_item"
-            />
-        </figure>
-        <div>
+		<div class="sectionItem_img">
+			<figure>
+				<img
+				src="public/imgProducts/${img}"
+				alt="img product"
+				class="img_item"
+				/>
+			</figure>
+		</div>
+        <div class="sectionItem_name">
             <h3>${name}</h3>
         </div>
-        <button class="btn_delete" onclick="deleteItem('${id}')">
-            <figure>
-                <img
-                    class="delete_icon"
-                    src="./public/icons/delete.png"
-                    alt="delete item"
-                />
-            </figure>
-        </button>
+		<div class="sectionItem_btn">
+			<button class="btn_delete" onclick="deleteItem('${id}')">
+				<figure>
+					<img
+					class="delete_icon"
+					src="./public/icons/delete.png"
+					alt="delete item"
+					/>
+				</figure>
+			</button>
+		</div>
     </li>`;
 };
 
