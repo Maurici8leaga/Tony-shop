@@ -1,4 +1,4 @@
-import { list_item } from "./node.js";
+import { list_item, container_list_buttton } from "./node.js";
 import { findElementById } from "./printModal.js";
 
 export const templateItem = (item) => {
@@ -31,7 +31,7 @@ export const templateItem = (item) => {
 const templateEmptyCart = () => {
 	return `
         <li class="list_item noItem" id='noItem'>
-            <p>No tienes nada aun</p>
+            <p>Shoping cart it's empty</p>
         </li>
     `;
 };
@@ -51,6 +51,9 @@ export const loadingItems = () => {
 			// se debe usar += ya que este adition assigment va agregar siempre 1 item mas al innerHtml
 			list_item.appendChild(divItem);
 		});
+		container_list_buttton.style.pointerEvents = "visible";
+		container_list_buttton.style.opacity = "1";
+		console.log(arrayOfItems.length, "ya tiene algo");
 	} else {
 		const divItem = document.createElement("div");
 		list_item.innerHTML += templateEmptyCart();
@@ -58,22 +61,12 @@ export const loadingItems = () => {
 		// para poder hacer que aparezca el div se le cambia el style asi
 		const noItem = document.getElementById("noItem");
 		noItem.style.visibility = "visible";
+
+		container_list_buttton.style.pointerEvents = "none";
+		container_list_buttton.style.opacity = ".65";
+		console.log(arrayOfItems.length, "no tiene nada 1");
 	}
 };
-
-// export const statusShopingCart = () => {
-// 	const getingItems = localStorage.getItem("element_cart");
-// 	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
-// 	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
-
-// 	const noItem = document.getElementById("noItem");
-// 	if (arrayOfItems.length == 0 && noItem) {
-// 		noItem.style.visibility = "visible";
-// 	} else if (arrayOfItems.length > 0 && noItem) {
-// 		noItem.style.visibility = "hidden";
-// 		noItem.style.height = "0px";
-// 	}
-// };
 
 export const deletingItem = (id) => {
 	const getingItems = localStorage.getItem("element_cart");
@@ -87,13 +80,17 @@ export const deletingItem = (id) => {
 	// remove element from de DOM
 	const liOfItem = document.getElementById(`${id}`);
 	liOfItem.remove();
-	if (arrayOfItems.length === 0) {
-		console.log("ya no hay nada");
+
+	// showing message for empyt shoping cart
+	const noItem = document.getElementById("noItem");
+	if (newArrayOfItems.length === 0 && noItem) {
+		noItem.style.visibility = "visible";
+		noItem.style.height = "55px";
+
+		container_list_buttton.style.pointerEvents = "none";
+		container_list_buttton.style.opacity = ".65";
 	}
-	// const noItem = document.getElementById("noItem");
-	// if (noItem && arrayOfItems.length === 0) {
-	// 	noItem.style.visibility = "hidden";
-	// }
+	console.log(newArrayOfItems, "esto es lo que tiene");
 
 	// guardamoos ell nuevo array en el store
 	localStorage.setItem("element_cart", JSON.stringify(newArrayOfItems));

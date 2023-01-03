@@ -1,41 +1,11 @@
 import {
-	modal,
 	navbar,
 	container_items,
 	ancor_item,
 	item_cart,
 	container_list,
 	btn_cart,
-} from "./node.js";
-import { viewCardSpareParts, viewCardGadgets } from "./printCard.js";
-import { viewModal, addingItem } from "./printModal.js";
-import { loadingItems, deletingItem } from "./printItemInCart.js";
-
-window.addEventListener("DOMContentLoaded", () => {
-	// print cards within grid
-	viewCardSpareParts();
-	viewCardGadgets();
-
-	// loading item that are in the storage
-	loadingItems();
-});
-
-window.openModal = (id) => {
-	viewModal(id);
-};
-
-window.closeModal = () => {
-	modal.style.clipPath = "circle(0% at 50% 50%)";
-};
-
-window.addCart = (id) => {
-	addingItem(id);
-	closeModal();
-};
-
-window.deleteItem = (id) => {
-	deletingItem(id);
-};
+} from "../js/node.js";
 
 // function for change the style of navbar when the user make scroll
 window.onscroll = () => {

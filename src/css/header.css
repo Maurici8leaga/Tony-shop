@@ -27,6 +27,7 @@
 	scroll-behavior: smooth;
 	/* esto permite ocultar la barra de scroll de la pantalla */
 	scrollbar-width: none;
+	margin-bottom: -24px;
 }
 /* se agrega este para poder desaparecer la barra del scroll de navegadores y de los webkit que tienen parpadeos */
 .slides::-webkit-scrollbar {

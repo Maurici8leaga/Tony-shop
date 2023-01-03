@@ -1,5 +1,5 @@
 import { list_products } from "../../utils/data.js";
-import { modal } from "./node.js";
+import { modal, container_list_buttton } from "./node.js";
 import { templateItem } from "./printItemInCart.js";
 
 const templateModal = (itemSelect) => {
@@ -68,13 +68,12 @@ export const viewModal = (id) => {
 };
 
 // logic for add items to shoping cart
-
-// hay que llamar lo que esta en localStorage asi no halla nada
-const getingItems = localStorage.getItem("element_cart");
-// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
-const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
-
 export const addingItem = (id) => {
+	// hay que llamar lo que esta en localStorage asi no halla nada
+	const getingItems = localStorage.getItem("element_cart");
+	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
+	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
+
 	let partSelect = findElementById(id, list_products[0].spareParts);
 	let gadgetSelect = findElementById(id, list_products[1].gadgets);
 
@@ -115,4 +114,7 @@ export const addingItem = (id) => {
 		noItem.style.visibility = "hidden";
 		noItem.style.height = "0px";
 	}
+
+	container_list_buttton.style.pointerEvents = "visible";
+	container_list_buttton.style.opacity = "1";
 };

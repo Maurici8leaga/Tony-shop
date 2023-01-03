@@ -1,0 +1,60 @@
+/* variables */
+:root {
+	--darkBlue: #041562;
+	--blue: #11468f;
+	--red: #da1212;
+	--white: #eeeeee;
+	--font_bold: 500;
+}
+
+.thank_section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	width: 100%;
+	height: 100vh;
+	margin-bottom: -1px;
+	color: var(--white);
+	background: linear-gradient(
+			to bottom,
+			rgb(6, 17, 97, 0.3),
+			rgb(120, 2, 6, 0.3)
+		),
+		url("../../public/imgBackgrounds/motorPequeño.jpeg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.btn_backHome {
+	display: block;
+	text-align: center;
+
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 50px;
+	border-radius: 30px;
+	font-size: 16px;
+
+	text-decoration: none;
+	cursor: pointer;
+	background: var(--blue);
+}
+
+.btn_backHome:hover {
+	box-shadow: 0 0 15px var(--blue);
+}
+
+.thank_section a {
+	text-decoration: none;
+	color: var(--white);
+}
+
+.disabled {
+	pointer-events: none;
+	opacity: 0.65;
+}
