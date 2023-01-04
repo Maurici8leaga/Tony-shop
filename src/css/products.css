@@ -60,12 +60,15 @@
 
 .containImg {
 	width: 100%;
+	height: 100%;
+}
+
+.section_card_img {
+	width: 100%;
 	height: 70%;
 }
 
 .containImg:hover {
-	transform: scale(1.03);
-	transition: all 0.5s;
 	cursor: pointer;
 }
 
@@ -81,4 +84,65 @@
 	text-align: center;
 	font-size: 1rem;
 	margin: 5px 0px;
+}
+
+/* media querys */
+
+/* tablet sizes */
+@media (min-width: 481px) and (max-width: 778px) {
+	.title_products {
+		margin-top: 70px;
+	}
+
+	.grid {
+		width: 90%;
+	}
+
+	.section_card_img {
+		height: 55%;
+	}
+
+	.nameProduct,
+	.price {
+		font-size: 14px;
+	}
+}
+
+/* mobile sizes */
+@media (min-width: 320px) and (max-width: 480px) {
+	.products {
+		overflow: scroll;
+	}
+
+	.title_products {
+		margin-top: 235px;
+	}
+
+	.grid {
+		width: 100%;
+		height: 100vh;
+		grid-template-columns: repeat(1, minmax(auto, 1fr));
+		grid-template-rows: repeat(6, 1fr);
+	}
+
+	.card {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.section_card_img {
+		width: 150px;
+		height: 135px;
+	}
+
+	.section_card_text {
+		width: 120px;
+	}
+
+	#gadgets {
+		/* se coloca este margin ya que choca con el footer y ademas con margin se puede hacer scroll y padding no */
+		margin-bottom: 30px;
+	}
 }

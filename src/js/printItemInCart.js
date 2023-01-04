@@ -1,5 +1,4 @@
 import { list_item, container_list_buttton } from "./node.js";
-import { findElementById } from "./printModal.js";
 
 export const templateItem = (item) => {
 	const { img, name, id } = item;
@@ -29,15 +28,8 @@ export const templateItem = (item) => {
 				</figure>
 			</button>
 		</div>
-    </li>`;
-};
-
-const templateEmptyCart = () => {
-	return `
-        <li class="list_item noItem" id='noItem'>
-            <p>Shoping cart it's empty</p>
-        </li>
-    `;
+	</li>
+	`;
 };
 
 export const loadingItems = () => {
@@ -55,16 +47,18 @@ export const loadingItems = () => {
 			// se debe usar += ya que este adition assigment va agregar siempre 1 item mas al innerHtml
 			list_item.appendChild(divItem);
 		});
+
+		// Hidding message and enable the buy button
+		const noItem = document.getElementById("noItem");
+		noItem.style.display = "none";
+
 		container_list_buttton.style.pointerEvents = "visible";
 		container_list_buttton.style.opacity = "1";
 		console.log(arrayOfItems.length, "ya tiene algo");
 	} else {
-		const divItem = document.createElement("div");
-		list_item.innerHTML += templateEmptyCart();
-		list_item.appendChild(divItem);
-		// para poder hacer que aparezca el div se le cambia el style asi
+		// Showing message and disabling the buy button
 		const noItem = document.getElementById("noItem");
-		noItem.style.visibility = "visible";
+		noItem.style.display = "flex";
 
 		container_list_buttton.style.pointerEvents = "none";
 		container_list_buttton.style.opacity = ".65";
@@ -76,7 +70,6 @@ export const deletingItem = (id) => {
 	const getingItems = localStorage.getItem("element_cart");
 	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
 	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
-	// const itemForDelete = findElementById(id, arrayOfItems);
 
 	// create a new array without the item selected
 	let newArrayOfItems = arrayOfItems.filter((item) => item.id !== id);
@@ -85,13 +78,13 @@ export const deletingItem = (id) => {
 	const liOfItem = document.getElementById(`${id}`);
 	liOfItem.remove();
 
-	// showing message for empyt shoping cart
+	// showing message for empyt shoping cart and disabling buy button
 	const noItem = document.getElementById("noItem");
 	if (newArrayOfItems.length === 0 && noItem) {
-		noItem.style.visibility = "visible";
-		noItem.style.height = "55px";
+		noItem.style.display = "flex";
 
 		container_list_buttton.style.pointerEvents = "none";
+		// el pointterEvent deshabilita un boton de forma css asi no puede hacer click ni hover
 		container_list_buttton.style.opacity = ".65";
 	}
 	console.log(newArrayOfItems, "esto es lo que tiene");

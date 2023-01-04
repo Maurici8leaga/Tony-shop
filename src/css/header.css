@@ -167,3 +167,93 @@
 .btn_displayProducts:hover {
 	box-shadow: 0 0 15px var(--blue);
 }
+
+/* media querys */
+
+@media (min-width: 481px) and (max-width: 778px) {
+	.slide-1 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/motor-crop.png");
+		background-size: contain;
+	}
+
+	.slide-2 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/pexels-jess-crop.png");
+		background-size: contain;
+	}
+
+	.slide-3 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/motoGadgets-crop.png");
+		background-size: contain;
+	}
+
+	.container_intro {
+		width: 100%;
+	}
+
+	.title {
+		font-size: 60px;
+	}
+
+	.headerText {
+		font-size: 20px;
+	}
+
+	.title_secundary {
+		font-size: 40px;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.slide-1 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/motor-crop.png");
+		background-size: contain;
+	}
+
+	.slide-2 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/pexels-jess-crop.png");
+		background-size: contain;
+	}
+
+	.slide-3 {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+			url("../../public/imgBackgrounds/motoGadgets-crop.png");
+		background-size: contain;
+	}
+
+	.container_intro {
+		width: 100%;
+	}
+
+	.title {
+		font-size: 45px;
+	}
+
+	.headerText {
+		display: none;
+	}
+
+	.title_secundary {
+		font-size: 25px;
+	}
+
+	.btn_displayProducts {
+		width: 150px;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+	}
+
+	.carousel_nav {
+		bottom: 120px;
+	}
+
+	.btn-slider {
+		width: 1rem;
+		height: 1rem;
+	}
+}

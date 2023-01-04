@@ -14,8 +14,10 @@
 	flex-direction: column;
 
 	width: 100%;
+	/* height: 91vh; */
 	height: 100vh;
 	margin-bottom: -1px;
+	overflow: scroll;
 	color: var(--white);
 	background: linear-gradient(
 			to bottom,
@@ -57,4 +59,30 @@
 .disabled {
 	pointer-events: none;
 	opacity: 0.65;
+}
+
+/* media querys */
+
+@media (min-width: 481px) and (max-width: 778px) {
+	.thank_section {
+		background-image: linear-gradient(
+				to bottom,
+				rgb(6, 17, 97, 0.3),
+				rgb(120, 2, 6, 0.3)
+			),
+			url("../../public/imgBackgrounds/motorPequeño-crop.png");
+		background-size: contain;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.thank_section {
+		background-image: linear-gradient(
+				to bottom,
+				rgb(6, 17, 97, 0.3),
+				rgb(120, 2, 6, 0.3)
+			),
+			url("../../public/imgBackgrounds/motorPequeño-crop.png");
+		background-size: contain;
+	}
 }

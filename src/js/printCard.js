@@ -6,15 +6,19 @@ const templateCard = (product) => {
 
 	return `						
     <article class="card">
-        <figure class="containImg" onclick="openModal('${id}')">
-            <img
-                src="public/imgProducts/${img}"
-                alt="image product"
-                class="imgCard"
-            />
-        </figure>
-        <h2 class="nameProduct">${name}</h2>
-        <p class="price">$${price}</p>
+		<div class="section_card_img">
+			<figure class="containImg" onclick="openModal('${id}')">
+				<img
+				src="public/imgProducts/${img}"
+				alt="image product"
+				class="imgCard"
+				/>
+			</figure>
+		</div>
+		<div class="section_card_text">
+			<h2 class="nameProduct">${name}</h2>
+			<p class="price">$${price}</p>
+		</div>
     </article>`;
 };
 

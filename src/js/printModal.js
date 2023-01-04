@@ -108,11 +108,10 @@ export const addingItem = (id) => {
 	// se debe usar += ya que este adition assigment va agregar siempre 1 item mas al innerHtml
 	list_item.appendChild(divItem);
 
-	// hiding noItem div
+	// Hiding message and disabling buy buttton
 	const noItem = document.getElementById("noItem");
 	if (noItem) {
-		noItem.style.visibility = "hidden";
-		noItem.style.height = "0px";
+		noItem.style.display = "none";
 	}
 
 	container_list_buttton.style.pointerEvents = "visible";

@@ -128,3 +128,63 @@ hr {
 	width: 80%;
 	border: 1px solid var(--red);
 }
+
+/* media querys */
+
+@media (min-width: 481px) and (max-width: 778px) {
+	.modal {
+		width: 350px;
+		height: 400px;
+	}
+
+	.container_modal_img {
+		width: 175px;
+		height: 400px;
+	}
+
+	.modal_flex_column {
+		width: 175px;
+		height: 400px;
+	}
+
+	.description_modal {
+		font-size: 16px;
+	}
+
+	.btn_addCart {
+		width: 140px;
+		height: 45px;
+		line-height: 45px;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.modal {
+		width: 300px;
+		height: 450px;
+	}
+
+	.modal_flex_row {
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.container_modal_img {
+		width: 300px;
+		height: 225px;
+	}
+
+	.modal_flex_column {
+		width: 300px;
+		height: 215px;
+	}
+
+	.description_modal {
+		font-size: 16px;
+	}
+
+	.text_modal {
+		font-size: 14px;
+		margin: 10px 0px;
+	}
+}
