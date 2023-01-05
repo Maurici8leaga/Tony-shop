@@ -113,7 +113,7 @@
 
 .openList:hover .container_list {
 	height: auto;
-	/* max-height: 350px; */
+	max-height: 350px;
 	opacity: 1;
 	top: 79px;
 	transition: 0.5s ease-in-out;
@@ -123,12 +123,14 @@
 .list_flex {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	/* overflow: scroll; */
+	/* scroll-snap-type: y proximity; */
+	overflow-y: scroll;
 }
 
 .list_item {
@@ -142,6 +144,7 @@
 	margin: 5px 0px;
 	gap: 27px;
 	border-bottom: 1px solid var(--red);
+	/* scroll-snap-align: center; */
 }
 
 .noItem {
@@ -162,6 +165,7 @@
 
 .sectionItem_name {
 	width: 120px;
+	/* scroll-snap-align: center; */
 }
 
 .sectionItem_btn {
