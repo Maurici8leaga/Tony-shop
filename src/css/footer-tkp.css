@@ -98,6 +98,8 @@ footer {
 }
 
 .footer-copyright a {
+	font-weight: bold;
+	text-decoration: none;
 	color: var(--white);
 }
 

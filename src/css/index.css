@@ -31,7 +31,8 @@
 /* navbar styles */
 .navbar {
 	width: 100%;
-	height: 80px;
+	/* height: 80px; */
+	height: 100px;
 
 	display: flex;
 	justify-content: space-around;
@@ -54,21 +55,26 @@
 
 .container_logo {
 	width: 200px;
-	height: 80px;
+	height: 100px;
+	/* height: 80px; */
 }
 
 .logo {
 	width: 100%;
-	height: 100%;
+	height: 120px;
+	/* height: 100%; */
+	margin: -10px 0px;
 }
 
 .item {
 	width: 100px;
-	height: auto;
+	height: 95px;
+	/* height: auto; */
 
 	text-align: center;
 	list-style: none;
-	padding: 28px 5px;
+	padding: 38px 5px;
+	/* padding: 28px 5px; */
 	color: var(--darkBlue);
 	/* background-color: var(--white); */
 	/* transition for scroll */
@@ -115,7 +121,8 @@
 	height: auto;
 	max-height: 350px;
 	opacity: 1;
-	top: 79px;
+	top: 97px;
+	/* top: 79px; */
 	transition: 0.5s ease-in-out;
 	/* background: var(--white); */
 }
@@ -253,7 +260,8 @@
 @media (min-width: 481px) and (max-width: 778px) {
 	.navbar {
 		flex-direction: column;
-		height: 100px;
+		height: 120px;
+		/* height: 100px; */
 	}
 
 	.item {
@@ -264,12 +272,17 @@
 	}
 
 	.openList:hover .container_list {
-		top: 40px;
+		top: 45px;
 	}
 
 	.container_logo {
 		width: 180px;
 		height: 60px;
+	}
+
+	.logo {
+		height: auto;
+		margin: -25px 0px;
 	}
 
 	.sectionItem_name {
@@ -285,7 +298,8 @@
 @media (min-width: 320px) and (max-width: 480px) {
 	.navbar {
 		flex-direction: column;
-		height: 100px;
+		height: 120px;
+		/* height: 100px; */
 	}
 
 	.item {
@@ -296,7 +310,7 @@
 	}
 
 	.openList:hover .container_list {
-		top: 39px;
+		top: 45px;
 		width: 493px;
 		right: -55%;
 		height: auto;
@@ -310,6 +324,11 @@
 	.container_logo {
 		width: 180px;
 		height: 60px;
+	}
+
+	.logo {
+		height: auto;
+		margin: -25px 0px;
 	}
 
 	.sectionItem_name {

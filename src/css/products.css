@@ -91,7 +91,8 @@
 /* tablet sizes */
 @media (min-width: 481px) and (max-width: 778px) {
 	.title_products {
-		margin-top: 70px;
+		margin-top: 100px;
+		/* margin-top: 70px; */
 	}
 
 	.grid {
@@ -115,7 +116,8 @@
 	}
 
 	.title_products {
-		margin-top: 235px;
+		margin-top: 280px;
+		/* margin-top: 235px; */
 	}
 
 	.grid {
