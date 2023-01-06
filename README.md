@@ -4,11 +4,11 @@ Tony's Moto Shop is an e-commerce page about motorcycle parts and gadgets, where
 
 The page was created with only html, css and js vanilla, in addition to this was implemented a Google Fonts script was implemented to give the page a more personalized style.
 
-![Intro]('./public/imgReadme/Intro.png')
+![Intro](/public/imgReadme/Intro.png)
 
-![Product]('./public/imgReadme/Product.png')
+![Product](/public/imgReadme/Product.png)
 
-![Thank-You]('./public/imgReadme/Thank-You.png')
+![Thank-You](/public/imgReadme/Thank-You.png)
 
 ## Get started
 
