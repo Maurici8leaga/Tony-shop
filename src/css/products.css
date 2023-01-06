@@ -1,0 +1,147 @@
+/* variables */
+:root {
+	--darkBlue: #041562;
+	--blue: #11468f;
+	--red: #da1212;
+	--white: #eeeeee;
+	--font_bold: 500;
+}
+
+.products {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	width: 100%;
+	height: 100vh;
+	background: var(--white);
+}
+
+.title_products {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	height: 10vh;
+	margin-top: 65px;
+}
+
+.title_products hr {
+	width: 300px;
+	margin: 5px 0px;
+	border: 1px solid var(--red);
+}
+
+.subtitle {
+	font-size: 20px;
+	font-weight: bold;
+	color: var(--darkBlue);
+}
+
+/* grid styles */
+.grid {
+	width: 70%;
+	height: 78vh;
+	gap: 20px;
+
+	display: grid;
+	grid-template-columns: repeat(3, minmax(auto, 1fr));
+	grid-template-rows: repeat(2, 1fr);
+}
+
+.card {
+	width: 80%;
+	height: 100%;
+	overflow: hidden;
+	margin: auto;
+}
+
+.containImg {
+	width: 100%;
+	height: 100%;
+}
+
+.section_card_img {
+	width: 100%;
+	height: 70%;
+}
+
+.containImg:hover {
+	cursor: pointer;
+}
+
+.imgCard {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
+
+.nameProduct,
+.price {
+	color: var(--darkBlue);
+	text-align: center;
+	font-size: 1rem;
+	margin: 5px 0px;
+}
+
+/* media querys */
+
+/* tablet sizes */
+@media (min-width: 481px) and (max-width: 778px) {
+	.title_products {
+		margin-top: 100px;
+	}
+
+	.grid {
+		width: 90%;
+	}
+
+	.section_card_img {
+		height: 55%;
+	}
+
+	.nameProduct,
+	.price {
+		font-size: 14px;
+	}
+}
+
+/* mobile sizes */
+@media (min-width: 320px) and (max-width: 480px) {
+	.products {
+		overflow: scroll;
+	}
+
+	.title_products {
+		margin-top: 280px;
+	}
+
+	.grid {
+		width: 100%;
+		height: 100vh;
+		grid-template-columns: repeat(1, minmax(auto, 1fr));
+		grid-template-rows: repeat(6, 1fr);
+	}
+
+	.card {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.section_card_img {
+		width: 150px;
+		height: 135px;
+	}
+
+	.section_card_text {
+		width: 120px;
+	}
+
+	#gadgets {
+		margin-bottom: 30px;
+	}
+}

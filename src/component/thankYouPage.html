@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/thankYouPage.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/footer-tkp.css" />
+
+		<title>Tony's Moto Shop</title>
+		<link rel="icon" type="image/x-icon" href="../../public/t-icon.png" />
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar" id="navbar">
+				<figure class="container_logo">
+					<img
+						class="logo"
+						src="../../public/tony's_shop2.png"
+						alt="logo shop"
+					/>
+				</figure>
+
+				<ul class="container_items" id="container_items">
+					<li class="item">
+						<a class="ancor_item" href="/index.html#spareParts">Spare parts</a>
+					</li>
+
+					<li class="item">
+						<a class="ancor_item" href="/index.html#gadgets">Gadgets</a>
+					</li>
+
+					<li class="item openList disabled" id="item_cart">
+						Cart
+						<div class="container_list" id="container_list">
+							<ul class="list_flex" id="list_item">
+								<!-- Here will be display the list item's -->
+							</ul>
+
+							<div class="container_list_buttton">
+								<a
+									href="./src/component/thankYouPage.html"
+									class="btn_cart"
+									id="btn_cart"
+									>Pay</a
+								>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</nav>
+
+			<section class="thank_section">
+				<h2 class="title_secundary">Thanks for your purchase</h2>
+
+				<p class="headerText">Your order was completed successfully</p>
+
+				<a href="/index.html" class="btn_backHome">Back to store</a>
+			</section>
+
+			<footer>
+				<div class="footer">
+					<div class="footer_flex_row">
+						<div class="footer_flex_column">
+							<p>Products</p>
+
+							<ul class="footer_list">
+								<li>
+									<a href="#spareParts">Spare parts</a>
+								</li>
+
+								<li>
+									<a href="#gadgets">Gadgets</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="footer_flex_column">
+							<p>Contact information</p>
+
+							<ul class="footer_list">
+								<li>
+									<figure>
+										<img
+											src="../../public/icons/whatsapp.png"
+											alt="phone icon"
+										/>
+									</figure>
+
+									<p>+584247396116</p>
+								</li>
+
+								<li>
+									<a href="https://www.instagram.com/tonysmotoshop/">
+										<figure>
+											<img
+												src="../../public/icons/instagram.png"
+												alt="instagram logo"
+											/>
+										</figure>
+									</a>
+
+									<p>Tonys moto shop</p>
+								</li>
+							</ul>
+						</div>
+
+						<div class="footer_flex_column">
+							<p>Location</p>
+
+							<ul class="footer_list">
+								<li>
+									<figure>
+										<img
+											src="../../public/icons/google-maps.png"
+											alt="location icon"
+										/>
+									</figure>
+
+									<a
+										href="https://www.google.com/maps/place/Tony's+Moto+Shop/@10.5147383,-66.9340293,19.83z/data=!4m13!1m7!3m6!1s0x8c2a5ef21782a55b:0x18763fb9daae6e9f!2sCalle+1ra+El+Caribe+%26+Av.+Sucre,+Caracas+1030,+Distrito+Capital!3b1!8m2!3d10.516114!4d-66.9405432!3m4!1s0x8c2a5f1f46436b0b:0x3d3fc3deeab140d!8m2!3d10.5147111!4d-66.9336983?hl=es"
+										>Tony's moto shop</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="footer-copyright">
+						<p>&copy;Tony's Motos Shop 2023. All Rights Reserved.</p>
+
+						<a href="https://github.com/Maurici8leaga">Web service desing</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script src="../js/thankYou.js" type="module"></script>
+	</body>
+</html>
