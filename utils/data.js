@@ -1,3 +1,5 @@
+// This will be the data base for the page
+
 export const list_products = [
 	{
 		spareParts: [

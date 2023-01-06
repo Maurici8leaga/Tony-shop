@@ -16,20 +16,16 @@
 /* carousel */
 
 .slides {
-	width: 100%;
 	display: flex;
-	/* este es para indicarle que haga scroll solo en el eje x */
-	overflow-x: scroll;
-	/* el "x" hace que se pueda ajustar el diseño mientras se hace el scroll */
-	/* y el mandatory obliga al browser hacer scroll al item mas cercano una vez que el scroll halla terminado */
-	scroll-snap-type: x mandatory;
-	/* el smooth es para hacer delicado los scroll */
-	scroll-behavior: smooth;
-	/* esto permite ocultar la barra de scroll de la pantalla */
-	scrollbar-width: none;
+	width: 100%;
 	margin-bottom: -24px;
+
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
 }
-/* se agrega este para poder desaparecer la barra del scroll de navegadores y de los webkit que tienen parpadeos */
+
 .slides::-webkit-scrollbar {
 	display: none;
 }
@@ -38,7 +34,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* este flex-shrink es para achicar el contendio y dependiendo de su valor sera el tamaño a achicar */
 	flex-shrink: 0;
 
 	position: relative;
@@ -46,7 +41,6 @@
 	height: 100vh;
 	margin: 0 1rem;
 
-	/* este start lo que hace es que le determina donde detenerce una vez que se hace el scroll */
 	scroll-snap-align: start;
 	transform: scale(1);
 	transform-origin: center center;
@@ -115,7 +109,7 @@
 	color: #fff;
 }
 
-/* contennt */
+/* content */
 .container_intro {
 	display: flex;
 	flex-direction: column;
@@ -170,6 +164,7 @@
 
 /* media querys */
 
+/* tablet sizes */
 @media (min-width: 481px) and (max-width: 778px) {
 	.slide-1 {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -206,6 +201,7 @@
 	}
 }
 
+/* mobile sizes */
 @media (min-width: 320px) and (max-width: 480px) {
 	.slide-1 {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),

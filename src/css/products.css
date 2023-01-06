@@ -92,7 +92,6 @@
 @media (min-width: 481px) and (max-width: 778px) {
 	.title_products {
 		margin-top: 100px;
-		/* margin-top: 70px; */
 	}
 
 	.grid {
@@ -117,7 +116,6 @@
 
 	.title_products {
 		margin-top: 280px;
-		/* margin-top: 235px; */
 	}
 
 	.grid {
@@ -144,7 +142,6 @@
 	}
 
 	#gadgets {
-		/* se coloca este margin ya que choca con el footer y ademas con margin se puede hacer scroll y padding no */
 		margin-bottom: 30px;
 	}
 }

@@ -30,55 +30,45 @@
 
 /* navbar styles */
 .navbar {
-	width: 100%;
-	/* height: 80px; */
-	height: 100px;
-
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 
 	position: fixed;
+	width: 100%;
+	height: 100px;
 	top: 0px;
 	z-index: 5;
-	background: var(--white);
-	/* transition for scroll */
 	transition: 0.3s ease-in-out;
+	background: var(--white);
 }
 
 .container_items {
 	display: flex;
 	background: var(--white);
-	/* transition for scroll */
 	transition: 0.3s ease-in-out;
 }
 
 .container_logo {
 	width: 200px;
 	height: 100px;
-	/* height: 80px; */
 }
 
 .logo {
 	width: 100%;
 	height: 120px;
-	/* height: 100%; */
 	margin: -10px 0px;
 }
 
 .item {
 	width: 100px;
 	height: 95px;
-	/* height: auto; */
 
 	text-align: center;
 	list-style: none;
 	padding: 38px 5px;
-	/* padding: 28px 5px; */
-	color: var(--darkBlue);
-	/* background-color: var(--white); */
-	/* transition for scroll */
 	transition: 0.3s ease-in-out;
+	color: var(--darkBlue);
 }
 
 .item:hover {
@@ -89,7 +79,6 @@
 .ancor_item {
 	text-decoration: none;
 	color: var(--darkBlue);
-	/* transition for scroll */
 	transition: 0.3s ease-in-out;
 }
 
@@ -112,9 +101,9 @@
 	right: 0px;
 	opacity: 0;
 	z-index: -1;
-	background: var(--white);
 	transition: 0.5s ease-in-out;
 	border-radius: 0 0 15px 15px;
+	background: var(--white);
 }
 
 .openList:hover .container_list {
@@ -122,21 +111,16 @@
 	max-height: 350px;
 	opacity: 1;
 	top: 97px;
-	/* top: 79px; */
 	transition: 0.5s ease-in-out;
-	/* background: var(--white); */
 }
 
 .list_flex {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 
 	width: 100%;
 	height: 100%;
-	/* overflow: scroll; */
-	/* scroll-snap-type: y proximity; */
 	overflow-y: scroll;
 }
 
@@ -147,15 +131,12 @@
 
 	width: 90%;
 	height: 55px;
-	/* height: 100%; */
 	margin: 5px 0px;
 	gap: 27px;
 	border-bottom: 1px solid var(--red);
-	/* scroll-snap-align: center; */
 }
 
 .noItem {
-	/* visibility: hidden; */
 	display: flex;
 }
 
@@ -172,7 +153,6 @@
 
 .sectionItem_name {
 	width: 120px;
-	/* scroll-snap-align: center; */
 }
 
 .sectionItem_btn {
@@ -204,7 +184,6 @@
 	height: 100%;
 	margin: 10px 0px;
 	pointer-events: none;
-	/* el pointter-Event deshabilita un boton de forma css asi no puede hacer click ni hover */
 	opacity: 0.65;
 }
 
@@ -218,15 +197,15 @@
 .btn_cart {
 	width: 80%;
 	height: 40px;
-	background: var(--blue);
-	color: var(--white);
 	border-radius: 30px;
 	cursor: pointer;
+	background: var(--blue);
+	color: var(--white);
 }
 
 .btn_cart:hover {
-	box-shadow: 0 0 15px var(--blue);
 	cursor: pointer;
+	box-shadow: 0 0 15px var(--blue);
 }
 
 /* styles only when the navbar do scroll */
@@ -257,11 +236,11 @@
 
 /* media querys */
 
+/* tablet sizes */
 @media (min-width: 481px) and (max-width: 778px) {
 	.navbar {
 		flex-direction: column;
 		height: 120px;
-		/* height: 100px; */
 	}
 
 	.item {
@@ -295,11 +274,11 @@
 	}
 }
 
+/* mobile sizes */
 @media (min-width: 320px) and (max-width: 480px) {
 	.navbar {
 		flex-direction: column;
 		height: 120px;
-		/* height: 100px; */
 	}
 
 	.item {

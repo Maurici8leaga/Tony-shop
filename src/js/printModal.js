@@ -1,5 +1,5 @@
 import { list_products } from "../../utils/data.js";
-import { modal, container_list_buttton } from "./node.js";
+import { modal, container_list_buttton, list_item } from "./node.js";
 import { templateItem } from "./printItemInCart.js";
 
 const templateModal = (itemSelect) => {
@@ -43,46 +43,46 @@ const templateModal = (itemSelect) => {
     </div>`;
 };
 
+// function to find an element by id within of an array
 export const findElementById = (id, array) => {
-	// encontrar el elemento por id dentro del array object de list_products
 	return array.find((element) => element.id === id);
 };
 
+// function to print the modal
 export const viewModal = (id) => {
+	// finding element by category
 	let partSelect = findElementById(id, list_products[0].spareParts);
 	let gadgetSelect = findElementById(id, list_products[1].gadgets);
 
-	// condition if the user choose one item or another
+	// if the user choose one item or another, execute an condition
 	if (partSelect) {
+		// creating div for item and  printing
 		const divModal = document.createElement("div");
 		modal.innerHTML = templateModal(partSelect);
 		modal.appendChild(divModal);
 	} else if (gadgetSelect) {
+		// creating div for item and  printing
 		const divModal = document.createElement("div");
 		modal.innerHTML = templateModal(gadgetSelect);
 		modal.appendChild(divModal);
 	}
 
-	// this trigger the efect when modal appears
+	// this trigger the effect when modal appears
 	modal.style.clipPath = "circle(70.7% at 50% 50%)";
 };
 
-// logic for add items to shoping cart
+// function to add items to shoping cart
 export const addingItem = (id) => {
-	// hay que llamar lo que esta en localStorage asi no halla nada
 	const getingItems = localStorage.getItem("element_cart");
-	// y en aqui en vez de crear un array dices que si existe algo lo uses si no crea un array vacio
 	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
 
+	// finding element by category
 	let partSelect = findElementById(id, list_products[0].spareParts);
 	let gadgetSelect = findElementById(id, list_products[1].gadgets);
 
-	// es mejor practica crear una variable como let que se puede sobre escribir mas abajo
-	// de esta forma haces el codigo mas DRY
+	// creating an objet
 	let itemCart = {};
 	if (partSelect) {
-		// itemCart tiene scope dentro de los condicionales  y  solo va a retornar
-		// con el valor que se cumpla del condicional
 		const { name, img, id } = partSelect;
 		itemCart = {
 			id: id,
@@ -98,22 +98,51 @@ export const addingItem = (id) => {
 		};
 	}
 
+	// pushing the new object within of array
 	arrayOfItems.push(itemCart);
-	// aca se hace push del nuevo elemento agregado al array que tenia el storage o el array vacio del storage
+
+	// setting the key and the array of localstorage
 	localStorage.setItem("element_cart", JSON.stringify(arrayOfItems));
 
 	// printing the item in shoping cart
 	const divItem = document.createElement("div");
 	list_item.innerHTML += templateItem(itemCart);
-	// se debe usar += ya que este adition assigment va agregar siempre 1 item mas al innerHtml
 	list_item.appendChild(divItem);
 
-	// Hiding message and disabling buy buttton
+	// Hiding message
 	const noItem = document.getElementById("noItem");
 	if (noItem) {
 		noItem.style.display = "none";
 	}
 
+	// Disabling buy buttton
 	container_list_buttton.style.pointerEvents = "visible";
 	container_list_buttton.style.opacity = "1";
+};
+
+// function to remove items from the cart and localstorage
+export const deletingItem = (id) => {
+	const getingItems = localStorage.getItem("element_cart");
+	const arrayOfItems = getingItems ? JSON.parse(getingItems) : [];
+
+	// create a new array without the item selected
+	let newArrayOfItems = arrayOfItems.filter((item) => item.id !== id);
+
+	// remove element from de DOM
+	const liOfItem = document.getElementById(`${id}`);
+	liOfItem.remove();
+
+	// showing message for empty cart and disabling buy button
+	const noItem = document.getElementById("noItem");
+	if (newArrayOfItems.length === 0 && noItem) {
+		// Showing message
+		noItem.style.display = "flex";
+
+		//Disabling the buy button
+		container_list_buttton.style.pointerEvents = "none";
+		container_list_buttton.style.opacity = ".65";
+	}
+
+	// save the new array in localstorage
+	localStorage.setItem("element_cart", JSON.stringify(newArrayOfItems));
 };

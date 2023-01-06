@@ -8,31 +8,26 @@
 }
 
 .bgModal {
-	/* este bgModa sera el background oscuro del modal */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	/* colocamos posicion fixed para que el modal se mueva atraves de toda la pag como el navbar */
 	position: fixed;
 	top: 0;
 	width: 100%;
 	height: 100vh;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	/* colocamos este clip-path para que cuando cargue la pag el modal parezca oculto */
 	clip-path: circle(0% at 50% 50%);
 	transition: clip-path 0.5s ease-in-out;
 	background: rgba(0, 0, 0, 50%);
 }
 
 .modal {
-	/* colocamos relative el position del modal para que el boton dentro puedan ser absolutos */
 	position: relative;
 	width: 600px;
 	height: 500px;
-	background: white;
 	border-radius: 15px;
+	background: white;
 }
 
 .modal_flex_row {
@@ -92,11 +87,11 @@
 	border-radius: 30px;
 	font-size: 16px;
 
+	border: 1px solid var(--blue);
 	text-decoration: none;
 	cursor: pointer;
 	background: transparent;
 	color: var(--blue);
-	border: 1px solid var(--blue);
 }
 
 .btn_addCart:hover {
@@ -131,6 +126,7 @@ hr {
 
 /* media querys */
 
+/* tablet sizes */
 @media (min-width: 481px) and (max-width: 778px) {
 	.modal {
 		width: 350px;
@@ -158,6 +154,7 @@ hr {
 	}
 }
 
+/* mobile sizes */
 @media (min-width: 320px) and (max-width: 480px) {
 	.modal {
 		width: 300px;

@@ -22,6 +22,8 @@ const templateCard = (product) => {
     </article>`;
 };
 
+// functions to print the products
+
 export const viewCardSpareParts = () => {
 	list_products[0].spareParts.map((product) => {
 		let div = document.createElement("div");
