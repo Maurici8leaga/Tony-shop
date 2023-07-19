@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@atoms/*": ["src/atoms/*"],
+      "@molecules/*": ["src/molecules/*"],
+      "@redux-toolkit/*": ["src/redux-toolkit/*"],
+      "@services/*": ["src/services/*"],
+      "@root/*": ["src/*"]
+    }
+  }
+}
