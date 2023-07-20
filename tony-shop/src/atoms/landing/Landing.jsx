@@ -1,4 +1,3 @@
-import React from 'react';
 import '@atoms/landing/Landing.scss';
 
 const Landing = () => {
