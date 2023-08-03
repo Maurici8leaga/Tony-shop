@@ -14,15 +14,33 @@ import Link from '@mui/material/Link';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Search, SearchIconWrapper, StyledInputBase } from './header.MUI.styles';
 import './Header.scss';
 import logoStore from '@assets/img/tonys-logo2.png';
 
-const pages = ['Categorias', 'Accesorios', 'Ofertas', 'Registrate'];
+const pages = ['Accesorios', 'Productos', 'Registrate', 'Contacto'];
+
+const menuMobile = [
+  'Accesorios',
+  'Aceites',
+  'Frenos',
+  'Lubricantes',
+  'Neumaticos',
+  'Refrigerante',
+  'Ver todo',
+  'Registrate',
+  'Contacto'
+];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  // state para el menu de categorias
+  // OJO DEBE LLAMARSE ASI LOS STATES, DAN PROBLEMAS
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,20 +50,29 @@ const Header = () => {
     setAnchorElNav(null);
   };
 
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    // aqui debe ir las funciones para cuando se haga click en las opciones
+    setAnchorEl(null);
+  };
+
+  // const [auth, setAuth] = React.useState(true);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
 
   // const handleChange = (event) => {
   //   setAuth(event.target.checked);
   // };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleMenu = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
   return (
     <AppBar position="fixed" style={{ backgroundColor: '#11468f' }}>
@@ -90,10 +117,76 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' }
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+              {/* <MenuItem>
+                <Button
+                  id="category-btn"
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClick}
+                  sx={{ color: 'inherit', display: 'flex' }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                >
+                  Modelos
+                </Button>
+
+                <Menu
+                  id="category-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'category-btn'
+                  }}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right'
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left'
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Bera</MenuItem>
+                  <MenuItem onClick={handleClose}>Honda</MenuItem>
+                  <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
+                  <MenuItem onClick={handleClose}>Suzuki</MenuItem>
+                  <MenuItem onClick={handleClose}>Yamaha</MenuItem>
+                </Menu>
+              </MenuItem> */}
+
+              <Button
+                id="category-btn"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{ color: 'inherit', display: 'flex' }}
+                endIcon={<KeyboardArrowDownIcon />}
+              >
+                Modelos
+              </Button>
+
+              <Menu
+                id="category-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'category-btn'
+                }}
+              >
+                <MenuItem onClick={handleClose}>Bera</MenuItem>
+                <MenuItem onClick={handleClose}>Honda</MenuItem>
+                <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
+                <MenuItem onClick={handleClose}>Suzuki</MenuItem>
+                <MenuItem onClick={handleClose}>Yamaha</MenuItem>
+              </Menu>
+
+              {menuMobile.map((page) => (
+                <Button key={page} onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex', ml: 2 }}>
+                  {page}
+                </Button>
               ))}
             </Menu>
           </Box>
@@ -118,21 +211,51 @@ const Header = () => {
 
           {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+            <Button
+              id="category-btn"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              sx={{ my: 2, color: 'inherit', display: 'flex' }}
+              endIcon={<KeyboardArrowDownIcon />}
+            >
+              Modelos
+            </Button>
+
+            <Menu
+              id="category-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'category-btn'
+              }}
+            >
+              <MenuItem onClick={handleClose}>Bera</MenuItem>
+              <MenuItem onClick={handleClose}>Honda</MenuItem>
+              <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
+              <MenuItem onClick={handleClose}>Suzuki</MenuItem>
+              <MenuItem onClick={handleClose}>Yamaha</MenuItem>
+            </Menu>
+
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'inherit', display: 'block' }}>
                 {page}
               </Button>
             ))}
           </Box>
 
-          <IconButton size="large" aria-label="shopping cart" color="inherit">
-            <Badge badgeContent={1} color="error">
-              <ShoppingCartIcon color="white" />
-            </Badge>
-          </IconButton>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+            <IconButton size="large" aria-label="shopping cart" color="inherit">
+              <Badge badgeContent={1} color="error">
+                <ShoppingCartIcon color="white" />
+              </Badge>
+            </IconButton>
+          </Box>
 
           {/* Profile menu when user is logged */}
-          {auth && (
+          {/* {auth && (
             <div>
               <IconButton
                 size="large"
@@ -163,7 +286,7 @@ const Header = () => {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
-          )}
+          )} */}
         </Toolbar>
       </Container>
     </AppBar>
