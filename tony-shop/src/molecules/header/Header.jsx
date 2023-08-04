@@ -18,21 +18,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Search, SearchIconWrapper, StyledInputBase } from './header.MUI.styles';
 import './Header.scss';
 import logoStore from '@assets/img/tonys-logo2.png';
+import { Padding } from '@mui/icons-material';
 
 const pages = ['Accesorios', 'Productos', 'Registrate', 'Contacto'];
-
-const menuMobile = [
-  'Accesorios',
-  'Aceites',
-  'Frenos',
-  'Lubricantes',
-  'Neumaticos',
-  'Refrigerante',
-  'Ver todo',
-  'Registrate',
-  'Contacto'
-];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,6 +28,9 @@ const Header = () => {
   // state para el menu de categorias
   // OJO DEBE LLAMARSE ASI LOS STATES, DAN PROBLEMAS
   const [anchorEl, setAnchorEl] = React.useState(null);
+  // state para shop car y user profile
+  const [auth, setAuth] = React.useState(true);
+
   const open = Boolean(anchorEl);
 
   const handleOpenNavMenu = (event) => {
@@ -59,20 +50,9 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  // const [auth, setAuth] = React.useState(true);
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-
-  // const handleChange = (event) => {
-  //   setAuth(event.target.checked);
-  // };
-
-  // const handleMenu = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
 
   return (
     <AppBar position="fixed" style={{ backgroundColor: '#11468f' }}>
@@ -117,77 +97,105 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' }
               }}
             >
-              {/* <MenuItem>
-                <Button
-                  id="category-btn"
-                  aria-controls={open ? 'basic-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                  onClick={handleClick}
-                  sx={{ color: 'inherit', display: 'flex' }}
-                  endIcon={<KeyboardArrowDownIcon />}
-                >
-                  Modelos
-                </Button>
-
-                <Menu
-                  id="category-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                  MenuListProps={{
-                    'aria-labelledby': 'category-btn'
-                  }}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right'
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left'
-                  }}
-                >
-                  <MenuItem onClick={handleClose}>Bera</MenuItem>
-                  <MenuItem onClick={handleClose}>Honda</MenuItem>
-                  <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
-                  <MenuItem onClick={handleClose}>Suzuki</MenuItem>
-                  <MenuItem onClick={handleClose}>Yamaha</MenuItem>
-                </Menu>
-              </MenuItem> */}
-
-              <Button
-                id="category-btn"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                sx={{ color: 'inherit', display: 'flex' }}
-                endIcon={<KeyboardArrowDownIcon />}
-              >
-                Modelos
-              </Button>
-
-              <Menu
-                id="category-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'category-btn'
+              <MenuItem
+                sx={{
+                  my: 1
                 }}
               >
-                <MenuItem onClick={handleClose}>Bera</MenuItem>
-                <MenuItem onClick={handleClose}>Honda</MenuItem>
-                <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
-                <MenuItem onClick={handleClose}>Suzuki</MenuItem>
-                <MenuItem onClick={handleClose}>Yamaha</MenuItem>
-              </Menu>
+                <Link
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    color: 'inherit',
+                    display: 'flex'
+                  }}
+                  underline={'none'}
+                >
+                  Modelos
+                </Link>
+              </MenuItem>
 
-              {menuMobile.map((page) => (
-                <Button key={page} onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex', ml: 2 }}>
-                  {page}
-                </Button>
-              ))}
+              <MenuItem sx={{ my: 1 }}>
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Accesorios
+                </Link>
+              </MenuItem>
+
+              <MenuItem sx={{ my: 1 }}>
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Aceites
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Frenos
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Lubricantes
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Neumaticos
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Refrigerante
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+                divider={true}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Ver todo
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Registrate
+                </Link>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  my: 1
+                }}
+              >
+                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
+                  Contacto
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -217,7 +225,14 @@ const Header = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
-              sx={{ my: 2, color: 'inherit', display: 'flex' }}
+              sx={{
+                my: 2,
+                color: 'inherit',
+                '&:hover': {
+                  color: '#f00'
+                },
+                display: 'flex'
+              }}
               endIcon={<KeyboardArrowDownIcon />}
             >
               Modelos
@@ -239,54 +254,83 @@ const Header = () => {
               <MenuItem onClick={handleClose}>Yamaha</MenuItem>
             </Menu>
 
-            {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'inherit', display: 'block' }}>
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
-            <IconButton size="large" aria-label="shopping cart" color="inherit">
-              <Badge badgeContent={1} color="error">
-                <ShoppingCartIcon color="white" />
-              </Badge>
-            </IconButton>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: 'inherit',
+                '&:hover': {
+                  color: '#f00'
+                },
+                display: 'block'
+              }}
+            >
+              {' '}
+              Accesorios
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: 'inherit',
+                '&:hover': {
+                  color: '#f00'
+                },
+                display: 'block'
+              }}
+            >
+              {' '}
+              Produtos
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: 'inherit',
+                '&:hover': {
+                  color: '#f00'
+                },
+                display: 'block'
+              }}
+            >
+              {' '}
+              Registrate
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: 'inherit',
+                '&:hover': {
+                  color: '#f00'
+                },
+                display: 'block'
+              }}
+            >
+              Contacto
+            </Button>
           </Box>
 
           {/* Profile menu when user is logged */}
-          {/* {auth && (
-            <div>
+          {auth && (
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+              <IconButton size="large" aria-label="shopping cart" color="inherit">
+                <Badge badgeContent={1} color="error">
+                  <ShoppingCartIcon color="white" />
+                </Badge>
+              </IconButton>
+
               <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
                 color="inherit"
               >
                 <AccountCircle />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )} */}
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
