@@ -19,8 +19,13 @@ import { Search, SearchIconWrapper, StyledInputBase } from './header.MUI.styles'
 import './Header.scss';
 import logoStore from '@assets/img/tonys-logo2.png';
 import { Padding } from '@mui/icons-material';
+import Stack from '@mui/material/Stack';
+import NavbarList from '@molecules/navbar/NavbarList';
 
-const pages = ['Accesorios', 'Productos', 'Registrate', 'Contacto'];
+const navLinks = [
+  { title: 'Productos', path: '#Products' },
+  { title: 'Registrate', path: '#Signup' }
+];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -55,20 +60,12 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: '#11468f' }}>
+    <AppBar position="fixed" style={{ backgroundColor: '#11468f', display: 'flex' }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Link href="/">
-            <Box
-              component="img"
-              sx={{ height: 100, width: 200, display: { xs: 'none', md: 'flex' }, mr: 2 }}
-              alt="Logo"
-              src={logoStore}
-            />
-          </Link>
-
+        <Toolbar disableutters>
           {/* Hamburger menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
+            {/* flexgorow permite empujar lo que no este dentro de este box hacia la derecha */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -199,26 +196,24 @@ const Header = () => {
             </Menu>
           </Box>
 
-          {/* AQWUI VA EL LOGO CUANDO ES DE TAMANO MAS PEQUENO  */}
-          <Link href="/">
-            <Box
-              component="img"
-              sx={{ height: 100, width: 200, display: { xs: 'flex', md: 'none' }, mr: 5 }}
-              alt="Logo"
-              src={logoStore}
-            />
-          </Link>
+          <Box sx={{ flexGrow: 1 }}>
+            <Link href="/" className="logo">
+              <Box component="img" sx={{ height: 100, width: 200, display: 'flex' }} alt="Logo" src={logoStore} />
+            </Link>
+          </Box>
 
           {/*  barra de busqueda  */}
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-          </Search>
+          <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase placeholder="Buscar producto ..." inputProps={{ 'aria-label': 'search' }} />
+            </Search>
+          </Box>
 
           {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 2, flexGrow: 1 }}>
             <Button
               id="category-btn"
               aria-controls={open ? 'basic-menu' : undefined}
@@ -254,74 +249,41 @@ const Header = () => {
               <MenuItem onClick={handleClose}>Yamaha</MenuItem>
             </Menu>
 
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: 'inherit',
-                '&:hover': {
-                  color: '#f00'
-                },
-                display: 'block'
-              }}
-            >
-              {' '}
-              Accesorios
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: 'inherit',
-                '&:hover': {
-                  color: '#f00'
-                },
-                display: 'block'
-              }}
-            >
-              {' '}
-              Produtos
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: 'inherit',
-                '&:hover': {
-                  color: '#f00'
-                },
-                display: 'block'
-              }}
-            >
-              {' '}
-              Registrate
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: 'inherit',
-                '&:hover': {
-                  color: '#f00'
-                },
-                display: 'block'
-              }}
-            >
-              Contacto
-            </Button>
+            {navLinks.map((link) => (
+              <Button
+                key={link.title}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: 'inherit',
+                  '&:hover': {
+                    color: '#f00'
+                  },
+                  display: 'block'
+                }}
+                href={link.path}
+              >
+                {link.title}
+              </Button>
+            ))}
           </Box>
 
           {/* Profile menu when user is logged */}
           {auth && (
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 2 }}>
-              <IconButton size="large" aria-label="shopping cart" color="inherit">
+            <Box
+              sx={{
+                display: { xs: 'flex', sm: 'flex', md: 'flex' },
+                ml: 2
+              }}
+            >
+              <IconButton size="medium" aria-label="shopping cart" color="inherit">
                 <Badge badgeContent={1} color="error">
                   <ShoppingCartIcon color="white" />
                 </Badge>
               </IconButton>
 
               <IconButton
-                size="large"
+                size="medium"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
