@@ -4,59 +4,61 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PhoneIcon from '@mui/icons-material/Phone';
 import Divider from '@mui/material/Divider';
 
 // cosass para el drawer
-import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
+import Typography from '@mui/material/Typography';
 
-const NavbarList = () => {
-  const [open, setOpen] = React.useState(false);
+import SearchBar from '@molecules/searchBar/SearchBar';
+
+const NavbarList = (prop) => {
+  const { openDrawer, setOpenDrawer } = prop;
+
+  const drawerLinks = [
+    { title: 'Modelos', path: '#BykeModels' },
+    { title: 'Accesorios', path: '#Accessories' },
+    { title: 'Aceites', path: '#Oils' },
+    { title: 'Frenos', path: '#Breaks' },
+    { title: 'Lubricantes', path: '#Lubricants' },
+    { title: 'Neumaticos', path: '#Tires' },
+    { title: 'Refrigerante', path: '#Refrigerant' },
+    { title: 'Ver todo', path: '#AllProducts' },
+    { title: 'Registrate', path: '#SignUp' },
+    { title: 'Contacto', path: '#Contact' }
+  ];
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open</Button>
-
-      <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
+      <Drawer open={openDrawer} anchor="left" onClose={() => setOpenDrawer(false)}>
         <Box sx={{ width: '250px' }}>
           <nav>
             <List>
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#">
-                  <ListItemIcon>
-                    <AccountCircleIcon />
-                  </ListItemIcon>
-                  Cuenta
-                </ListItemButton>
+              <ListItem sx={{ py: 3 }}>
+                <Typography variant="h6" sx={{ color: '#041562' }}>
+                  Tony Moto shop Menu
+                </Typography>
+              </ListItem>
+
+              <Divider sx={{ bgcolor: '#11468f' }} />
+
+              <ListItem sx={{}}>
+                <SearchBar placeHolderText={'Buscar producto ..'} />
               </ListItem>
 
               <Divider />
 
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#">
-                  <ListItemIcon>
-                    <ShoppingCartIcon />
-                  </ListItemIcon>
-                  Carrito
-                </ListItemButton>
-              </ListItem>
-
-              <Divider />
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#">
-                  <ListItemIcon>
-                    <PhoneIcon />
-                  </ListItemIcon>
-                  Contacto
-                </ListItemButton>
-              </ListItem>
+              {drawerLinks.map((item) => (
+                <div key={item.title}>
+                  <ListItem>
+                    <ListItemButton component="a" sx={{ color: '#041562' }}>
+                      {item.title}
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider />
+                </div>
+              ))}
             </List>
           </nav>
         </Box>

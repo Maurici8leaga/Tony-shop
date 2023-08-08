@@ -15,12 +15,12 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Search, SearchIconWrapper, StyledInputBase } from './header.MUI.styles';
 import './Header.scss';
 import logoStore from '@assets/img/tonys-logo2.png';
 import { Padding } from '@mui/icons-material';
 import Stack from '@mui/material/Stack';
 import NavbarList from '@molecules/navbar/NavbarList';
+import SearchBar from '@molecules/searchBar/SearchBar';
 
 const navLinks = [
   { title: 'Productos', path: '#Products' },
@@ -28,23 +28,17 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
   // state para el menu de categorias
   // OJO DEBE LLAMARSE ASI LOS STATES, DAN PROBLEMAS
   const [anchorEl, setAnchorEl] = React.useState(null);
   // state para shop car y user profile
   const [auth, setAuth] = React.useState(true);
 
+  // state for drawer
+  const [openDrawer, setOpenDrawer] = React.useState(false);
+
+  // para menu de modelos
   const open = Boolean(anchorEl);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -55,6 +49,7 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  // para autenticacion del usuario, despliegue de menu y shoping car
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
@@ -63,6 +58,7 @@ const Header = () => {
     <AppBar position="fixed" style={{ backgroundColor: '#11468f', display: 'flex' }}>
       <Container maxWidth="xl">
         <Toolbar disableutters>
+          <NavbarList openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
           {/* Hamburger menu */}
           <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
             {/* flexgorow permite empujar lo que no este dentro de este box hacia la derecha */}
@@ -71,129 +67,11 @@ const Header = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={() => setOpenDrawer(true)}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left'
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left'
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' }
-              }}
-            >
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    color: 'inherit',
-                    display: 'flex'
-                  }}
-                  underline={'none'}
-                >
-                  Modelos
-                </Link>
-              </MenuItem>
-
-              <MenuItem sx={{ my: 1 }}>
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Accesorios
-                </Link>
-              </MenuItem>
-
-              <MenuItem sx={{ my: 1 }}>
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Aceites
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Frenos
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Lubricantes
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Neumaticos
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Refrigerante
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-                divider={true}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Ver todo
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Registrate
-                </Link>
-              </MenuItem>
-
-              <MenuItem
-                sx={{
-                  my: 1
-                }}
-              >
-                <Link onClick={handleCloseNavMenu} sx={{ color: 'inherit', display: 'flex' }} underline={'none'}>
-                  Contacto
-                </Link>
-              </MenuItem>
-            </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 1 }}>
@@ -204,12 +82,7 @@ const Header = () => {
 
           {/*  barra de busqueda  */}
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase placeholder="Buscar producto ..." inputProps={{ 'aria-label': 'search' }} />
-            </Search>
+            <SearchBar placeHolderText={'Buscar producto'} />
           </Box>
 
           {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
@@ -252,7 +125,6 @@ const Header = () => {
             {navLinks.map((link) => (
               <Button
                 key={link.title}
-                onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
                   color: 'inherit',
