@@ -1,36 +1,37 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import SearchIcon from '@mui/icons-material/Search';
-import Link from '@mui/material/Link';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import './Header.scss';
-import logoStore from '@assets/img/tonys-logo2.png';
-import { Padding } from '@mui/icons-material';
-import Stack from '@mui/material/Stack';
+// components
 import NavbarList from '@molecules/navbar/NavbarList';
 import SearchBar from '@molecules/searchBar/SearchBar';
-
-const navLinks = [
-  { title: 'Productos', path: '#Products' },
-  { title: 'Registrate', path: '#Signup' }
-];
+// components MUI
+import AppBar from '@mui/material/AppBar';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// static files
+import { navLinks, mainColors, secondaryColor, bykeModels } from '@services/utils/static.data';
+// assets
+import logoStore from '@assets/img/tonys-logo2.png';
+// css
+import './Header.scss';
 
 const Header = () => {
+  const { lightBlue, strongRed, lightWhite } = mainColors;
+  const { white025, white015 } = secondaryColor;
+
   // state para el menu de categorias
   // OJO DEBE LLAMARSE ASI LOS STATES, DAN PROBLEMAS
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   // state para shop car y user profile
   const [auth, setAuth] = React.useState(true);
 
@@ -55,7 +56,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: '#11468f', display: 'flex' }}>
+    <AppBar position="fixed" style={{ backgroundColor: `${lightBlue}`, display: 'flex' }}>
       <Container maxWidth="xl">
         <Toolbar disableutters>
           <NavbarList openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
@@ -82,7 +83,7 @@ const Header = () => {
 
           {/*  barra de busqueda  */}
           <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-            <SearchBar placeHolderText={'Buscar producto'} />
+            <SearchBar placeHolderText={'Buscar producto...'} colorbg1={`${white015}`} colorbg2={`${white025}`} />
           </Box>
 
           {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
@@ -97,7 +98,7 @@ const Header = () => {
                 my: 2,
                 color: 'inherit',
                 '&:hover': {
-                  color: '#f00'
+                  color: `${strongRed}`
                 },
                 display: 'flex'
               }}
@@ -115,11 +116,11 @@ const Header = () => {
                 'aria-labelledby': 'category-btn'
               }}
             >
-              <MenuItem onClick={handleClose}>Bera</MenuItem>
-              <MenuItem onClick={handleClose}>Honda</MenuItem>
-              <MenuItem onClick={handleClose}>Kawasaki</MenuItem>
-              <MenuItem onClick={handleClose}>Suzuki</MenuItem>
-              <MenuItem onClick={handleClose}>Yamaha</MenuItem>
+              {bykeModels.map((item) => (
+                <MenuItem key={`bike_${item.title}`} onClick={handleClose}>
+                  {item.title}
+                </MenuItem>
+              ))}
             </Menu>
 
             {navLinks.map((link) => (
@@ -129,7 +130,7 @@ const Header = () => {
                   my: 2,
                   color: 'inherit',
                   '&:hover': {
-                    color: '#f00'
+                    color: `${strongRed}`
                   },
                   display: 'block'
                 }}

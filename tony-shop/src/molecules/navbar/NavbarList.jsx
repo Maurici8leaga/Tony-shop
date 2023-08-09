@@ -1,58 +1,58 @@
+/* eslint-disable react/no-unescaped-entities */
 import * as React from 'react';
-
-// cosas para el list
+import SearchBar from '@molecules/searchBar/SearchBar';
+import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-
-// cosass para el drawer
-import Drawer from '@mui/material/Drawer';
-import Typography from '@mui/material/Typography';
-
-import SearchBar from '@molecules/searchBar/SearchBar';
+import ListItemButton from '@mui/material/ListItemButton';
+import { mainColors, drawerLinks, secondaryColor } from '@services/utils/static.data';
 
 const NavbarList = (prop) => {
-  const { openDrawer, setOpenDrawer } = prop;
+  const { darkBlue, lightBlue, lightWhite } = mainColors;
+  const { grey400, grey700 } = secondaryColor;
 
-  const drawerLinks = [
-    { title: 'Modelos', path: '#BykeModels' },
-    { title: 'Accesorios', path: '#Accessories' },
-    { title: 'Aceites', path: '#Oils' },
-    { title: 'Frenos', path: '#Breaks' },
-    { title: 'Lubricantes', path: '#Lubricants' },
-    { title: 'Neumaticos', path: '#Tires' },
-    { title: 'Refrigerante', path: '#Refrigerant' },
-    { title: 'Ver todo', path: '#AllProducts' },
-    { title: 'Registrate', path: '#SignUp' },
-    { title: 'Contacto', path: '#Contact' }
-  ];
+  const { openDrawer, setOpenDrawer } = prop;
 
   return (
     <>
       <Drawer open={openDrawer} anchor="left" onClose={() => setOpenDrawer(false)}>
-        <Box sx={{ width: '250px' }}>
+        <Box sx={{ width: '350px' }}>
           <nav>
             <List>
-              <ListItem sx={{ py: 3 }}>
-                <Typography variant="h6" sx={{ color: '#041562' }}>
-                  Tony Moto shop Menu
-                </Typography>
+              <ListItem sx={{ py: 1, display: 'flex', flexDirection: 'row-reverse' }}>
+                <IconButton onClick={() => setOpenDrawer(false)}>
+                  <CloseIcon />
+                </IconButton>
               </ListItem>
-
-              <Divider sx={{ bgcolor: '#11468f' }} />
 
               <ListItem sx={{}}>
-                <SearchBar placeHolderText={'Buscar producto ..'} />
+                <SearchBar placeHolderText={'Producto..'} colorbg1={`${grey700}`} colorbg2={`${grey400}`} />
+                <Button
+                  variant="outlined"
+                  sx={{
+                    color: `${darkBlue}`,
+                    bgcolor: 'none',
+                    '&:hover': {
+                      color: `${lightWhite}`,
+                      bgcolor: `${lightBlue}`
+                    },
+                    borderColor: `${darkBlue}`
+                  }}
+                >
+                  Buscar
+                </Button>
               </ListItem>
-
-              <Divider />
 
               {drawerLinks.map((item) => (
                 <div key={item.title}>
                   <ListItem>
-                    <ListItemButton component="a" sx={{ color: '#041562' }}>
+                    <IconButton>{item.icon}</IconButton>
+                    <ListItemButton component="a" sx={{ color: `${darkBlue}` }}>
                       {item.title}
                     </ListItemButton>
                   </ListItem>

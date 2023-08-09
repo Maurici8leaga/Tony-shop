@@ -1,22 +1,17 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = (prop) => {
-  const { placeHolderText } = prop;
+  const { placeHolderText, colorbg1, colorbg2 } = prop;
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    // backgroundColor: alpha(theme.palette.common.white, 0.15),
-    // '&:hover': {
-    //   backgroundColor: alpha(theme.palette.common.white, 0.25)
-    // },
-    // borderColor: alpha(theme.palette.error.main, 0.5),
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: `${colorbg1}`,
     '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25)
+      backgroundColor: `${colorbg2}`
     },
     marginLeft: 0,
     marginRight: theme.spacing(2),
