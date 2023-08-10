@@ -2,6 +2,7 @@ import * as React from 'react';
 // components
 import NavbarList from '@molecules/navbar/NavbarList';
 import SearchBar from '@molecules/searchBar/SearchBar';
+import ShoppingDrawer from '@molecules/shoppingDrawer/ShoppingDrawer';
 // components MUI
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
@@ -25,7 +26,7 @@ import logoStore from '@assets/img/tonys-logo2.png';
 import './Header.scss';
 
 const Header = () => {
-  const { lightBlue, strongRed, lightWhite } = mainColors;
+  const { lightBlue, strongRed } = mainColors;
   const { white025, white015 } = secondaryColor;
 
   // state para el menu de categorias
@@ -37,6 +38,9 @@ const Header = () => {
 
   // state for drawer
   const [openDrawer, setOpenDrawer] = React.useState(false);
+
+  // state for shopping car drawer
+  const [openShoppingDrawer, setOpenShoppingDrawer] = React.useState(false);
 
   // para menu de modelos
   const open = Boolean(anchorEl);
@@ -141,6 +145,8 @@ const Header = () => {
             ))}
           </Box>
 
+          <ShoppingDrawer openShoppingDrawer={openShoppingDrawer} setOpenShoppingDrawer={setOpenShoppingDrawer} />
+
           {/* Profile menu when user is logged */}
           {auth && (
             <Box
@@ -149,7 +155,12 @@ const Header = () => {
                 ml: 2
               }}
             >
-              <IconButton size="medium" aria-label="shopping cart" color="inherit">
+              <IconButton
+                size="medium"
+                aria-label="shopping cart"
+                color="inherit"
+                onClick={() => setOpenShoppingDrawer(true)}
+              >
                 <Badge badgeContent={1} color="error">
                   <ShoppingCartIcon color="white" />
                 </Badge>
@@ -161,6 +172,8 @@ const Header = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 color="inherit"
+                component="a"
+                href="#Account"
               >
                 <AccountCircle />
               </IconButton>
