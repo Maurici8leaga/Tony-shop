@@ -7,8 +7,10 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/joy/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Input from '@mui/joy/Input';
+import { mainColors } from '@services/utils/static.data';
 
 const HorizontalCard = (prop) => {
+  const { darkBlue } = mainColors;
   const { inputRef, imgProduct, nameProduct, priceProduct } = prop;
 
   return (
@@ -18,7 +20,7 @@ const HorizontalCard = (prop) => {
       color="primary"
       sx={{
         width: 300,
-        '&:hover': { boxShadow: 'md', borderColor: 'purple' },
+        '&:hover': { boxShadow: 'md', borderColor: `${darkBlue}` },
         my: 2
       }}
     >

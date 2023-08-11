@@ -84,7 +84,8 @@ const ShopingDrawer = (prop) => {
                         <Button
                           variant="contained"
                           size="large"
-                          sx={{ bgcolor: `${lightBlue}`, color: `${lightWhite}`, mb: 2 }}
+                          sx={{ mb: 2 }}
+                          color="success"
                           endIcon={<ShoppingCartIcon />}
                         >
                           Ir a pagar
