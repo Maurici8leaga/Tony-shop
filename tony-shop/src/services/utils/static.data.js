@@ -43,3 +43,5 @@ export const bykeModels = [
   { title: 'Suzuki' },
   { title: 'Yamaha' }
 ];
+
+export const imgPruebaProduct = 'https://static.thenounproject.com/png/1375593-200.png';
