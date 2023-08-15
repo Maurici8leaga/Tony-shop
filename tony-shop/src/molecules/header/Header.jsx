@@ -62,7 +62,7 @@ const Header = () => {
   return (
     <AppBar position="fixed" style={{ backgroundColor: `${lightBlue}`, display: 'flex' }}>
       <Container maxWidth="xl">
-        <Toolbar disableutters>
+        <Toolbar>
           <NavbarList openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
           {/* Hamburger menu */}
           <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>

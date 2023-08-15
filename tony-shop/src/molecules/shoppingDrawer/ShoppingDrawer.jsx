@@ -19,7 +19,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { mainColors, imgPruebaProduct } from '@services/utils/static.data';
 
 const ShopingDrawer = (prop) => {
-  const { darkBlue, lightBlue, lightWhite } = mainColors;
+  const { darkBlue, lightBlue } = mainColors;
 
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
 
