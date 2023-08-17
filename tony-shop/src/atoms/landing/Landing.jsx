@@ -7,10 +7,9 @@ const Landing = () => {
   return (
     <div>
       <Header />
-      {/* ACOMODAR EL CARRUSEL DEBE IR EN UN CONTAINER */}
-      <div style={{ width: 600, height: 450 }}>
-        <Slider />
-      </div>
+
+      <Slider />
+
       <h1 className="prueba"> SOY EL LANDING PAGE</h1>
     </div>
   );
