@@ -2,6 +2,7 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import TonyStore from '@assets/img/tony_shop.jpeg';
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -45,3 +46,34 @@ export const bykeModels = [
 ];
 
 export const imgPruebaProduct = 'https://static.thenounproject.com/png/1375593-200.png';
+
+// las imagenes se tiene que ver si se van a dejar local en el proyecto o se va llevar a cloudinary
+export const dataCarousel = [
+  {
+    id: 1,
+    img: TonyStore,
+    titleImg: 'Tony-Store',
+    titleh1: 'Tonys Moto Shop',
+    titleh2: null,
+    subtitle: 'Tenemos tienda fisica',
+    btnText: 'VISITAR'
+  },
+  {
+    id: 2,
+    img: 'https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    titleImg: 'Products',
+    title: null,
+    titleh2: 'Tenemos Variedad de repuestos y productos para tu moto',
+    subtitle: null,
+    btnText: 'VER PRODUCTOS'
+  },
+  {
+    id: 3,
+    img: 'https://images.pexels.com/photos/5025669/pexels-photo-5025669.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    titleImg: 'Delivery',
+    titleh1: null,
+    titleh2: 'Contamos con delivery por toda Caracas',
+    subtitle: null,
+    btnText: 'PEDIR DELIVERY'
+  }
+];
