@@ -1,8 +1,7 @@
 import React from 'react';
+import { SplideSlide } from '@splidejs/react-splide';
 import ButtonSlider from '../buttonSlider/ButtonSlider';
 import './SliderElement.scss';
-
-import { SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const SliderElement = (prop) => {

@@ -2,7 +2,6 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import TonyStore from '@assets/img/tony_shop.jpeg';
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -51,7 +50,7 @@ export const imgPruebaProduct = 'https://static.thenounproject.com/png/1375593-2
 export const dataCarousel = [
   {
     id: 1,
-    img: TonyStore,
+    img: 'https://res.cloudinary.com/maurici8leaga/image/upload/v1692388463/tony_shop_efnpjg.webp',
     titleImg: 'Tony-Store',
     titleh1: 'Tonys Moto Shop',
     titleh2: null,
@@ -60,16 +59,16 @@ export const dataCarousel = [
   },
   {
     id: 2,
-    img: 'https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    img: 'https://res.cloudinary.com/maurici8leaga/image/upload/v1692388509/tonyShop_box_tskfbg.webp',
     titleImg: 'Products',
     title: null,
-    titleh2: 'Tenemos Variedad de repuestos y productos para tu moto',
+    titleh2: 'Tenemos variedad de productos y repuestos',
     subtitle: null,
     btnText: 'VER PRODUCTOS'
   },
   {
     id: 3,
-    img: 'https://images.pexels.com/photos/5025669/pexels-photo-5025669.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    img: 'https://res.cloudinary.com/maurici8leaga/image/upload/v1692388535/tonyShop_delivery_dg2cgq.webp',
     titleImg: 'Delivery',
     titleh1: null,
     titleh2: 'Contamos con delivery por toda Caracas',

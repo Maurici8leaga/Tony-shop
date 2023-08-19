@@ -1,12 +1,12 @@
 import React from 'react';
 import { Splide } from '@splidejs/react-splide';
 import SliderElement from './sliderElement/SliderElement';
-import '@splidejs/react-splide/css';
 import { dataCarousel } from '@services/utils/static.data';
+import '@splidejs/react-splide/css';
 
 const Slider = () => {
   return (
-    <div style={{ marginTop: '100px' }}>
+    <>
       <Splide
         tag="section"
         aria-label="My Favorite Images"
@@ -23,7 +23,7 @@ const Slider = () => {
           />
         ))}
       </Splide>
-    </div>
+    </>
   );
 };
 

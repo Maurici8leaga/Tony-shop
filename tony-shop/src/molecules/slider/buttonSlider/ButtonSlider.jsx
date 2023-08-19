@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+import Typography from '@mui/material/Typography';
 
 const ButtonSlider = (prop) => {
   const { text } = prop;
