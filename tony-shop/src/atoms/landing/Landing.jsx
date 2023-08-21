@@ -4,6 +4,9 @@ import Header from '@molecules/header/Header';
 import Slider from '@molecules/slider/Slider';
 import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
 
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+
 const Landing = () => {
   return (
     <div>
@@ -13,7 +16,15 @@ const Landing = () => {
         <Slider />
       </div>
 
-      <div style={{ marginTop: '250px' }}>
+      {/* <Container style={{ marginTop: '200px' }}>
+        <Typography variant="h6">Ofertas</Typography>
+
+        <SliderGrid />
+      </Container> */}
+
+      <div style={{ marginTop: '200px', marginLeft: '40px', marginRight: '40px' }}>
+        <Typography variant="h6">Ofertas</Typography>
+
         <SliderGrid />
       </div>
 
