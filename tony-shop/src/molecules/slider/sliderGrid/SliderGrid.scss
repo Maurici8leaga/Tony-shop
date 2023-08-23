@@ -3,10 +3,20 @@
   height: auto;
 }
 
+// carousel
+
+.splide__slide {
+  height: 45vh;
+}
+
+.splide__arrow {
+  // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
+  top: 45%;
+}
+
+// card
 .splide__slide .MuiCard-root {
   width: 100%;
-  margin-top: 40px;
-  // height: 100%;
-  // object-fit: contain;
-  // opacity: 0.7;
+  // OJO PUEDA QUE HAYA QUE COLOCAR HEIGTH PARA EL CARD
+  // margin-top: 40px;
 }

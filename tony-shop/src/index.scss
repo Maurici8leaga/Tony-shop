@@ -1,18 +1,22 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap";
-
-*{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
-	scroll-behavior: smooth;
-}
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap';
 
 :root {
-	--darkBlue: #041562;
-	--blue: #11468f;
-	--red: #da1212;
-	--white: #eeeeee;
-	--font_bold: 500;
+  --darkBlue: #041562;
+  --blue: #11468f;
+  --red: #da1212;
+  --white: #eeeeee;
+  --font_bold: 500;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
 }
