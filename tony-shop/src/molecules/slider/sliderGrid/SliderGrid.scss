@@ -11,12 +11,13 @@
 
 .splide__arrow {
   // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
-  top: 45%;
+  top: 25%;
 }
 
 // card
 .splide__slide .MuiCard-root {
   width: 100%;
+  // height: 100%;
   // OJO PUEDA QUE HAYA QUE COLOCAR HEIGTH PARA EL CARD
   // margin-top: 40px;
 }

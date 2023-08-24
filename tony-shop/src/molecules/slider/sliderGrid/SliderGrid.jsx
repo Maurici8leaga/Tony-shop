@@ -20,6 +20,8 @@ import Link from '@mui/joy/Link';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Favorite from '@mui/icons-material/Favorite';
 
+import Stack from '@mui/material/Stack';
+
 const SliderGrid = () => {
   // number slide per breakpoint
   const numberOfSlides = useSplide();
@@ -31,7 +33,7 @@ const SliderGrid = () => {
         aria-label="prueba"
         options={{
           width: '100vw',
-          height: '45vh',
+          height: '60vh',
           type: 'loop',
           pagination: false,
           perPage: numberOfSlides,
@@ -39,55 +41,167 @@ const SliderGrid = () => {
         }}
       >
         <SplideSlide>
-          <Card variant="outlined" sx={{ width: 320 }}>
-            <div>
-              <Typography level="title-lg">Yosemite National Park</Typography>
-              <Typography level="body-sm">April 24 to May 02, 2021</Typography>
+          <Card
+            sx={{
+              width: 320,
+              boxShadow: 'lg',
+              borderRadius: 'none',
+              gridColumn: 'span 2',
+              flexDirection: 'col',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+              gap: 'clamp(0px, (100% - 360px + 32px) * 999, 16px)',
+              transition: 'transform 0.3s, border 0.3s',
+              '&:hover': {
+                transform: 'translateY(-2px)'
+              },
+              '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' }
+            }}
+          >
+            <CardOverflow>
+              <AspectRatio ratio="4/3" sx={{ minWidth: 200, minHeight: 200 }}>
+                <img
+                  src="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286"
+                  loading="lazy"
+                  alt=""
+                  style={{ opacity: 1 }}
+                />
+              </AspectRatio>
+
               <IconButton
-                aria-label="bookmark Bahamas Islands"
-                variant="plain"
-                color="neutral"
-                size="sm"
-                sx={{ position: 'absolute', top: '0.875rem', right: '0.5rem' }}
-              >
-                <BookmarkAdd />
-              </IconButton>
-            </div>
-            <AspectRatio minHeight="120px" maxHeight="200px">
-              <img
-                src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-                srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
-                loading="lazy"
-                alt=""
-              />
-            </AspectRatio>
-            <CardContent orientation="horizontal">
-              <div>
-                <Typography level="body-xs">Total price:</Typography>
-                <Typography fontSize="lg" fontWeight="lg">
-                  $2,900
-                </Typography>
-              </div>
-              <Button
-                variant="solid"
+                aria-label="Like minimal photography"
                 size="md"
-                color="primary"
-                aria-label="Explore Bahamas Islands"
-                sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
+                variant="solid"
+                color="grey "
+                sx={{
+                  position: 'absolute',
+                  zIndex: 2,
+                  // borderRadius: '0%',
+                  borderRadius: '50%',
+                  right: '1rem',
+                  bottom: '75%',
+                  transform: 'translateY(0%)'
+                }}
               >
-                Explore
-              </Button>
+                <Favorite sx={{ color: '#808080', '&:hover': { color: 'red' } }} />
+              </IconButton>
+            </CardOverflow>
+            <CardContent sx={{ marginTop: '10%', marginBottom: '5%' }}>
+              <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
+                  {/* insertar logica para nombres largos */}
+                  Bluetooth Headset
+                </Typography>
+
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black' }}>
+                  $ 2,900
+                </Typography>
+              </Stack>
+
+              <Typography level="body-xs">
+                {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
+                Lorem ipsum dolor .......
+              </Typography>
             </CardContent>
+
+            <Button variant="outlined" size="lg">
+              Agregar al carrito
+            </Button>
           </Card>
         </SplideSlide>
 
         <SplideSlide>
-          <Card sx={{ width: 320, maxWidth: '100%', boxShadow: 'lg' }}>
+          <Card
+            sx={{
+              width: 320,
+              boxShadow: 'lg',
+              borderRadius: 'none',
+              gridColumn: 'span 2',
+              flexDirection: 'col',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+              gap: 'clamp(0px, (100% - 360px + 32px) * 999, 16px)',
+              transition: 'transform 0.3s, border 0.3s',
+              '&:hover': {
+                transform: 'translateY(-2px)'
+              },
+              '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' }
+            }}
+          >
             <CardOverflow>
-              <AspectRatio sx={{ minWidth: 200 }}>
+              <AspectRatio ratio="4/3" sx={{ minWidth: 200, minHeight: 200 }}>
                 <img
-                  src="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286"
-                  srcSet="https://images.unsplash.com/photo-1593121925328-369cc8459c08?auto=format&fit=crop&w=286&dpr=2 2x"
+                  src="https://empresasnoffra.com/87000-large_default/pastilla-freno-chery-orinoco-todos-delantera.jpg"
+                  loading="lazy"
+                  alt=""
+                  style={{ opacity: 1 }}
+                />
+              </AspectRatio>
+
+              <IconButton
+                aria-label="Like minimal photography"
+                size="md"
+                variant="solid"
+                color="grey "
+                sx={{
+                  position: 'absolute',
+                  zIndex: 2,
+                  // borderRadius: '0%',
+                  borderRadius: '50%',
+                  right: '1rem',
+                  bottom: '75%',
+                  transform: 'translateY(0%)'
+                }}
+              >
+                <Favorite sx={{ color: '#808080', '&:hover': { color: 'red' } }} />
+              </IconButton>
+            </CardOverflow>
+            <CardContent sx={{ marginTop: '10%', marginBottom: '5%' }}>
+              <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
+                  {/* insertar logica para nombres largos */}
+                  Bluetooth Headset
+                </Typography>
+
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black' }}>
+                  $ 2,900
+                </Typography>
+              </Stack>
+
+              <Typography level="body-xs">
+                {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
+                Lorem ipsum dolor .......
+              </Typography>
+            </CardContent>
+
+            <Button variant="outlined" size="lg">
+              Agregar al carrito
+            </Button>
+          </Card>
+        </SplideSlide>
+
+        <SplideSlide>
+          <Card
+            sx={{
+              width: 320,
+              boxShadow: 'lg',
+              borderRadius: 'none',
+              gridColumn: 'span 2',
+              flexDirection: 'col',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+              gap: 'clamp(0px, (100% - 360px + 32px) * 999, 16px)',
+              transition: 'transform 0.3s, border 0.3s',
+              '&:hover': {
+                transform: 'translateY(-2px)'
+              },
+              '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' }
+            }}
+          >
+            <CardOverflow>
+              <AspectRatio ratio="4/3" sx={{ minWidth: 200, minHeight: 200 }}>
+                <img
+                  src="https://www.eluniverso.com/resizer/EmU7BmQQfCE9-HX7HCdtBgqeA9w=/740x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/6OMBHHVNTVBWFO7DVPEXZZY4RA.jpg"
                   loading="lazy"
                   alt=""
                 />
@@ -104,114 +218,103 @@ const SliderGrid = () => {
                   // borderRadius: '0%',
                   borderRadius: '50%',
                   right: '1rem',
-                  bottom: '70%',
+                  bottom: '75%',
                   transform: 'translateY(0%)'
                 }}
               >
                 <Favorite sx={{ color: '#808080', '&:hover': { color: 'red' } }} />
               </IconButton>
             </CardOverflow>
-            <CardContent>
-              <Typography level="body-xs" sx={{ fontWeight: 'bold', color: 'black' }}>
-                Bluetooth Headset
-              </Typography>
+            <CardContent sx={{ marginTop: '10%', marginBottom: '5%' }}>
+              <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
+                  {/* insertar logica para nombres largos */}
+                  Bluetooth Headset
+                </Typography>
 
-              <Typography level="body-sm">Lorem ipsum dolor .......</Typography>
-              <Typography level="title-lg" sx={{ mt: 1, fontWeight: 'xl' }}>
-                2,900 THB
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black' }}>
+                  $ 2,900
+                </Typography>
+              </Stack>
+
+              <Typography level="body-xs">
+                {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
+                Lorem ipsum dolor .......
               </Typography>
             </CardContent>
+
+            <Button variant="outlined" size="lg">
+              Agregar al carrito
+            </Button>
+          </Card>
+        </SplideSlide>
+
+        <SplideSlide>
+          <Card
+            sx={{
+              width: 320,
+              boxShadow: 'lg',
+              borderRadius: 'none',
+              gridColumn: 'span 2',
+              flexDirection: 'col',
+              flexWrap: 'wrap',
+              overflow: 'hidden',
+              gap: 'clamp(0px, (100% - 360px + 32px) * 999, 16px)',
+              transition: 'transform 0.3s, border 0.3s',
+              '&:hover': {
+                transform: 'translateY(-2px)'
+              },
+              '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' }
+            }}
+          >
             <CardOverflow>
-              <Button variant="solid" color="danger" size="lg">
-                Add to cart
-              </Button>
+              <AspectRatio ratio="4/3" sx={{ minWidth: 200, minHeight: 200 }}>
+                <img
+                  src="https://www.autonocion.com/wp-content/uploads/2018/06/Aceite-motor-2.jpg"
+                  loading="lazy"
+                  alt=""
+                />
+              </AspectRatio>
+
+              <IconButton
+                aria-label="Like minimal photography"
+                size="md"
+                variant="solid"
+                color="grey "
+                sx={{
+                  position: 'absolute',
+                  zIndex: 2,
+                  // borderRadius: '0%',
+                  borderRadius: '50%',
+                  right: '1rem',
+                  bottom: '75%',
+                  transform: 'translateY(0%)'
+                }}
+              >
+                <Favorite sx={{ color: '#808080', '&:hover': { color: 'red' } }} />
+              </IconButton>
             </CardOverflow>
-          </Card>
-        </SplideSlide>
-
-        <SplideSlide>
-          <Card variant="outlined" sx={{ width: 320 }}>
-            <div>
-              <Typography level="title-lg">Yosemite National Park</Typography>
-              <Typography level="body-sm">April 24 to May 02, 2021</Typography>
-              <IconButton
-                aria-label="bookmark Bahamas Islands"
-                variant="plain"
-                color="neutral"
-                size="sm"
-                sx={{ position: 'absolute', top: '0.875rem', right: '0.5rem' }}
-              >
-                <BookmarkAdd />
-              </IconButton>
-            </div>
-            <AspectRatio minHeight="120px" maxHeight="200px">
-              <img
-                src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-                srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
-                loading="lazy"
-                alt=""
-              />
-            </AspectRatio>
-            <CardContent orientation="horizontal">
-              <div>
-                <Typography level="body-xs">Total price:</Typography>
-                <Typography fontSize="lg" fontWeight="lg">
-                  $2,900
+            <CardContent sx={{ marginTop: '10%', marginBottom: '5%' }}>
+              <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
+                  {/* insertar logica para nombres largos */}
+                  Bluetooth Headset
                 </Typography>
-              </div>
-              <Button
-                variant="solid"
-                size="md"
-                color="primary"
-                aria-label="Explore Bahamas Islands"
-                sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
-              >
-                Explore
-              </Button>
-            </CardContent>
-          </Card>
-        </SplideSlide>
 
-        <SplideSlide>
-          <Card variant="outlined" sx={{ width: 320 }}>
-            <div>
-              <Typography level="title-lg">Yosemite National Park</Typography>
-              <Typography level="body-sm">April 24 to May 02, 2021</Typography>
-              <IconButton
-                aria-label="bookmark Bahamas Islands"
-                variant="plain"
-                color="neutral"
-                size="sm"
-                sx={{ position: 'absolute', top: '0.875rem', right: '0.5rem' }}
-              >
-                <BookmarkAdd />
-              </IconButton>
-            </div>
-            <AspectRatio minHeight="120px" maxHeight="200px">
-              <img
-                src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-                srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
-                loading="lazy"
-                alt=""
-              />
-            </AspectRatio>
-            <CardContent orientation="horizontal">
-              <div>
-                <Typography level="body-xs">Total price:</Typography>
-                <Typography fontSize="lg" fontWeight="lg">
-                  $2,900
+                <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black' }}>
+                  $ 2,900
                 </Typography>
-              </div>
-              <Button
-                variant="solid"
-                size="md"
-                color="primary"
-                aria-label="Explore Bahamas Islands"
-                sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
-              >
-                Explore
-              </Button>
+              </Stack>
+
+              <Typography level="body-xs">
+                {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
+                Lorem ipsum dolor .......
+              </Typography>
             </CardContent>
+
+            <Button variant="outlined" size="lg">
+              Agregar al carrito
+            </Button>
           </Card>
         </SplideSlide>
       </Splide>
