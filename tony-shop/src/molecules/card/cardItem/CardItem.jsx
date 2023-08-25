@@ -17,22 +17,13 @@ const CardItem = (prop) => {
       <Card
         sx={{
           width: 320,
+          maxWidth: '100%',
           boxShadow: 'lg',
-          borderRadius: 'none',
-          gridColumn: 'span 2',
-          flexDirection: 'col',
-          flexWrap: 'wrap',
-          overflow: 'hidden',
-          gap: 'clamp(0px, (100% - 360px + 32px) * 999, 16px)',
-          transition: 'transform 0.3s, border 0.3s',
-          '&:hover': {
-            transform: 'translateY(-2px)'
-          },
-          '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' }
+          borderRadius: 'none'
         }}
       >
         <CardOverflow>
-          <AspectRatio ratio="4/3" sx={{ minWidth: 200, minHeight: 200 }}>
+          <AspectRatio sx={{ minWidth: 200 }}>
             <img src={imgProduct} loading="lazy" alt="" style={{ opacity: 1 }} />
           </AspectRatio>
 
@@ -46,7 +37,7 @@ const CardItem = (prop) => {
               zIndex: 2,
               borderRadius: '50%',
               right: '1rem',
-              bottom: '75%',
+              bottom: '70%',
               transform: 'translateY(0%)',
               '&:hover': { color: 'red' }
             }}
@@ -55,8 +46,7 @@ const CardItem = (prop) => {
           </IconButton>
         </CardOverflow>
 
-        {/* <CardContent orientation="vertical"> */}
-        <CardContent sx={{ marginTop: '10%', marginBottom: '5%' }}>
+        <CardContent>
           <Stack direction={'row'} sx={{ alignItems: 'center' }}>
             <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
               {/* insertar logica para nombres largos */}

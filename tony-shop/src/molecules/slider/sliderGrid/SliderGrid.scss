@@ -5,13 +5,14 @@
 
 // carousel
 .splide__slide {
-  height: 45vh;
+  height: 40vh;
+  // height: 45vh;
 }
 
 .splide__arrow {
   // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
-  top: 50%;
-  // top: 25%;
+  top: 40%;
+  // top: 50%;
 }
 
 // card
@@ -32,17 +33,7 @@
 
 // tablet
 @media (min-width: 600px) and (max-width: 900px) {
-  .splide__slide {
-    height: 50vh;
-  }
-
   .splide__arrow {
     top: 35%;
-  }
-}
-
-@media (min-width: 843) and (max-width: 900px) {
-  .css-19c5uty-JoyCardContent-root {
-    margin-top: 30%;
   }
 }

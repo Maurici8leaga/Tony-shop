@@ -4,3 +4,10 @@
   margin: 50%;
   margin-left: 50%;
 }
+
+@media (min-width: 1200px) {
+  .mg-slider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
