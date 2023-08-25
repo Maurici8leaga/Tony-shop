@@ -23,6 +23,14 @@ const Landing = () => {
         <SliderGrid />
       </Container>
 
+      <Container>
+        <Typography variant="h6" sx={{ mb: 2 }}>
+          Lo mas vendido
+        </Typography>
+
+        <SliderGrid />
+      </Container>
+
       <h1 className="prueba"> SOY EL LANDING PAGE</h1>
     </div>
   );

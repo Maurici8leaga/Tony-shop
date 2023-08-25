@@ -10,7 +10,15 @@ const Slider = () => {
       <Splide
         tag="section"
         aria-label="My Favorite Images"
-        options={{ width: '100vw', height: '90vh', type: 'loop', autoplay: 'true', interval: 3000, drag: true }}
+        options={{
+          width: '100vw',
+          height: '90vh',
+          type: 'loop',
+          autoplay: 'true',
+          interval: 3000,
+          drag: true,
+          arrows: false
+        }}
       >
         {dataCarousel.map((slide) => (
           <SliderElement

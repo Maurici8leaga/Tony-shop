@@ -76,3 +76,35 @@ export const dataCarousel = [
     btnText: 'PEDIR DELIVERY'
   }
 ];
+
+export const listaProductosPrueba = [
+  {
+    id: 1,
+    imgProduct: 'https://www.cambio16.com/wp-content/uploads/2017/02/Schuberth-E1-Crossfire-640x640.jpg',
+    nameProduct: 'Casco',
+    priceProduct: '150',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 2,
+    imgProduct: 'https://empresasnoffra.com/87000-large_default/pastilla-freno-chery-orinoco-todos-delantera.jpg',
+    nameProduct: 'Pastillas de freno',
+    priceProduct: '15',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 3,
+    imgProduct:
+      'https://www.eluniverso.com/resizer/EmU7BmQQfCE9-HX7HCdtBgqeA9w=/740x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/6OMBHHVNTVBWFO7DVPEXZZY4RA.jpg',
+    nameProduct: 'Neumatico',
+    priceProduct: '50',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 4,
+    imgProduct: 'https://www.autonocion.com/wp-content/uploads/2018/06/Aceite-motor-2.jpg',
+    nameProduct: 'Aceite',
+    priceProduct: '15',
+    descriptionProduct: 'El mejor del mercado...'
+  }
+];

@@ -4,20 +4,45 @@
 }
 
 // carousel
-
 .splide__slide {
   height: 45vh;
 }
 
 .splide__arrow {
   // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
-  top: 25%;
+  top: 50%;
+  // top: 25%;
 }
 
 // card
 .splide__slide .MuiCard-root {
   width: 100%;
-  // height: 100%;
   // OJO PUEDA QUE HAYA QUE COLOCAR HEIGTH PARA EL CARD
-  // margin-top: 40px;
+  height: 'auto';
+}
+
+// querys
+
+// mobile
+@media (min-width: 0px) and (max-width: 600px) {
+  .splide__slide {
+    height: 60vh;
+  }
+}
+
+// tablet
+@media (min-width: 600px) and (max-width: 900px) {
+  .splide__slide {
+    height: 50vh;
+  }
+
+  .splide__arrow {
+    top: 35%;
+  }
+}
+
+@media (min-width: 843) and (max-width: 900px) {
+  .css-19c5uty-JoyCardContent-root {
+    margin-top: 30%;
+  }
 }
