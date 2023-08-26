@@ -16,27 +16,36 @@ const Landing = () => {
         <Slider />
       </div>
 
-      <Container fixed className="mg-slider">
-        <Typography variant="h6" sx={{ mb: 2 }}>
-          Productos en ofertas
-        </Typography>
+      <Container fixed>
+        <section className="mg-slider">
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Productos en ofertas
+          </Typography>
 
-        <SliderGrid />
+          <SliderGrid />
+        </section>
+
+        <section className="mg-slider">
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Lo mas vendido
+          </Typography>
+
+          <SliderGrid />
+        </section>
+
+        <section className="mg-slider">
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Categorias mas buscadas
+          </Typography>
+          <ListCategory />
+        </section>
+
+        <section className="mg-slider">
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Marcas de motos
+          </Typography>
+        </section>
       </Container>
-
-      <Container fixed className="mg-slider">
-        <Typography variant="h6" sx={{ mb: 2 }}>
-          Lo mas vendido
-        </Typography>
-
-        <SliderGrid />
-      </Container>
-
-      <Container fixed className="mg-slider">
-        <ListCategory />
-      </Container>
-
-      <h1 className="prueba"> SOY EL LANDING PAGE</h1>
     </div>
   );
 };

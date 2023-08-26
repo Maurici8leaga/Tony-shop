@@ -19,7 +19,6 @@ export const useSplide = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      console.log('activando');
       setNumberOfSlides(getNumberOfSlides());
     };
 

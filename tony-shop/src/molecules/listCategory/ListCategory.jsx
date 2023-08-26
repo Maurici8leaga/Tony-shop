@@ -1,78 +1,40 @@
 import React from 'react';
-
 import Box from '@mui/joy/Box';
+import Grid from '@mui/material/Grid';
 import Card from '@mui/joy/Card';
-import CardCover from '@mui/joy/CardCover';
+import CardOverflow from '@mui/joy/CardOverflow';
+import AspectRatio from '@mui/joy/AspectRatio';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
-import Stack from '@mui/material/Stack';
+// static
+import { listCategory } from '@services/utils/static.data';
 
-import toolLogo from '@assets/img/tool.icon.png';
-
-function ListCategory() {
+const ListCategory = () => {
   return (
     <>
-      <Stack direction="row" spacing={2}>
-        <Box component="ul" sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0 }}>
-          <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-            <CardCover>
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/000/646/759/original/vector-tools-icon-symbol-sign.jpg"
-                alt=""
-              />
-            </CardCover>
-            <CardContent>
-              <Typography level="body-lg" fontWeight="lg" textColor="#000" mt={{ xs: 12, sm: 18 }}>
-                Herramienta
-              </Typography>
-            </CardContent>
-          </Card>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container component="ul" spacing={2} sx={{ listStyleType: 'none', flexGrow: 1 }}>
+          {listCategory.map((item) => (
+            <Grid component="li" key={item.id} xs={6} sm={4} md={3} lg={2} item sx={{ justifyContent: 'center' }}>
+              <Card sx={{ minWidth: 100, borderRadius: '3px' }}>
+                <CardOverflow component="a" href="#">
+                  <AspectRatio objectFit="contain">
+                    <img src={item.icon} alt="" />
+                  </AspectRatio>
+                </CardOverflow>
 
-          <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-            <CardCover>
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/000/646/759/original/vector-tools-icon-symbol-sign.jpg"
-                alt=""
-              />
-            </CardCover>
-            <CardContent>
-              <Typography level="body-lg" fontWeight="lg" textColor="#000" mt={{ xs: 12, sm: 18 }}>
-                Herramienta
-              </Typography>
-            </CardContent>
-          </Card>
-
-          <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-            <CardCover>
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/000/646/759/original/vector-tools-icon-symbol-sign.jpg"
-                alt=""
-              />
-            </CardCover>
-            <CardContent>
-              <Typography level="body-lg" fontWeight="lg" textColor="#000" mt={{ xs: 12, sm: 18 }}>
-                Herramienta
-              </Typography>
-            </CardContent>
-          </Card>
-
-          <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-            <CardCover>
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/000/646/759/original/vector-tools-icon-symbol-sign.jpg"
-                alt=""
-              />
-            </CardCover>
-            <CardContent>
-              <Typography level="body-lg" fontWeight="lg" textColor="#000" mt={{ xs: 12, sm: 18 }}>
-                Herramienta
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-      </Stack>
+                <CardContent sx={{ bgcolor: 'none' }}>
+                  <Typography level="title-md" fontWeight="sm" textColor="#000" sx={{ textAlign: 'center' }}>
+                    {item.name}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </>
   );
-}
+};
 
 export default ListCategory;

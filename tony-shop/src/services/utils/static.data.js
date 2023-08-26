@@ -2,6 +2,15 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+// static
+import Moto from '@assets/icons/motoIcon.svg';
+import BreakIcon from '@assets/icons/breakIcon.svg';
+import LubricIcon1 from '@assets/icons/lubricIcon.svg';
+import MoreIcon from '@assets/icons/moreIcon.svg';
+import NeumaticIcon from '@assets/icons/neumaticIcon.svg';
+import OilIcon from '@assets/icons/oilIcon.svg';
+import RefrigerantIcon from '@assets/icons/refrigerantIcon.svg';
+import AccessoriesIcon from '@assets/icons/toolIcon.svg';
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -106,5 +115,48 @@ export const listaProductosPrueba = [
     nameProduct: 'Aceite',
     priceProduct: '15',
     descriptionProduct: 'El mejor del mercado...'
+  }
+];
+
+export const listCategory = [
+  {
+    id: 1,
+    icon: Moto,
+    name: 'Modelos'
+  },
+  {
+    id: 2,
+    icon: AccessoriesIcon,
+    name: 'Accesorios'
+  },
+  {
+    id: 3,
+    icon: OilIcon,
+    name: 'Aceites'
+  },
+  {
+    id: 4,
+    icon: BreakIcon,
+    name: 'Frenos'
+  },
+  {
+    id: 5,
+    icon: LubricIcon1,
+    name: 'Lubricantes'
+  },
+  {
+    id: 6,
+    icon: NeumaticIcon,
+    name: 'Neumaticos'
+  },
+  {
+    id: 7,
+    icon: RefrigerantIcon,
+    name: 'Refrigerante'
+  },
+  {
+    id: 8,
+    icon: MoreIcon,
+    name: 'Ver Todo'
   }
 ];
