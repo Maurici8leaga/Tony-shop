@@ -5,6 +5,7 @@ import '@root/App.scss';
 const App = () => (
   <>
     <BrowserRouter>
+      {/* ojo puede que aqui vaya Header.jsx y Footer */}
       <AppRouter />
     </BrowserRouter>
   </>

@@ -3,6 +3,7 @@ import Slider from '@molecules/slider/Slider';
 import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
 import SliderBrand from '@molecules/slider/sliderBrand/SliderBrand';
 import ListCategory from '@molecules/listCategory/ListCategory';
+import Footer from '@molecules/footer/Footer';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 // scss
@@ -47,6 +48,8 @@ const Landing = () => {
 
         <div className="prueba">PROBANDO PROBANDO</div>
       </Container>
+
+      <Footer />
     </div>
   );
 };
