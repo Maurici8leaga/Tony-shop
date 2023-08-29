@@ -1,6 +1,7 @@
 import Header from '@molecules/header/Header';
 import Slider from '@molecules/slider/Slider';
 import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
+import SliderBrand from '@molecules/slider/sliderBrand/SliderBrand';
 import ListCategory from '@molecules/listCategory/ListCategory';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -33,18 +34,18 @@ const Landing = () => {
           <SliderGrid />
         </section>
 
-        <section className="mg-slider">
+        <section className="mg-listCatg">
           <Typography variant="h6" sx={{ mb: 2 }}>
             Categorias mas buscadas
           </Typography>
           <ListCategory />
         </section>
 
-        <section className="mg-slider">
-          <Typography variant="h6" sx={{ mb: 2 }}>
-            Marcas de motos
-          </Typography>
+        <section className="mg-listCatg">
+          <SliderBrand />
         </section>
+
+        <div className="prueba">PROBANDO PROBANDO</div>
       </Container>
     </div>
   );

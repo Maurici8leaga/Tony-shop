@@ -5,9 +5,54 @@
   margin-left: 50%;
 }
 
+// desktop
 @media (min-width: 1200px) {
   .mg-slider {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+  }
+
+  .mg-listCatg {
+    margin-top: 9vh;
+    margin-bottom: 9vh;
+  }
+}
+
+// tablet
+@media (min-width: 900px) and (max-width: 1200px) {
+  .mg-slider {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .mg-listCatg {
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+  }
+}
+
+// mobile and tablet
+@media (min-width: 600px) and (max-width: 900px) {
+  .mg-slider {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  .mg-listCatg {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+}
+
+// mobile
+@media (min-width: 0px) and (max-width: 600px) {
+  .mg-slider {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .mg-listCatg {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
 }

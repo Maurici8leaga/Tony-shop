@@ -11,6 +11,12 @@ import NeumaticIcon from '@assets/icons/neumaticIcon.svg';
 import OilIcon from '@assets/icons/oilIcon.svg';
 import RefrigerantIcon from '@assets/icons/refrigerantIcon.svg';
 import AccessoriesIcon from '@assets/icons/toolIcon.svg';
+import YamahaLogo from '@assets/img/YamahaLogo.webp';
+import BeraLogo from '@assets/img/BeraLogo.webp';
+import KeewayLogo from '@assets/img/KeewayLogo.webp';
+import HondaLogo from '@assets/img/HondaLogo.webp';
+import KawasakiLogo from '@assets/img/KawasakiLogo.webp';
+import SuzukiLogo from '@assets/img/SuzukiLogo.webp';
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -158,5 +164,20 @@ export const listCategory = [
     id: 8,
     icon: MoreIcon,
     name: 'Ver Todo'
+  }
+];
+
+export const listMotorcycleBrand = [
+  { id: 1, img: BeraLogo },
+  {
+    id: 2,
+    img: YamahaLogo
+  },
+  { id: 3, img: KeewayLogo },
+  { id: 4, img: HondaLogo },
+  { id: 5, img: KawasakiLogo },
+  {
+    id: 6,
+    img: SuzukiLogo
   }
 ];
