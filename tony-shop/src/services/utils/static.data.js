@@ -32,9 +32,17 @@ export const secondaryColor = {
   white015: 'rgb(255, 255, 255, 0.15)'
 };
 
+export const tonyShopDataInfo = {
+  phone: '+584247396116',
+  instagram: 'https://www.instagram.com/tonysmotoshop/',
+  googleMaps:
+    // eslint-disable-next-line quotes
+    "https://www.google.com/maps/place/Tony's+Moto+Shop/@10.5147383,-66.9340293,19.83z/data=!4m13!1m7!3m6!1s0x8c2a5ef21782a55b:0x18763fb9daae6e9f!2sCalle+1ra+El+Caribe+%26+Av.+Sucre,+Caracas+1030,+Distrito+Capital!3b1!8m2!3d10.516114!4d-66.9405432!3m4!1s0x8c2a5f1f46436b0b:0x3d3fc3deeab140d!8m2!3d10.5147111!4d-66.9336983?hl=es"
+};
+
 export const navLinks = [
   { title: 'Productos', path: '#Products' },
-  { title: 'Registrate', path: '#Signup' }
+  { title: 'Registrate', path: '/register' }
 ];
 
 export const drawerLinks = [
