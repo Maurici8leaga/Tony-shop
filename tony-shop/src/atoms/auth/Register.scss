@@ -1,4 +1,4 @@
-.bg-prueba {
+.bg-mt-img {
   width: 100vw;
   height: 100vh;
   background-image: url('https://images.pexels.com/photos/2887804/pexels-photo-2887804.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load');
@@ -14,4 +14,13 @@
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
   border-radius: 10px;
+}
+
+// query
+
+// mobile
+@media (min-width: 0px) and (max-width: 599px) {
+  .bg-mt-img {
+    overflow-y: auto;
+  }
 }

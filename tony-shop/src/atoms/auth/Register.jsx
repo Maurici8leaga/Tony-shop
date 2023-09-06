@@ -46,11 +46,21 @@ const Register = () => {
   // state para convertir el input en error
   const [errorMessage, setErrorMessage] = useState(false);
 
+  // para validar numero nacionales nada mas
+  const phoneNumberRE = /^(0414|0412|0416|0212)[0-9]{7}$/;
+
   const registerUser = (event) => {
     event.preventDefault();
     setHasError(false);
-    setErrorMessage('mensaje del back');
+    setErrorMessage('');
+    setNameError(false);
+    setLastNameError(false);
+    setEmailError(false);
+    setPhoneNumberError(false);
+    setPasswordError(false);
+    setConfirmPasswordError(false);
 
+    // agregar validaciones del back con JOY
     if (name === '') {
       setNameError(true);
     }
@@ -63,39 +73,47 @@ const Register = () => {
       setEmailError(true);
     }
 
-    if (phoneNumber === '') {
+    if (phoneNumber === '' || phoneNumberRE.test(phoneNumber) === false) {
+      setHasError(true);
+      setErrorMessage('Numero invalido');
       setPhoneNumberError(true);
     }
 
-    if (password === '') {
+    if (password === '' || password.length < 6) {
+      setHasError(true);
+      setErrorMessage('Contraseña invalida muy corta');
       setPasswordError(true);
     }
 
     if (confirmPassword !== password || confirmPassword === '') {
+      setHasError(true);
+      setErrorMessage('La contraseña no coincide');
       setConfirmPasswordError(true);
     }
   };
 
   return (
-    <div className="bg-prueba ">
+    <div className="bg-mt-img">
       <Sheet variant="plain" sx={{ pt: 10, background: 'none' }}>
         <Box
           component="form"
+          autoComplete="off"
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            width: 450,
+            width: { xs: 300, sm: 350, md: 400, lg: 450 },
             height: 'auto',
-            alignItems: 'flex-start',
-            justifyContent: 'start',
-            ml: 15,
-            marginY: 15,
-            padding: 5
+            alignItems: { xs: 'center', md: 'flex-start' },
+            justifyContent: { xs: 'center', md: 'start' },
+            ml: { xs: 'auto', md: 15 },
+            mr: { xs: 'auto', md: '0' },
+            marginY: { xs: 7, sm: 10, lg: 15 },
+            padding: { xs: 3, sm: 5 }
           }}
           className="glass-bg"
           onSubmit={registerUser}
         >
-          <Typography variant="h4" sx={{ mb: 2 }}>
+          <Typography variant="h4" sx={{ mb: 2, fontSize: { xs: '1.5rem', sm: '2.125rem' } }}>
             Crea tu cuenta
           </Typography>
 
@@ -111,7 +129,7 @@ const Register = () => {
 
           {hasError && errorMessage ? (
             <Typography variant="body2" sx={{ color: strongRed }}>
-              Mensaje del back
+              {errorMessage}
             </Typography>
           ) : (
             ''
@@ -124,7 +142,7 @@ const Register = () => {
             value={name}
             type="text"
             placeholder="Tu nombre"
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={nameError}
             onChange={(event) => setName(event.target.value)}
@@ -136,7 +154,7 @@ const Register = () => {
             value={lastname}
             type="text"
             placeholder="Tu apellido"
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={lastnameError}
             onChange={(event) => setLastName(event.target.value)}
@@ -148,7 +166,7 @@ const Register = () => {
             value={email}
             type="email"
             placeholder="Tu correo"
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={emailError}
             onChange={(event) => setEmail(event.target.value)}
@@ -160,7 +178,7 @@ const Register = () => {
             value={phoneNumber}
             type="tel"
             placeholder="04161234567"
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={phoneNumberError}
             onChange={(event) => setPhoneNumber(event.target.value)}
@@ -186,7 +204,7 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={passwordError}
             onChange={(event) => setPassword(event.target.value)}
@@ -213,7 +231,7 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            required
+            // required
             sx={{ marginY: 1, width: '100%' }}
             error={confirmPasswordError}
             onChange={(event) => setConfirmPassword(event.target.value)}
