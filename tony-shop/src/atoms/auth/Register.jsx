@@ -1,92 +1,179 @@
-import React from 'react';
-
+import { useState } from 'react';
 import Sheet from '@mui/joy/Sheet';
 import Box from '@mui/joy/Box';
-import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-
-// cosas para el form
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import FormHelperText from '@mui/joy/FormHelperText';
-import Input from '@mui/joy/Input';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
-
-// cosas para el input
-import { styled } from '@mui/joy/styles';
-import InputLabel from '@mui/material/InputLabel';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/joy/Button';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
+import Button from '@mui/joy/Button';
+// static
+import { mainColors } from '@services/utils/static.data';
 // css
 import '../auth/Register.scss';
 
-// static
-import { InnerInput } from './prueba';
-
 const Register = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const { lightBlue, strongRed } = mainColors;
 
+  // state para el password input
+  const [showPassword, setShowPassword] = useState(false);
+
+  // handlers para el password input
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
+  // state del form
+  const [name, setName] = useState('');
+  const [lastname, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [nameError, setNameError] = useState(false);
+  const [lastnameError, setLastNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [phoneNumberError, setPhoneNumberError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+
+  // state para mensaje error en los inputs
+  const [hasError, setHasError] = useState(false);
+  // state para convertir el input en error
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const registerUser = (event) => {
+    event.preventDefault();
+    setHasError(false);
+    setErrorMessage('mensaje del back');
+
+    if (name === '') {
+      setNameError(true);
+    }
+
+    if (lastname === '') {
+      setLastNameError(true);
+    }
+
+    if (email === '') {
+      setEmailError(true);
+    }
+
+    if (phoneNumber === '') {
+      setPhoneNumberError(true);
+    }
+
+    if (password === '') {
+      setPasswordError(true);
+    }
+
+    if (confirmPassword !== password || confirmPassword === '') {
+      setConfirmPasswordError(true);
+    }
+  };
+
   return (
-    <div className="prueba">
-      <Sheet variant="outlined" sx={{ mt: 12 }} className="bg-prueba">
+    <div className="bg-prueba ">
+      <Sheet variant="plain" sx={{ pt: 10, background: 'none' }}>
         <Box
+          component="form"
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            // flexDirection: { xs: 'column', md: 'column' },
             width: 450,
-            height: 500,
-            // alignItems: 'center',
-            // justifyContent: 'start'
+            height: 'auto',
             alignItems: 'flex-start',
             justifyContent: 'start',
-            bgcolor: '#fff',
             ml: 15,
-            mt: 15
+            marginY: 15,
+            padding: 5
           }}
+          className="glass-bg"
+          onSubmit={registerUser}
         >
-          <Typography variant="h4">Crea una cuenta</Typography>
+          <Typography variant="h4" sx={{ mb: 2 }}>
+            Crea tu cuenta
+          </Typography>
 
-          <TextField id="outlined-basic" label="Nombre" variant="outlined" type="text" required placeholder="Juan" />
-          <TextField id="outlined-basic" label="Apellido" variant="outlined" type="text" required placeholder="Perez" />
+          <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1, alignContent: 'center' }}>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              Ya tienes una cuenta?
+            </Typography>
+
+            <Link variant="body2" underline="none" href="/login" sx={{ color: lightBlue }}>
+              Ingresar
+            </Link>
+          </Box>
+
+          {hasError && errorMessage ? (
+            <Typography variant="body2" sx={{ color: strongRed }}>
+              Mensaje del back
+            </Typography>
+          ) : (
+            ''
+          )}
+
           <TextField
-            id="outlined-basic"
+            id="input-name-register"
+            label="Nombre"
+            variant="outlined"
+            value={name}
+            type="text"
+            placeholder="Tu nombre"
+            required
+            sx={{ marginY: 1, width: '100%' }}
+            error={nameError}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <TextField
+            id="input-lastname-register"
+            label="Apellido"
+            variant="outlined"
+            value={lastname}
+            type="text"
+            placeholder="Tu apellido"
+            required
+            sx={{ marginY: 1, width: '100%' }}
+            error={lastnameError}
+            onChange={(event) => setLastName(event.target.value)}
+          />
+          <TextField
+            id="input-email-register"
             label="Correo"
             variant="outlined"
+            value={email}
             type="email"
+            placeholder="Tu correo"
             required
-            placeholder="correo@gmail.com"
+            sx={{ marginY: 1, width: '100%' }}
+            error={emailError}
+            onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
-            id="outlined-basic"
+            id="input-phoneNumber-register"
             label="Telefono"
             variant="outlined"
+            value={phoneNumber}
             type="tel"
+            placeholder="04161234567"
             required
-            placeholder="+584141234567"
+            sx={{ marginY: 1, width: '100%' }}
+            error={phoneNumberError}
+            onChange={(event) => setPhoneNumber(event.target.value)}
           />
-          {/* <TextField id="outlined-basic" label="Password" variant="outlined" type="password" required />
-          <TextField id="outlined-basic" label="Confirm Password" variant="outlined" type="password" required /> */}
-
-          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
+          <TextField
+            id="input-password-register"
+            label="Contraseña"
+            variant="outlined"
+            value={password}
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Almenos 6 caracteres"
+            InputProps={{
+              endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
@@ -94,19 +181,47 @@ const Register = () => {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
-              }
-              label="Password"
-            />
-          </FormControl>
+              )
+            }}
+            required
+            sx={{ marginY: 1, width: '100%' }}
+            error={passwordError}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-          <Button variant="solid" size="lg" sx={{ width: '100%' }}>
-            Crear
+          <TextField
+            id="input-confirmPassword-register"
+            label="Confirme contraseña"
+            variant="outlined"
+            value={confirmPassword}
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Repita la contraseña"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
+            required
+            sx={{ marginY: 1, width: '100%' }}
+            error={confirmPasswordError}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+          />
+
+          <Button variant="solid" size="lg" type="submit" sx={{ width: '100%', mt: 1 }}>
+            Registrarse
           </Button>
-
-          <Typography variant="p">Ya tienes cuenta?</Typography>
         </Box>
       </Sheet>
     </div>
