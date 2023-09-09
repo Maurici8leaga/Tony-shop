@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap';
+$suzuki-bg: url('../src/assets/img/suzuki-moto.webp');
 
 :root {
   --darkBlue: #041562;
@@ -19,4 +20,23 @@
 
 body {
   background-color: var(--white);
+}
+
+// backgrounds
+.bg-mt-img {
+  width: 100vw;
+  height: 100vh;
+  background-image: $suzuki-bg;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.glass-bg {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border-radius: 10px;
 }

@@ -12,7 +12,8 @@ import Button from '@mui/joy/Button';
 // static
 import { mainColors } from '@services/utils/static.data';
 // css
-import '../auth/Register.scss';
+import '@root/index.scss';
+import '../register/Register.scss';
 
 const Register = () => {
   const { lightBlue, strongRed } = mainColors;
