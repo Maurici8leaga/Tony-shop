@@ -62,11 +62,17 @@ const Header = () => {
   return (
     <AppBar position="fixed" style={{ backgroundColor: `${lightBlue}`, display: 'flex' }}>
       <Container maxWidth="xl">
-        <Toolbar>
+        <Toolbar
+          sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center' }}
+        >
+          {/* drawer */}
           <NavbarList openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+
+          {/* shopping drawer */}
+          <ShoppingDrawer openShoppingDrawer={openShoppingDrawer} setOpenShoppingDrawer={setOpenShoppingDrawer} />
+
           {/* Hamburger menu */}
-          <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' } }}>
-            {/* flexgorow permite empujar lo que no este dentro de este box hacia la derecha */}
+          <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -79,106 +85,121 @@ const Header = () => {
             </IconButton>
           </Box>
 
-          <Box sx={{ flexGrow: 1 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            {/* logo */}
             <Link href="/" className="logo">
               <Box component="img" sx={{ height: 100, width: 200, display: 'flex' }} alt="Logo" src={logoStore} />
             </Link>
+
+            {/*  barra de busqueda  */}
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex' }, height: 43 }}>
+              <SearchBar placeHolderText={'Buscar producto...'} colorbg1={`${white015}`} colorbg2={`${white025}`} />
+            </Box>
           </Box>
 
-          {/*  barra de busqueda  */}
-          <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-            <SearchBar placeHolderText={'Buscar producto...'} colorbg1={`${white015}`} colorbg2={`${white025}`} />
-          </Box>
-
-          {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 2, flexGrow: 1 }}>
-            <Button
-              id="category-btn"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}
-              sx={{
-                my: 2,
-                color: 'inherit',
-                '&:hover': {
-                  color: `${strongRed}`
-                },
-                display: 'flex'
-              }}
-              endIcon={<KeyboardArrowDownIcon />}
-            >
-              Modelos
-            </Button>
-
-            <Menu
-              id="category-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'category-btn'
-              }}
-            >
-              {bykeModels.map((item) => (
-                <MenuItem key={`bike_${item.title}`} onClick={handleClose}>
-                  {item.title}
-                </MenuItem>
-              ))}
-            </Menu>
-
-            {navLinks.map((link) => (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-evenly',
+              width: { sm: 'auto', lg: '100%' }
+            }}
+          >
+            {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
+            <Box sx={{ display: { xs: 'none', md: 'none', lg: 'flex' } }}>
               <Button
-                key={link.title}
+                id="category-btn"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
                 sx={{
                   my: 2,
                   color: 'inherit',
                   '&:hover': {
                     color: `${strongRed}`
                   },
-                  display: 'block'
+                  display: 'flex'
                 }}
-                href={link.path}
+                endIcon={<KeyboardArrowDownIcon />}
               >
-                {link.title}
+                Modelos
               </Button>
-            ))}
-          </Box>
 
-          <ShoppingDrawer openShoppingDrawer={openShoppingDrawer} setOpenShoppingDrawer={setOpenShoppingDrawer} />
-
-          {/* Profile menu when user is logged */}
-          {auth && (
-            <Box
-              sx={{
-                display: { xs: 'flex', sm: 'flex', md: 'flex' },
-                ml: 2
-              }}
-            >
-              <IconButton
-                size="medium"
-                aria-label="shopping cart"
-                color="inherit"
-                onClick={() => setOpenShoppingDrawer(true)}
+              <Menu
+                id="category-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'category-btn'
+                }}
               >
-                <Badge badgeContent={1} color="error">
-                  <ShoppingCartIcon color="white" />
-                </Badge>
-              </IconButton>
+                {bykeModels.map((item) => (
+                  <MenuItem key={`bike_${item.title}`} onClick={handleClose}>
+                    {item.title}
+                  </MenuItem>
+                ))}
+              </Menu>
 
-              <IconButton
-                size="medium"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                color="inherit"
-                component="a"
-                href="#Account"
-              >
-                <AccountCircle />
-              </IconButton>
+              {navLinks.map((link) => (
+                <Button
+                  key={link.title}
+                  sx={{
+                    my: 2,
+                    color: 'inherit',
+                    '&:hover': {
+                      color: `${strongRed}`
+                    },
+                    display: 'block'
+                  }}
+                  href={link.path}
+                >
+                  {link.title}
+                </Button>
+              ))}
             </Box>
-          )}
+
+            {/* Profile menu when user is logged */}
+            {auth && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 2
+                }}
+              >
+                <IconButton
+                  size="medium"
+                  aria-label="shopping cart"
+                  color="inherit"
+                  onClick={() => setOpenShoppingDrawer(true)}
+                >
+                  <Badge badgeContent={1} color="error">
+                    <ShoppingCartIcon color="white" />
+                  </Badge>
+                </IconButton>
+
+                <IconButton
+                  size="medium"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                  component="a"
+                  href="#Account"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </Box>
+            )}
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

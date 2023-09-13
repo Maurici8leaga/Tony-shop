@@ -42,7 +42,8 @@ export const tonyShopDataInfo = {
 
 export const navLinks = [
   { title: 'Productos', path: '#Products' },
-  { title: 'Registrate', path: '/register' }
+  { title: 'Registrate', path: '/register' },
+  { title: 'Ingresar', path: '/login' }
 ];
 
 export const drawerLinks = [
@@ -54,7 +55,8 @@ export const drawerLinks = [
   { title: 'Neumaticos', path: '#Tires', icon: <SettingsSuggestIcon /> },
   { title: 'Refrigerante', path: '#Refrigerant', icon: <SettingsSuggestIcon /> },
   { title: 'Ver todo', path: '#AllProducts', icon: <MoreHorizIcon /> },
-  { title: 'Registrate', path: '#SignUp', icon: <PersonIcon /> },
+  { title: 'Registrate', path: '/register', icon: <PersonIcon /> },
+  { title: 'Ingresar', path: '/login', icon: <PersonIcon /> },
   { title: 'Contacto', path: '#Contact', icon: <PhoneIphoneIcon /> }
 ];
 
