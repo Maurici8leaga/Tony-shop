@@ -21,7 +21,7 @@ const NavbarList = (prop) => {
   return (
     <>
       <Drawer open={openDrawer} anchor="left" onClose={() => setOpenDrawer(false)}>
-        <Box sx={{ width: '350px' }}>
+        <Box sx={{ width: { xs: '350px', lg: '400px' } }}>
           <nav>
             <List>
               <ListItem sx={{ py: 1, display: 'flex', flexDirection: 'row-reverse' }}>
