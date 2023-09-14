@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom';
 import Landing from '@atoms/landing/Landing';
 import Register from '@atoms/auth/register/Register';
 import Login from '@atoms/auth/login/Login';
+import ProductsList from '@atoms/productsList/ProductsList';
 
 export const AppRouter = () => {
   const elements = useRoutes([
@@ -16,6 +17,10 @@ export const AppRouter = () => {
     {
       path: '/login',
       element: <Login />
+    },
+    {
+      path: '/list-of-products/:id',
+      element: <ProductsList />
     }
   ]);
 
