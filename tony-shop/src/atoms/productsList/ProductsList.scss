@@ -1,0 +1,42 @@
+.container {
+  display: grid;
+  grid-gap: 10px;
+  height: 100vh;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 50px auto 100px;
+  grid-template-areas:
+    'm h h h'
+    'm c c c'
+    'm f f f';
+}
+
+.header {
+  grid-area: h;
+  background-color: yellow;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu {
+  grid-area: m;
+  background-color: orange;
+}
+
+.content {
+  grid-area: c;
+  background-color: purple;
+
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  padding: 15px;
+}
+
+.footer {
+  grid-area: f;
+  background-color: pink;
+}

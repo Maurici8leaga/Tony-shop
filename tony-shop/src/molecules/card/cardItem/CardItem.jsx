@@ -10,13 +10,14 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/joy/Button';
 
 const CardItem = (prop) => {
-  const { imgProduct, nameProduct, priceProduct, descriptionProduct } = prop;
+  const { imgProduct, nameProduct, priceProduct, descriptionProduct, customWidth, customHeight } = prop;
 
   return (
     <>
       <Card
         sx={{
-          width: 320,
+          width: `${customWidth}`,
+          height: `${customHeight}`,
           maxWidth: '100%',
           boxShadow: 'lg',
           borderRadius: 'none'

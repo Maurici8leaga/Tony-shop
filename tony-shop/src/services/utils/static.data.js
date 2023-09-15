@@ -131,6 +131,56 @@ export const listaProductosPrueba = [
     nameProduct: 'Aceite',
     priceProduct: '15',
     descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 5,
+    imgProduct: 'https://www.cambio16.com/wp-content/uploads/2017/02/Schuberth-E1-Crossfire-640x640.jpg',
+    nameProduct: 'Casco',
+    priceProduct: '150',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 6,
+    imgProduct: 'https://empresasnoffra.com/87000-large_default/pastilla-freno-chery-orinoco-todos-delantera.jpg',
+    nameProduct: 'Pastillas de freno',
+    priceProduct: '15',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 7,
+    imgProduct: 'https://www.cambio16.com/wp-content/uploads/2017/02/Schuberth-E1-Crossfire-640x640.jpg',
+    nameProduct: 'Casco',
+    priceProduct: '150',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 8,
+    imgProduct: 'https://empresasnoffra.com/87000-large_default/pastilla-freno-chery-orinoco-todos-delantera.jpg',
+    nameProduct: 'Pastillas de freno',
+    priceProduct: '15',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 9,
+    imgProduct:
+      'https://www.eluniverso.com/resizer/EmU7BmQQfCE9-HX7HCdtBgqeA9w=/740x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/6OMBHHVNTVBWFO7DVPEXZZY4RA.jpg',
+    nameProduct: 'Neumatico',
+    priceProduct: '50',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 10,
+    imgProduct: 'https://www.cambio16.com/wp-content/uploads/2017/02/Schuberth-E1-Crossfire-640x640.jpg',
+    nameProduct: 'Casco',
+    priceProduct: '150',
+    descriptionProduct: 'El mejor del mercado...'
+  },
+  {
+    id: 11,
+    imgProduct: 'https://empresasnoffra.com/87000-large_default/pastilla-freno-chery-orinoco-todos-delantera.jpg',
+    nameProduct: 'Pastillas de freno',
+    priceProduct: '15',
+    descriptionProduct: 'El mejor del mercado...'
   }
 ];
 

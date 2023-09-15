@@ -32,6 +32,8 @@ const SliderGrid = () => {
               nameProduct={item.nameProduct}
               priceProduct={item.priceProduct}
               descriptionProduct={item.descriptionProduct}
+              customWidth={'320px'}
+              customHeight={'auto'}
             />
           </SplideSlide>
         ))}
