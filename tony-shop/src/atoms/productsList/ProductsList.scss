@@ -23,6 +23,12 @@
 .menu {
   grid-area: m;
   background-color: orange;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding: 15px;
 }
 
 .content {
