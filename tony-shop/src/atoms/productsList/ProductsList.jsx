@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import CardItem from '@molecules/card/cardItem/CardItem';
-import { listaProductosPrueba } from '@services/utils/static.data';
+import { listaProductosPrueba, categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
 // cosas para el grid
 import Button from '@mui/material/Button';
@@ -25,8 +25,15 @@ import ListItemButton from '@mui/joy/ListItemButton';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Divider from '@mui/joy/Divider';
 
-// css
 import Box from '@mui/joy/Box';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import Rating from '@mui/material/Rating';
+import CloseIcon from '@mui/icons-material/Close';
+
+// css
 import '../productsList/ProductsList.scss';
 
 const ProductsList = () => {
@@ -35,6 +42,20 @@ const ProductsList = () => {
 
   // state para el filtro de ordenar por
   const [filterState, setFilterState] = useState(null); // hay que crear una funcion para que filtre los elementos y se establezca con este state
+
+  // State para el rango de precio
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
+  // state para filtros seleccionados
+  const [prueba, setPrueba] = useState(false);
+
+  // submit form
+  const filterPrice = (event) => {
+    event.preventDefault();
+    setMinPrice('');
+    setMaxPrice('');
+  };
 
   return (
     <div
@@ -76,34 +97,216 @@ const ProductsList = () => {
           <div className="menu">
             <Box sx={{ marginBottom: '10px' }}>
               <Typography variant="h5">Producto {id}</Typography>
-              <Typography variant="body1">(100) Resultados </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'start' }}>
+                <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginRight: 1 }}>
+                  (100){' '}
+                </Typography>
+
+                <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400 }}>
+                  {' '}
+                  Resultados
+                </Typography>
+                {/* el numero debe venir del back con la cantidad exacta de lo encontrado */}
+              </Box>
             </Box>
 
             <Divider />
 
-            <Box sx={{ marginTop: '10px', marginBottom: '10px' }}>
-              <Typography id="decorated-list-demo" level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5}>
-                Categorias
-              </Typography>
-              <List aria-labelledby="decorated-list-demo">
-                <ListItemButton
-                  component="a"
-                  href="#"
-                  sx={{
-                    color: 'inherit',
-                    background: 'transparent',
-                    '&:hover': {
-                      color: 'red',
-                      bgcolor: 'transparent'
-                    }
-                  }}
+            <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
+              {prueba ? (
+                <Box sx={{ marginTop: '15px', marginBottom: '20px' }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography level="body-xs" textTransform="uppercase" fontWeight="md" variant="subtitle2">
+                      Filtros seleccionados
+                    </Typography>
+                    <IconButton
+                      aria-label="search-range-price"
+                      size="small"
+                      color="inherit"
+                      type="submit"
+                      sx={{ justifyContent: 'center', alignItems: 'center' }}
+                      onClick={() => setPrueba(false)}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                  </Box>
+
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'start',
+                      alignItems: 'center',
+                      gap: 1,
+                      flexWrap: 'wrap'
+                    }}
+                  >
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      color="inherit"
+                      endIcon={<CloseIcon />}
+                      onClick={() => setPrueba(false)}
+                    >
+                      Precio tal
+                    </Button>
+                  </Box>
+                </Box>
+              ) : (
+                ''
+              )}
+
+              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
+                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
+                  Categorias
+                </Typography>
+                <List>
+                  {categoryMenuData.map((item) => (
+                    <ListItemButton
+                      key={item.id}
+                      color="string"
+                      component="a"
+                      href="#"
+                      sx={{
+                        fontSize: '14px',
+                        fontWeight: 400,
+                        color: 'inherit',
+                        background: 'transparent',
+                        '&:hover': {
+                          color: 'red'
+                        }
+                      }}
+                    >
+                      {item.data}
+                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
+                        {' '}
+                        ({item.num})
+                      </Typography>
+                    </ListItemButton>
+                  ))}
+                </List>
+              </Box>
+
+              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
+                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
+                  Precio
+                </Typography>
+
+                <List>
+                  {rangePrice.map((item) => (
+                    <ListItemButton
+                      key={item.id}
+                      color="string"
+                      component="a"
+                      href="#"
+                      sx={{
+                        fontSize: '14px',
+                        fontWeight: 400,
+                        color: 'inherit',
+                        background: 'transparent',
+                        '&:hover': {
+                          color: 'red'
+                        }
+                      }}
+                      onClick={() => setPrueba(true)}
+                    >
+                      {item.range}{' '}
+                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
+                        {' '}
+                        ({item.mount})
+                      </Typography>
+                    </ListItemButton>
+                  ))}
+                </List>
+
+                <Box
+                  component="form"
+                  autoComplete="off"
+                  gap={2}
+                  sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
+                  onSubmit={filterPrice}
                 >
-                  Lubricantes (12)
-                </ListItemButton>
-                <ListItem>Repuesto (20)</ListItem>
-                <ListItem>Accesorio (30)</ListItem>
-                <ListItem>Otros (9)</ListItem>
-              </List>
+                  <TextField
+                    id="input-price-range-min"
+                    label="Desde"
+                    // variant="outlined"
+                    value={minPrice}
+                    type="num"
+                    placeholder="Desde"
+                    onChange={(event) => setMinPrice(event.target.value)}
+                    sx={{ width: '50%', height: '50px' }}
+                    size="small"
+                  />
+
+                  <TextField
+                    id="input-price-range-max"
+                    label="Hasta"
+                    // variant="outlined"
+                    value={maxPrice}
+                    type="num"
+                    placeholder="Desde"
+                    onChange={(event) => setMaxPrice(event.target.value)}
+                    sx={{ width: '50%', height: '50px' }}
+                    size="small"
+                  />
+
+                  <IconButton
+                    aria-label="search-range-price"
+                    size="small"
+                    color="primary"
+                    type="submit"
+                    sx={{ paddingBottom: 1.5 }}
+                  >
+                    <FilterAltIcon />
+                  </IconButton>
+                </Box>
+              </Box>
+
+              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
+                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
+                  Descuentos
+                </Typography>
+
+                <List>
+                  <ListItemButton
+                    color="string"
+                    component="a"
+                    href="#"
+                    sx={{
+                      fontSize: '14px',
+                      fontWeight: 400,
+                      color: 'inherit',
+                      background: 'transparent',
+                      '&:hover': {
+                        color: 'red'
+                      }
+                    }}
+                  >
+                    Desde 5% OFF{' '}
+                    <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
+                      {' '}
+                      (1)
+                    </Typography>
+                  </ListItemButton>
+                </List>
+              </Box>
+
+              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
+                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
+                  Calificacion
+                </Typography>
+
+                <List>
+                  {rangeCalification.map((item) => (
+                    <ListItemButton key={item.id} color="string" component="a" href="#">
+                      <Rating name="rating-product" value={item.value} readOnly />
+                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
+                        {' '}
+                        ({item.mount})
+                      </Typography>
+                    </ListItemButton>
+                  ))}
+                </List>
+              </Box>
             </Box>
           </div>
           <div className="content">

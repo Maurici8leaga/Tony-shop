@@ -241,3 +241,26 @@ export const listMotorcycleBrand = [
     img: SuzukiLogo
   }
 ];
+
+// fake data para categoria del menu de filtros
+export const categoryMenuData = [
+  { data: 'Lubricantes', num: 12, id: 1 },
+  { data: 'Repuesto', num: 20, id: 2 },
+  { data: 'Accesorio', num: 30, id: 3 },
+  { data: 'Otros', num: 9, id: 4 }
+];
+
+// fake data para rango de precioss del menu del filtros
+export const rangePrice = [
+  { range: 'Hasta 5 USD$', mount: 5, id: 1 },
+  { range: '1USD$ a 8 USD$', mount: 12, id: 2 },
+  { range: 'Mas de 10 USD$', mount: 20, id: 3 }
+];
+
+export const rangeCalification = [
+  { mount: 1, value: 5, id: 1 },
+  { mount: 3, value: 4, id: 2 },
+  { mount: 9, value: 3, id: 3 },
+  { mount: 6, value: 2, id: 4 },
+  { mount: 0, value: 1, id: 5 }
+];
