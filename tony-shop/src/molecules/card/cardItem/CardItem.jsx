@@ -8,6 +8,7 @@ import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/joy/Button';
+import Ratings from '@molecules/rating/Ratings';
 
 const CardItem = (prop) => {
   const { imgProduct, nameProduct, priceProduct, descriptionProduct, customWidth, customHeight } = prop;
@@ -63,6 +64,9 @@ const CardItem = (prop) => {
             {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
             {descriptionProduct}
           </Typography>
+
+          <Ratings stars={3} mount={1} />
+          {/* las stars y el mount tiene que venir del back y pasarse como prop aca */}
         </CardContent>
 
         <Button variant="outlined" size="lg">

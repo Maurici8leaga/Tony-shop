@@ -1,8 +1,14 @@
+.bg-container {
+  margin-top: 100px;
+  padding-top: 50px;
+  overflow-y: auto;
+}
+
 .container {
-  display: grid;
-  grid-gap: 10px;
   height: 100vh;
 
+  display: grid;
+  grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 50px auto 100px;
   grid-template-areas:
@@ -13,7 +19,6 @@
 
 .header {
   grid-area: h;
-  background-color: yellow;
 
   display: flex;
   justify-content: flex-end;
@@ -22,7 +27,6 @@
 
 .menu {
   grid-area: m;
-  background-color: orange;
 
   display: flex;
   flex-direction: column;
@@ -33,7 +37,6 @@
 
 .content {
   grid-area: c;
-  background-color: purple;
 
   display: grid;
   grid-gap: 15px;
@@ -44,5 +47,9 @@
 
 .footer {
   grid-area: f;
-  background-color: pink;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

@@ -7,8 +7,6 @@ import { listaProductosPrueba, categoryMenuData, rangePrice, rangeCalification }
 // cosas para el grid
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
 
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
@@ -19,19 +17,21 @@ import Typography from '@mui/material/Typography';
 
 // cosas para el menu list
 import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
+// import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import Divider from '@mui/joy/Divider';
 
 import Box from '@mui/joy/Box';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Rating from '@mui/material/Rating';
 import CloseIcon from '@mui/icons-material/Close';
+
+// cosas para el pagination
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 // css
 import '../productsList/ProductsList.scss';
@@ -48,7 +48,15 @@ const ProductsList = () => {
   const [maxPrice, setMaxPrice] = useState('');
 
   // state para filtros seleccionados
-  const [prueba, setPrueba] = useState(false);
+  const [filterSelected, setFilterSelected] = useState(false);
+
+  // state para las pages
+  const [page, setPage] = useState(1);
+
+  // handle para cambiar las paginas
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   // submit form
   const filterPrice = (event) => {
@@ -58,16 +66,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-        background: 'grey',
-        marginTop: '100px',
-        paddingTop: '50px',
-        overflowY: 'scroll'
-      }}
-    >
+    <div className="bg-container">
       <Container fixed>
         <div className="container">
           <div className="header">
@@ -113,7 +112,7 @@ const ProductsList = () => {
             <Divider />
 
             <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-              {prueba ? (
+              {filterSelected ? (
                 <Box sx={{ marginTop: '15px', marginBottom: '20px' }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Typography level="body-xs" textTransform="uppercase" fontWeight="md" variant="subtitle2">
@@ -125,7 +124,7 @@ const ProductsList = () => {
                       color="inherit"
                       type="submit"
                       sx={{ justifyContent: 'center', alignItems: 'center' }}
-                      onClick={() => setPrueba(false)}
+                      onClick={() => setFilterSelected(false)}
                     >
                       <CloseIcon />
                     </IconButton>
@@ -140,14 +139,17 @@ const ProductsList = () => {
                       flexWrap: 'wrap'
                     }}
                   >
+                    {/* se debe crear funcionalidad para poder agregar cada button con su nombre en este espacio */}
                     <Button
                       variant="outlined"
                       size="small"
                       color="inherit"
                       endIcon={<CloseIcon />}
-                      onClick={() => setPrueba(false)}
+                      onClick={() => setFilterSelected(false)}
+                      sx={{ textTransform: 'inherit' }}
                     >
-                      Precio tal
+                      {/* aqui debe ir el nombre de cada filtro */}
+                      Hasta 5$
                     </Button>
                   </Box>
                 </Box>
@@ -207,7 +209,7 @@ const ProductsList = () => {
                           color: 'red'
                         }
                       }}
-                      onClick={() => setPrueba(true)}
+                      onClick={() => setFilterSelected(true)}
                     >
                       {item.range}{' '}
                       <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
@@ -323,7 +325,16 @@ const ProductsList = () => {
               </div>
             ))}
           </div>
-          <div className="footer">Footer</div>
+          <div className="footer">
+            <Stack
+              spacing={1}
+              sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}
+            >
+              {/* hay que crear una funcionalidad para colocar cuantos productos va a desplegar por pagina y asi saber cuantas paginass
+              tendra y asi poder colocar el count real */}
+              <Pagination count={10} page={page} onChange={handleChange} color="primary" />
+            </Stack>
+          </div>
         </div>
       </Container>
     </div>
