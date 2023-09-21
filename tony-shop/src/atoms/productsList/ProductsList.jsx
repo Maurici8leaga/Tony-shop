@@ -33,6 +33,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
+// cosas para los drawer
+import Drawer from '@mui/material/Drawer';
+import ListItem from '@mui/material/ListItem';
+
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // css
 import '../productsList/ProductsList.scss';
 
@@ -52,6 +60,10 @@ const ProductsList = () => {
 
   // state para las pages
   const [page, setPage] = useState(1);
+
+  // state para los drawer
+  const [openDrawerFilter, setOpenDrawerFilter] = useState(false);
+  // const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
 
   // handle para cambiar las paginas
   const handleChange = (event, value) => {
@@ -310,6 +322,92 @@ const ProductsList = () => {
                 </List>
               </Box>
             </Box>
+          </div>
+          <div className="mini-header">
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                gap: 1
+              }}
+            >
+              <Box
+                sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}
+              >
+                <Typography variant="h5" sx={{ justifyContent: 'start', alignItems: 'center', mb: 1 }}>
+                  Titulo {id}
+                </Typography>
+
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'start' }}>
+                  <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginRight: 1 }}>
+                    (100){' '}
+                  </Typography>
+
+                  <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400 }}>
+                    {' '}
+                    Resultados
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-evenly',
+                  alignItems: 'center',
+                  width: '100%',
+                  height: '45px',
+                  backgroundColor: '#fff'
+                }}
+              >
+                <Button variant="text" sx={{ width: '100%' }} onClick={() => setOpenDrawerFilter(true)}>
+                  Filtrar
+                </Button>
+                <Divider orientation="vertical" />
+                <Button variant="text" sx={{ width: '100%' }}>
+                  Ordenar
+                </Button>
+              </Box>
+            </Box>
+
+            <Drawer open={openDrawerFilter} anchor="left" onClose={() => setOpenDrawerFilter(false)}>
+              <Box sx={{ width: { xs: '350px', lg: '400px' } }}>
+                <List>
+                  <ListItem sx={{ py: 1, display: 'flex', flexDirection: 'row-reverse' }}>
+                    <IconButton onClick={() => setOpenDrawerFilter(false)}>
+                      <CloseIcon />
+                    </IconButton>
+                  </ListItem>
+
+                  <ListItem>Filtrar por:</ListItem>
+
+                  <Accordion>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                      <Typography>Categoria</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <ListItemButton
+                        color="string"
+                        component="a"
+                        href="#"
+                        sx={{
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          color: 'inherit',
+                          background: 'transparent',
+                          '&:hover': {
+                            color: 'red'
+                          }
+                        }}
+                      >
+                        Lubricante (12)
+                      </ListItemButton>
+                    </AccordionDetails>
+                  </Accordion>
+                </List>
+              </Box>
+            </Drawer>
           </div>
           <div className="content">
             {listaProductosPrueba.map((item) => (
