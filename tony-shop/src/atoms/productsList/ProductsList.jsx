@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+// component jsx
+import MenuFilter from '@molecules/drawers/menuFilter/MenuFilter';
+import MenuSortBy from '@molecules/drawers/menuSortBy/MenuSortBy';
+// static data
+import { listaProductosPrueba, categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
+
 import Container from '@mui/material/Container';
 import CardItem from '@molecules/card/cardItem/CardItem';
-import { listaProductosPrueba, categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
 // cosas para el grid
 import Button from '@mui/material/Button';
@@ -50,6 +55,8 @@ const ProductsList = () => {
 
   // state para el filtro de ordenar por
   const [filterState, setFilterState] = useState(null); // hay que crear una funcion para que filtre los elementos y se establezca con este state
+  // state para el checkbox del menu desplegable
+  const [checked, setChecked] = useState(filterState);
 
   // State para el rango de precio
   const [minPrice, setMinPrice] = useState('');
@@ -63,7 +70,7 @@ const ProductsList = () => {
 
   // state para los drawer
   const [openDrawerFilter, setOpenDrawerFilter] = useState(false);
-  // const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
+  const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
 
   // handle para cambiar las paginas
   const handleChange = (event, value) => {
@@ -123,6 +130,7 @@ const ProductsList = () => {
 
             <Divider />
 
+            {/* space para los filtros seleccionados */}
             <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
               {filterSelected ? (
                 <Box sx={{ marginTop: '15px', marginBottom: '20px' }}>
@@ -156,8 +164,7 @@ const ProductsList = () => {
                       variant="outlined"
                       size="small"
                       color="inherit"
-                      endIcon={<CloseIcon />}
-                      onClick={() => setFilterSelected(false)}
+                      endIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}
                       sx={{ textTransform: 'inherit' }}
                     >
                       {/* aqui debe ir el nombre de cada filtro */}
@@ -365,49 +372,25 @@ const ProductsList = () => {
                   Filtrar
                 </Button>
                 <Divider orientation="vertical" />
-                <Button variant="text" sx={{ width: '100%' }}>
+                <Button variant="text" sx={{ width: '100%' }} onClick={() => setOpenDrawerSortBy(true)}>
                   Ordenar
                 </Button>
               </Box>
             </Box>
 
-            <Drawer open={openDrawerFilter} anchor="left" onClose={() => setOpenDrawerFilter(false)}>
-              <Box sx={{ width: { xs: '350px', lg: '400px' } }}>
-                <List>
-                  <ListItem sx={{ py: 1, display: 'flex', flexDirection: 'row-reverse' }}>
-                    <IconButton onClick={() => setOpenDrawerFilter(false)}>
-                      <CloseIcon />
-                    </IconButton>
-                  </ListItem>
+            <MenuFilter
+              openDrawer={openDrawerFilter}
+              closeDrawer={setOpenDrawerFilter}
+              filterSelected={filterSelected}
+              setFilterSelected={setFilterSelected}
+            />
 
-                  <ListItem>Filtrar por:</ListItem>
-
-                  <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography>Categoria</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <ListItemButton
-                        color="string"
-                        component="a"
-                        href="#"
-                        sx={{
-                          fontSize: '14px',
-                          fontWeight: 400,
-                          color: 'inherit',
-                          background: 'transparent',
-                          '&:hover': {
-                            color: 'red'
-                          }
-                        }}
-                      >
-                        Lubricante (12)
-                      </ListItemButton>
-                    </AccordionDetails>
-                  </Accordion>
-                </List>
-              </Box>
-            </Drawer>
+            <MenuSortBy
+              openDrawer={openDrawerSortBy}
+              closeDrawer={setOpenDrawerSortBy}
+              filterState={filterState}
+              setFilterState={setFilterState}
+            />
           </div>
           <div className="content">
             {listaProductosPrueba.map((item) => (
