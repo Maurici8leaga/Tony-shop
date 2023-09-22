@@ -1,51 +1,20 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-// component jsx
-import MenuFilter from '@molecules/drawers/menuFilter/MenuFilter';
-import MenuSortBy from '@molecules/drawers/menuSortBy/MenuSortBy';
-// static data
-import { listaProductosPrueba, categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
-
-import Container from '@mui/material/Container';
-import CardItem from '@molecules/card/cardItem/CardItem';
-
 // cosas para el grid
-import Button from '@mui/material/Button';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-import Menu from '@mui/joy/Menu';
-import MenuButton from '@mui/joy/MenuButton';
-import MenuItem from '@mui/joy/MenuItem';
+import Container from '@mui/material/Container';
 import Dropdown from '@mui/joy/Dropdown';
-
-import Typography from '@mui/material/Typography';
-
-// cosas para el menu list
-import List from '@mui/joy/List';
-import ListItemButton from '@mui/joy/ListItemButton';
-
-// import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import Divider from '@mui/joy/Divider';
-
-import Box from '@mui/joy/Box';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import Rating from '@mui/material/Rating';
-import CloseIcon from '@mui/icons-material/Close';
-
-// cosas para el pagination
-import Pagination from '@mui/material/Pagination';
+import MenuButton from '@mui/joy/MenuButton';
+import Menu from '@mui/joy/Menu';
+import MenuItem from '@mui/joy/MenuItem';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import CardItem from '@molecules/card/cardItem/CardItem';
 import Stack from '@mui/material/Stack';
-
-// cosas para los drawer
-import Drawer from '@mui/material/Drawer';
-import ListItem from '@mui/material/ListItem';
-
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Pagination from '@mui/material/Pagination';
+// component jsx
+import MenuFilters from '@molecules/menu/MenuFilters';
+import MiniHeader from '@molecules/header/miniHeader/MiniHeader';
+// static data
+import { listaProductosPrueba } from '@services/utils/static.data';
 // css
 import '../productsList/ProductsList.scss';
 
@@ -54,9 +23,7 @@ const ProductsList = () => {
   const { id } = useParams();
 
   // state para el filtro de ordenar por
-  const [filterState, setFilterState] = useState(null); // hay que crear una funcion para que filtre los elementos y se establezca con este state
-  // state para el checkbox del menu desplegable
-  const [checked, setChecked] = useState(filterState);
+  const [checked, setChecked] = useState(null); // hay que crear una funcion para que filtre los elementos y se establezca con este state
 
   // State para el rango de precio
   const [minPrice, setMinPrice] = useState('');
@@ -73,7 +40,7 @@ const ProductsList = () => {
   const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
 
   // handle para cambiar las paginas
-  const handleChange = (event, value) => {
+  const handleChange = (value) => {
     setPage(value);
   };
 
@@ -84,11 +51,16 @@ const ProductsList = () => {
     setMaxPrice('');
   };
 
+  // handle for set checkbox
+  const handleSetSortBy = (event) => {
+    setChecked(event.target.value);
+  };
+
   return (
-    <div className="bg-container">
+    <div className="bg-container-grid">
       <Container fixed>
-        <div className="container">
-          <div className="header">
+        <div className="container-grid">
+          <div className="bar-sortBy">
             <Dropdown>
               <MenuButton
                 variant="plain"
@@ -103,296 +75,49 @@ const ProductsList = () => {
                 }}
                 endDecorator={<KeyboardArrowDownIcon />}
               >
-                Ordenar por: {filterState}
+                Ordenar por: {checked}
               </MenuButton>
               <Menu variant="plain">
-                <MenuItem onClick={() => setFilterState('Menor precio')}>Menor precio</MenuItem>
-                <MenuItem onClick={() => setFilterState('Mayor precio')}>Mayor precio</MenuItem>
-                <MenuItem onClick={() => setFilterState('Calificacion')}>Calificacion</MenuItem>
+                <MenuItem component={'button'} onClick={handleSetSortBy} value="Menor precio">
+                  Menor precio
+                </MenuItem>
+                <MenuItem component={'button'} onClick={handleSetSortBy} value="Mayor precio">
+                  Mayor precio
+                </MenuItem>
+                <MenuItem component={'button'} onClick={handleSetSortBy} value="Calificacion">
+                  Calificacion
+                </MenuItem>
               </Menu>
             </Dropdown>
           </div>
-          <div className="menu">
-            <Box sx={{ marginBottom: '10px' }}>
-              <Typography variant="h5">Producto {id}</Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'start' }}>
-                <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginRight: 1 }}>
-                  (100){' '}
-                </Typography>
-
-                <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400 }}>
-                  {' '}
-                  Resultados
-                </Typography>
-                {/* el numero debe venir del back con la cantidad exacta de lo encontrado */}
-              </Box>
-            </Box>
-
-            <Divider />
-
-            {/* space para los filtros seleccionados */}
-            <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-              {filterSelected ? (
-                <Box sx={{ marginTop: '15px', marginBottom: '20px' }}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography level="body-xs" textTransform="uppercase" fontWeight="md" variant="subtitle2">
-                      Filtros seleccionados
-                    </Typography>
-                    <IconButton
-                      aria-label="search-range-price"
-                      size="small"
-                      color="inherit"
-                      type="submit"
-                      sx={{ justifyContent: 'center', alignItems: 'center' }}
-                      onClick={() => setFilterSelected(false)}
-                    >
-                      <CloseIcon />
-                    </IconButton>
-                  </Box>
-
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      gap: 1,
-                      flexWrap: 'wrap'
-                    }}
-                  >
-                    {/* se debe crear funcionalidad para poder agregar cada button con su nombre en este espacio */}
-                    <Button
-                      variant="outlined"
-                      size="small"
-                      color="inherit"
-                      endIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}
-                      sx={{ textTransform: 'inherit' }}
-                    >
-                      {/* aqui debe ir el nombre de cada filtro */}
-                      Hasta 5$
-                    </Button>
-                  </Box>
-                </Box>
-              ) : (
-                ''
-              )}
-
-              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
-                  Categorias
-                </Typography>
-                <List>
-                  {categoryMenuData.map((item) => (
-                    <ListItemButton
-                      key={item.id}
-                      color="string"
-                      component="a"
-                      href="#"
-                      sx={{
-                        fontSize: '14px',
-                        fontWeight: 400,
-                        color: 'inherit',
-                        background: 'transparent',
-                        '&:hover': {
-                          color: 'red'
-                        }
-                      }}
-                    >
-                      {item.data}
-                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
-                        {' '}
-                        ({item.num})
-                      </Typography>
-                    </ListItemButton>
-                  ))}
-                </List>
-              </Box>
-
-              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
-                  Precio
-                </Typography>
-
-                <List>
-                  {rangePrice.map((item) => (
-                    <ListItemButton
-                      key={item.id}
-                      color="string"
-                      component="a"
-                      href="#"
-                      sx={{
-                        fontSize: '14px',
-                        fontWeight: 400,
-                        color: 'inherit',
-                        background: 'transparent',
-                        '&:hover': {
-                          color: 'red'
-                        }
-                      }}
-                      onClick={() => setFilterSelected(true)}
-                    >
-                      {item.range}{' '}
-                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
-                        {' '}
-                        ({item.mount})
-                      </Typography>
-                    </ListItemButton>
-                  ))}
-                </List>
-
-                <Box
-                  component="form"
-                  autoComplete="off"
-                  gap={2}
-                  sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
-                  onSubmit={filterPrice}
-                >
-                  <TextField
-                    id="input-price-range-min"
-                    label="Desde"
-                    // variant="outlined"
-                    value={minPrice}
-                    type="num"
-                    placeholder="Desde"
-                    onChange={(event) => setMinPrice(event.target.value)}
-                    sx={{ width: '50%', height: '50px' }}
-                    size="small"
-                  />
-
-                  <TextField
-                    id="input-price-range-max"
-                    label="Hasta"
-                    // variant="outlined"
-                    value={maxPrice}
-                    type="num"
-                    placeholder="Desde"
-                    onChange={(event) => setMaxPrice(event.target.value)}
-                    sx={{ width: '50%', height: '50px' }}
-                    size="small"
-                  />
-
-                  <IconButton
-                    aria-label="search-range-price"
-                    size="small"
-                    color="primary"
-                    type="submit"
-                    sx={{ paddingBottom: 1.5 }}
-                  >
-                    <FilterAltIcon />
-                  </IconButton>
-                </Box>
-              </Box>
-
-              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
-                  Descuentos
-                </Typography>
-
-                <List>
-                  <ListItemButton
-                    color="string"
-                    component="a"
-                    href="#"
-                    sx={{
-                      fontSize: '14px',
-                      fontWeight: 400,
-                      color: 'inherit',
-                      background: 'transparent',
-                      '&:hover': {
-                        color: 'red'
-                      }
-                    }}
-                  >
-                    Desde 5% OFF{' '}
-                    <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
-                      {' '}
-                      (1)
-                    </Typography>
-                  </ListItemButton>
-                </List>
-              </Box>
-
-              <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-                <Typography level="body-xs" textTransform="uppercase" fontWeight="md" mb={0.5} variant="subtitle2">
-                  Calificacion
-                </Typography>
-
-                <List>
-                  {rangeCalification.map((item) => (
-                    <ListItemButton key={item.id} color="string" component="a" href="#">
-                      <Rating name="rating-product" value={item.value} readOnly />
-                      <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
-                        {' '}
-                        ({item.mount})
-                      </Typography>
-                    </ListItemButton>
-                  ))}
-                </List>
-              </Box>
-            </Box>
-          </div>
-          <div className="mini-header">
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                gap: 1
-              }}
-            >
-              <Box
-                sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}
-              >
-                <Typography variant="h5" sx={{ justifyContent: 'start', alignItems: 'center', mb: 1 }}>
-                  Titulo {id}
-                </Typography>
-
-                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'start' }}>
-                  <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginRight: 1 }}>
-                    (100){' '}
-                  </Typography>
-
-                  <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400 }}>
-                    {' '}
-                    Resultados
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-evenly',
-                  alignItems: 'center',
-                  width: '100%',
-                  height: '45px',
-                  backgroundColor: '#fff'
-                }}
-              >
-                <Button variant="text" sx={{ width: '100%' }} onClick={() => setOpenDrawerFilter(true)}>
-                  Filtrar
-                </Button>
-                <Divider orientation="vertical" />
-                <Button variant="text" sx={{ width: '100%' }} onClick={() => setOpenDrawerSortBy(true)}>
-                  Ordenar
-                </Button>
-              </Box>
-            </Box>
-
-            <MenuFilter
-              openDrawer={openDrawerFilter}
-              closeDrawer={setOpenDrawerFilter}
+          <div className="menu-filters">
+            <MenuFilters
+              titleSection={id}
+              amountResults={100}
               filterSelected={filterSelected}
               setFilterSelected={setFilterSelected}
-            />
-
-            <MenuSortBy
-              openDrawer={openDrawerSortBy}
-              closeDrawer={setOpenDrawerSortBy}
-              filterState={filterState}
-              setFilterState={setFilterState}
+              filterPrice={filterPrice}
+              minPrice={minPrice}
+              setMinPrice={setMinPrice}
+              maxPrice={maxPrice}
+              setMaxPrice={setMaxPrice}
             />
           </div>
-          <div className="content">
+          <div className="bar-filters">
+            <MiniHeader
+              titleSection={id}
+              amountResults={100}
+              openDrawerFilter={openDrawerFilter}
+              setOpenDrawerFilter={setOpenDrawerFilter}
+              filterSelected={filterSelected}
+              setFilterSelected={setFilterSelected}
+              openDrawerSortBy={openDrawerSortBy}
+              setOpenDrawerSortBy={setOpenDrawerSortBy}
+              checked={checked}
+              setChecked={setChecked}
+            />
+          </div>
+          <div className="content-grid">
             {listaProductosPrueba.map((item) => (
               <div key={`product_item_${item.id}`}>
                 <CardItem
@@ -406,14 +131,14 @@ const ProductsList = () => {
               </div>
             ))}
           </div>
-          <div className="footer">
+          <div className="pagination-grid">
             <Stack
               spacing={1}
               sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}
             >
               {/* hay que crear una funcionalidad para colocar cuantos productos va a desplegar por pagina y asi saber cuantas paginass
               tendra y asi poder colocar el count real */}
-              <Pagination count={10} page={page} onChange={handleChange} color="primary" />
+              <Pagination count={10} siblingCount={0} page={page} onChange={handleChange} color="primary" />
             </Stack>
           </div>
         </div>

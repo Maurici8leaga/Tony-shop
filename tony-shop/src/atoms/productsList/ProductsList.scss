@@ -1,10 +1,10 @@
-.bg-container {
+.bg-container-grid {
   margin-top: 100px;
   padding-top: 50px;
   overflow-y: auto;
 }
 
-.container {
+.container-grid {
   height: 100vh;
 
   display: grid;
@@ -17,7 +17,7 @@
     'm f f f';
 }
 
-.header {
+.bar-sortBy {
   grid-area: h;
 
   display: flex;
@@ -25,12 +25,12 @@
   align-items: center;
 }
 
-.mini-header {
+.bar-filters {
   grid-area: mh;
   display: none;
 }
 
-.menu {
+.menu-filters {
   grid-area: m;
 
   display: flex;
@@ -40,7 +40,7 @@
   padding: 15px;
 }
 
-.content {
+.content-grid {
   grid-area: c;
 
   display: grid;
@@ -51,7 +51,7 @@
   padding: 15px;
 }
 
-.footer {
+.pagination-grid {
   grid-area: f;
 
   display: flex;
@@ -62,12 +62,13 @@
 
 // querys
 
-@media (min-width: 900px) and (max-width: 1199px) {
-  .bg-container {
+// mobile
+@media (min-width: 350px) and (max-width: 600px) {
+  .bg-container-grid {
     padding-top: 20px;
   }
 
-  .container {
+  .container-grid {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 135px auto 100px;
     grid-template-areas:
@@ -76,22 +77,58 @@
       'f f f';
   }
 
-  .header {
+  .bar-sortBy {
     display: none;
   }
 
-  .mini-header {
+  .bar-filters {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
   }
 
-  .content {
-    grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
+  .content-grid {
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-gap: 20px;
   }
 
-  .menu {
+  .menu-filters {
+    display: none;
+  }
+}
+
+// tablet
+@media (min-width: 600px) and (max-width: 1200px) {
+  .bg-container-grid {
+    padding-top: 20px;
+  }
+
+  .container-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 135px auto 100px;
+    grid-template-areas:
+      'mh mh mh'
+      'c c c'
+      'f f f';
+  }
+
+  .bar-sortBy {
+    display: none;
+  }
+
+  .bar-filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(auto-fit, 253px);
+  }
+
+  .menu-filters {
     display: none;
   }
 }
