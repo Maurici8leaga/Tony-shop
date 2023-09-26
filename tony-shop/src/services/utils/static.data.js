@@ -3,14 +3,18 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 // static
-import Moto from '@assets/icons/motoIcon.svg';
 import BreakIcon from '@assets/icons/breakIcon.svg';
 import LubricIcon1 from '@assets/icons/lubricIcon.svg';
-import MoreIcon from '@assets/icons/moreIcon.svg';
 import NeumaticIcon from '@assets/icons/neumaticIcon.svg';
 import OilIcon from '@assets/icons/oilIcon.svg';
 import RefrigerantIcon from '@assets/icons/refrigerantIcon.svg';
 import AccessoriesIcon from '@assets/icons/toolIcon.svg';
+import EngineIcon from '@assets/icons/engineIcon.svg';
+import HeadLightIcon from '@assets/icons/headlightIcon.svg';
+import MotorcycleCaseIcon from '@assets/icons/motorcycleCase.svg';
+import RimIcon from '@assets/icons/rimsIcon.svg';
+import SparkPlugIcon from '@assets/icons/sparkPlugIcon.svg';
+import transmissionIcon from '@assets/icons/transmissionIcon.svg';
 import YamahaLogo from '@assets/img/YamahaLogo.webp';
 import BeraLogo from '@assets/img/BeraLogo.webp';
 import KeewayLogo from '@assets/img/KeewayLogo.webp';
@@ -47,14 +51,19 @@ export const navLinks = [
 ];
 
 export const drawerLinks = [
-  { title: 'Modelos', path: '#BykeModels', icon: <SettingsSuggestIcon /> },
-  { title: 'Accesorios', path: '#Accessories', icon: <SettingsSuggestIcon /> },
-  { title: 'Aceites', path: '#Oils', icon: <SettingsSuggestIcon /> },
-  { title: 'Frenos', path: '#Breaks', icon: <SettingsSuggestIcon /> },
-  { title: 'Lubricantes', path: '#Lubricants', icon: <SettingsSuggestIcon /> },
-  { title: 'Neumaticos', path: '#Tires', icon: <SettingsSuggestIcon /> },
-  { title: 'Refrigerante', path: '#Refrigerant', icon: <SettingsSuggestIcon /> },
-  { title: 'Ver todo', path: '#AllProducts', icon: <MoreHorizIcon /> },
+  { title: 'Aceites', path: 'Aceites', icon: <SettingsSuggestIcon /> },
+  { title: 'Autoperiquitos', path: 'Autoperiquitos', icon: <SettingsSuggestIcon /> },
+  { title: 'Carenado', path: 'Carenado', icon: <SettingsSuggestIcon /> },
+  { title: 'Encendido', path: 'Encendido', icon: <SettingsSuggestIcon /> },
+  { title: 'Frenos', path: 'Frenos', icon: <SettingsSuggestIcon /> },
+  { title: 'Iluminacion', path: 'Iluminacion', icon: <SettingsSuggestIcon /> },
+  { title: 'Lubricantes', path: 'Lubricantes', icon: <SettingsSuggestIcon /> },
+  { title: 'Modelos de moto', path: '#', icon: <SettingsSuggestIcon /> },
+  { title: 'Motor', path: 'Motor', icon: <SettingsSuggestIcon /> },
+  { title: 'Neumaticos', path: 'Neumaticos', icon: <SettingsSuggestIcon /> },
+  { title: 'Refrigeracion', path: 'Refrigeracion', icon: <SettingsSuggestIcon /> },
+  { title: 'Rines', path: 'Rines', icon: <SettingsSuggestIcon /> },
+  { title: 'Transmision', path: 'Transmision', icon: <SettingsSuggestIcon /> },
   { title: 'Registrate', path: '/register', icon: <PersonIcon /> },
   { title: 'Ingresar', path: '/login', icon: <PersonIcon /> },
   { title: 'Contacto', path: '#Contact', icon: <PhoneIphoneIcon /> }
@@ -187,43 +196,63 @@ export const listaProductosPrueba = [
 export const listCategory = [
   {
     id: 1,
-    icon: Moto,
-    name: 'Modelos'
-  },
-  {
-    id: 2,
-    icon: AccessoriesIcon,
-    name: 'Accesorios'
-  },
-  {
-    id: 3,
     icon: OilIcon,
     name: 'Aceites'
   },
   {
+    id: 2,
+    icon: AccessoriesIcon,
+    name: 'Autoperiquitos'
+  },
+  {
+    id: 3,
+    icon: MotorcycleCaseIcon,
+    name: 'Carenado'
+  },
+  {
     id: 4,
+    icon: SparkPlugIcon,
+    name: 'Encendido'
+  },
+  {
+    id: 5,
     icon: BreakIcon,
     name: 'Frenos'
   },
   {
-    id: 5,
+    id: 6,
+    icon: HeadLightIcon,
+    name: 'Iluminacion'
+  },
+  {
+    id: 7,
     icon: LubricIcon1,
     name: 'Lubricantes'
   },
   {
-    id: 6,
+    id: 8,
+    icon: EngineIcon,
+    name: 'Motor'
+  },
+  {
+    id: 9,
     icon: NeumaticIcon,
     name: 'Neumaticos'
   },
   {
-    id: 7,
+    id: 10,
     icon: RefrigerantIcon,
-    name: 'Refrigerante'
+    name: 'Refrigeracion'
   },
   {
-    id: 8,
-    icon: MoreIcon,
-    name: 'Ver Todo'
+    id: 11,
+    icon: RimIcon,
+    name: 'Rines'
+  },
+  {
+    id: 12,
+    icon: transmissionIcon,
+    name: 'Transmision'
   }
 ];
 

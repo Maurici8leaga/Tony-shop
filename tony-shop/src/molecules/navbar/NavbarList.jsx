@@ -52,7 +52,7 @@ const NavbarList = (prop) => {
                 <div key={item.title}>
                   <ListItem>
                     <IconButton>{item.icon}</IconButton>
-                    <ListItemButton component="a" href={item.path} sx={{ color: `${darkBlue}` }}>
+                    <ListItemButton component="a" href={`/list-of-products/${item.path}`} sx={{ color: `${darkBlue}` }}>
                       {item.title}
                     </ListItemButton>
                   </ListItem>
