@@ -45,7 +45,7 @@ export const tonyShopDataInfo = {
 };
 
 export const navLinks = [
-  { title: 'Productos', path: '#Products' },
+  { title: 'Productos', path: '/#listCatg' },
   { title: 'Registrate', path: '/register' },
   { title: 'Ingresar', path: '/login' }
 ];
@@ -257,17 +257,27 @@ export const listCategory = [
 ];
 
 export const listMotorcycleBrand = [
-  { id: 1, img: BeraLogo },
+  {
+    id: 1,
+    img: BeraLogo,
+    name: 'Bera'
+  },
   {
     id: 2,
-    img: YamahaLogo
+    img: YamahaLogo,
+    name: 'Yamaha'
   },
-  { id: 3, img: KeewayLogo },
-  { id: 4, img: HondaLogo },
-  { id: 5, img: KawasakiLogo },
+  {
+    id: 3,
+    img: KeewayLogo,
+    name: 'Keeway'
+  },
+  { id: 4, img: HondaLogo, name: 'Honda' },
+  { id: 5, img: KawasakiLogo, name: 'kawasaki' },
   {
     id: 6,
-    img: SuzukiLogo
+    img: SuzukiLogo,
+    name: 'Suzuki'
   }
 ];
 

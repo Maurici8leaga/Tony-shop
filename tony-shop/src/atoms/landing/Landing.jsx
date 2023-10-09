@@ -37,7 +37,7 @@ const Landing = () => {
           <SliderGrid />
         </section>
 
-        <section className="mg-listCatg">
+        <section id="listCatg" className="mg-listCatg">
           <Typography variant="h6" sx={{ mb: 2 }}>
             Categorias mas buscadas
           </Typography>
@@ -51,6 +51,7 @@ const Landing = () => {
                   name={item.name}
                   href={`/list-of-products/${item.name}`}
                   width={100}
+                  objectFit={'contain'}
                 />
               ))}
             </Grid>
