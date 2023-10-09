@@ -51,22 +51,22 @@ export const navLinks = [
 ];
 
 export const drawerLinks = [
-  { title: 'Aceites', path: 'Aceites', icon: <SettingsSuggestIcon /> },
-  { title: 'Autoperiquitos', path: 'Autoperiquitos', icon: <SettingsSuggestIcon /> },
-  { title: 'Carenado', path: 'Carenado', icon: <SettingsSuggestIcon /> },
-  { title: 'Encendido', path: 'Encendido', icon: <SettingsSuggestIcon /> },
-  { title: 'Frenos', path: 'Frenos', icon: <SettingsSuggestIcon /> },
-  { title: 'Iluminacion', path: 'Iluminacion', icon: <SettingsSuggestIcon /> },
-  { title: 'Lubricantes', path: 'Lubricantes', icon: <SettingsSuggestIcon /> },
-  { title: 'Modelos de moto', path: '#', icon: <SettingsSuggestIcon /> },
-  { title: 'Motor', path: 'Motor', icon: <SettingsSuggestIcon /> },
-  { title: 'Neumaticos', path: 'Neumaticos', icon: <SettingsSuggestIcon /> },
-  { title: 'Refrigeracion', path: 'Refrigeracion', icon: <SettingsSuggestIcon /> },
-  { title: 'Rines', path: 'Rines', icon: <SettingsSuggestIcon /> },
-  { title: 'Transmision', path: 'Transmision', icon: <SettingsSuggestIcon /> },
+  { title: 'Aceites', path: '/list-of-products/Aceites', icon: <SettingsSuggestIcon /> },
+  { title: 'Autoperiquitos', path: '/list-of-products/Autoperiquitos', icon: <SettingsSuggestIcon /> },
+  { title: 'Carenado', path: '/list-of-products/Carenado', icon: <SettingsSuggestIcon /> },
+  { title: 'Encendido', path: '/list-of-products/Encendido', icon: <SettingsSuggestIcon /> },
+  { title: 'Frenos', path: '/list-of-products/Frenos', icon: <SettingsSuggestIcon /> },
+  { title: 'Iluminacion', path: '/list-of-products/Iluminacion', icon: <SettingsSuggestIcon /> },
+  { title: 'Lubricantes', path: '/list-of-products/Lubricantes', icon: <SettingsSuggestIcon /> },
+  { title: 'Modelos de moto', path: '/category-menu/motorcycle', icon: <SettingsSuggestIcon /> },
+  { title: 'Motor', path: '/list-of-products/Motor', icon: <SettingsSuggestIcon /> },
+  { title: 'Neumaticos', path: '/list-of-products/Neumaticos', icon: <SettingsSuggestIcon /> },
+  { title: 'Refrigeracion', path: '/list-of-products/Refrigeracion', icon: <SettingsSuggestIcon /> },
+  { title: 'Rines', path: '/list-of-products/Rines', icon: <SettingsSuggestIcon /> },
+  { title: 'Transmision', path: '/list-of-products/Transmision', icon: <SettingsSuggestIcon /> },
   { title: 'Registrate', path: '/register', icon: <PersonIcon /> },
   { title: 'Ingresar', path: '/login', icon: <PersonIcon /> },
-  { title: 'Contacto', path: '#Contact', icon: <PhoneIphoneIcon /> }
+  { title: 'Contacto', path: '#', icon: <PhoneIphoneIcon /> }
 ];
 
 // temporal porque esto va a cambiar con la base de datos y el backend

@@ -12,10 +12,10 @@ const ListCategory = (prop) => {
     <>
       <Grid
         component="li"
-        xs={`${bpXs || 6}`}
-        sm={`${bpSm || 4}`}
-        md={`${bpMd || 3}`}
-        lg={`${bpLg || 2}`}
+        xs={bpXs || 6}
+        sm={bpSm || 4}
+        md={bpMd || 3}
+        lg={bpLg || 2}
         item
         sx={{ justifyContent: 'center' }}
       >

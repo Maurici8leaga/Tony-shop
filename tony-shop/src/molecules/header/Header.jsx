@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 // components
 import NavbarList from '@molecules/navbar/NavbarList';
 import SearchBar from '@molecules/searchBar/SearchBar';
@@ -29,6 +30,8 @@ const Header = () => {
   const { lightBlue, strongRed } = mainColors;
   const { white025, white015 } = secondaryColor;
 
+  const navigate = useNavigate();
+
   // state para el menu de categorias
   // OJO DEBE LLAMARSE ASI LOS STATES, DAN PROBLEMAS
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,6 +50,7 @@ const Header = () => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    navigate('category-menu/motorcycle');
   };
 
   const handleClose = () => {
@@ -129,7 +133,7 @@ const Header = () => {
                   display: 'flex'
                 }}
                 endIcon={<KeyboardArrowDownIcon />}
-                href="category-menu/motorcycle"
+                // href="category-menu/motorcycle"
               >
                 Modelos
               </Button>
@@ -152,6 +156,7 @@ const Header = () => {
 
               {navLinks.map((link) => (
                 <Button
+                  component="a"
                   key={link.title}
                   sx={{
                     my: 2,
