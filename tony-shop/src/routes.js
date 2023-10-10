@@ -4,6 +4,7 @@ import Register from '@atoms/auth/register/Register';
 import Login from '@atoms/auth/login/Login';
 import ProductsList from '@atoms/productsList/ProductsList';
 import MotorCycleMenu from '@atoms/menu-Category/MotorCycleMenu';
+import Product from '@atoms/product-description/Product';
 
 export const AppRouter = () => {
   const elements = useRoutes([
@@ -26,6 +27,10 @@ export const AppRouter = () => {
     {
       path: 'category-menu/motorcycle',
       element: <MotorCycleMenu />
+    },
+    {
+      path: 'product/:idProduct',
+      element: <Product />
     }
   ]);
 

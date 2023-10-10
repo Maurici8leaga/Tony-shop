@@ -1,0 +1,49 @@
+.bg-container-grid {
+  margin-top: 100px;
+  padding-top: 50px;
+  overflow-y: auto;
+}
+
+.container-prueba {
+  height: 100vh;
+
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 500px auto auto auto auto;
+  grid-template-areas:
+    'img img m'
+    'i i m'
+    'p p m'
+    'c c m';
+}
+
+.img-product {
+  grid-area: img;
+
+  background-color: green;
+}
+
+.menu {
+  grid-area: m;
+
+  background-color: blue;
+}
+
+.info {
+  grid-area: i;
+
+  background-color: yellow;
+}
+
+.pregunta {
+  grid-area: p;
+
+  background-color: orange;
+}
+
+.calificacion {
+  grid-area: c;
+
+  background-color: red;
+}

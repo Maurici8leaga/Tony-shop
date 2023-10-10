@@ -6,6 +6,7 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 
+// este componente cumple con el principio SOLID OPEN/CLOSE
 const ListCategory = (prop) => {
   const { width, href, image, name, bpXs, bpSm, bpMd, bpLg, objectFit } = prop;
   return (
