@@ -2,6 +2,7 @@
   margin-top: 100px;
   padding-top: 50px;
   overflow-y: auto;
+  height: 'auto';
 }
 
 .container-prueba {
@@ -28,6 +29,8 @@
   grid-area: m;
 
   background-color: blue;
+  position: sticky;
+  top: 0;
 }
 
 .info {
