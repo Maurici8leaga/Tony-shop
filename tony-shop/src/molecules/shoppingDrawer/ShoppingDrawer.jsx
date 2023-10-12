@@ -23,6 +23,7 @@ const ShopingDrawer = (prop) => {
 
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
 
+  // DUDAS SOBRE USAR ESTE HOOk
   const inputRef = React.useRef(null);
   // el hook useRef permite tener consistencia con el valor del input en que se implemente despues de cada renderizado
 

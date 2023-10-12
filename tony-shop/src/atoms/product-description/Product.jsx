@@ -37,9 +37,23 @@ const Product = () => {
   };
 
   const [ImgProduct, setImgProduct] = useState(imgPrueba.img1);
+  const [qty, Setqty] = useState(1);
 
   const showImgProduct = (img) => {
     setImgProduct(img);
+  };
+
+  const addProduct = () => {
+    Setqty(qty + 1);
+    // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
+  };
+
+  const minusProduct = () => {
+    if (qty > 1) {
+      Setqty(qty - 1);
+    } else {
+      Setqty(1);
+    }
   };
 
   return (
@@ -47,43 +61,66 @@ const Product = () => {
       <Container fixed>
         <div className="container-prueba ">
           <div className="img-product">
-            <AspectRatio objectFit="contain">
+            <AspectRatio objectFit="contain" minHeight={500}>
               <img srcSet={ImgProduct} alt="image of product" />
+              <Stack
+                direction={'row'}
+                justifyContent="center"
+                alignItems="center"
+                gap={2}
+                sx={{ marginTop: '.5rem', position: 'absolute', bottom: '5px', left: '50%', right: '50%' }}
+              >
+                <Avatar
+                  // OJO agregar el nombre del producto al ALT
+                  alt="Image product Sharp"
+                  variant="outlined"
+                  src={imgPrueba.img1}
+                  size="lg"
+                  sx={{
+                    cursor: 'pointer',
+                    border: `${ImgProduct === imgPrueba.img1 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                    '&:hover': { border: '1px solid var(--red)' }
+                  }}
+                  onClick={() => showImgProduct(imgPrueba.img1)}
+                />
+                <Avatar
+                  alt="Remy Sharp"
+                  variant="outlined"
+                  src={imgPrueba.img2}
+                  size="lg"
+                  sx={{
+                    cursor: 'pointer',
+                    border: `${ImgProduct === imgPrueba.img2 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                    '&:hover': { border: '1px solid var(--red)' }
+                  }}
+                  onClick={() => showImgProduct(imgPrueba.img2)}
+                />
+                <Avatar
+                  alt="Remy Sharp"
+                  variant="outlined"
+                  src={imgPrueba.img3}
+                  size="lg"
+                  sx={{
+                    cursor: 'pointer',
+                    border: `${ImgProduct === imgPrueba.img3 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                    '&:hover': { border: '1px solid var(--red)' }
+                  }}
+                  onClick={() => showImgProduct(imgPrueba.img3)}
+                />
+                <Avatar
+                  alt="Remy Sharp"
+                  variant="outlined"
+                  src={imgPrueba.img4}
+                  size="lg"
+                  sx={{
+                    cursor: 'pointer',
+                    border: `${ImgProduct === imgPrueba.img4 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                    '&:hover': { border: '1px solid var(--red)' }
+                  }}
+                  onClick={() => showImgProduct(imgPrueba.img4)}
+                />
+              </Stack>
             </AspectRatio>
-            <Stack direction={'row'} justifyContent="center" alignItems="center" gap={2} sx={{ marginTop: '.5rem' }}>
-              <Avatar
-                alt="Remy Sharp"
-                variant="outlined"
-                src={imgPrueba.img1}
-                size="lg"
-                sx={{ cursor: 'pointer', '&:hover': { border: '1px solid var(--blue)' } }}
-                onClick={() => showImgProduct(imgPrueba.img1)}
-              />
-              <Avatar
-                alt="Remy Sharp"
-                variant="outlined"
-                src={imgPrueba.img2}
-                size="lg"
-                sx={{ cursor: 'pointer', '&:hover': { border: '1px solid var(--blue)' } }}
-                onClick={() => showImgProduct(imgPrueba.img2)}
-              />
-              <Avatar
-                alt="Remy Sharp"
-                variant="outlined"
-                src={imgPrueba.img3}
-                size="lg"
-                sx={{ cursor: 'pointer', '&:hover': { border: '1px solid var(--blue)' } }}
-                onClick={() => showImgProduct(imgPrueba.img3)}
-              />
-              <Avatar
-                alt="Remy Sharp"
-                variant="outlined"
-                src={imgPrueba.img4}
-                size="lg"
-                sx={{ cursor: 'pointer', '&:hover': { border: '1px solid var(--blue)' } }}
-                onClick={() => showImgProduct(imgPrueba.img4)}
-              />
-            </Stack>
           </div>
           <div className="menu">
             <Card variant="outline" color="neutral" sx={{ height: 'auto', width: '100%' }}>
@@ -105,11 +142,7 @@ const Product = () => {
                   variant="solid"
                   color="neutral"
                   sx={{
-                    // position: 'absolute',
-                    // zIndex: 2,
                     borderRadius: '50%',
-                    // right: '1rem',
-                    // bottom: '70%',
                     transform: 'translateY(0%)',
                     '&:hover': { color: 'red' }
                   }}
@@ -146,27 +179,14 @@ const Product = () => {
                   spacing={1}
                   sx={{ marginBottom: '.5rem' }}
                 >
-                  <IconButton size="small" color="primary">
+                  <IconButton size="small" color="primary" onClick={addProduct}>
                     <AddCircleOutlineIcon />
                   </IconButton>
 
-                  <Input
-                    type="number"
-                    size="sm"
-                    // el defaultValue debe ir con lo que el cliente coloque por primera vez
-                    defaultValue={1}
-                    // OJO el max debe ir con respecto a lo que se tenga en la base de datos
-                    slotProps={{
-                      input: {
-                        // ref: inputRef,
-                        min: 1,
-                        max: 10,
-                        step: 1
-                      }
-                    }}
-                  />
+                  <Typography variant="body2">{qty}</Typography>
+                  {/* // OJO el max debe ir con respecto a lo que se tenga en la base de datos */}
 
-                  <IconButton size="small" color="primary">
+                  <IconButton size="small" color="primary" disabled={qty === 1 && true} onClick={minusProduct}>
                     <RemoveCircleOutlineIcon />
                   </IconButton>
 

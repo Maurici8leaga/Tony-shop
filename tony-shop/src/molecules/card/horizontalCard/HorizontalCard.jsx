@@ -52,7 +52,8 @@ const HorizontalCard = (prop) => {
             // OJO el max debe ir con respecto a lo que se tenga en la base de datos
             slotProps={{
               input: {
-                ref: inputRef,
+                // dudas sobre este prop
+                // ref: inputRef,
                 min: 1,
                 max: 10,
                 step: 1
