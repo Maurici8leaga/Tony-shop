@@ -30,6 +30,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Divider from '@mui/joy/Divider';
 
+// cosas para la tabla
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 // css
 import '../product-description/Product.scss';
 
@@ -42,6 +46,15 @@ const Product = () => {
     img3: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO7xhvZAEtfZBmxQGVGHWGJRWBp3I0sFV3SYPn9zqjQofUerr6UYaFBQsyQ_N_lqWt3Z0&usqp=CAU',
     img4: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSyB0T6VoY4C2hudY6QUdpQTJVt2ppuCyjomDNqUJf20x3SrvQMxzU_FG8jQKdMFGr3E&usqp=CAU'
   };
+
+  const caracteristicasTabla = [
+    { Marca: 'AGV' },
+    { Línea: 'K1' },
+    { Modelo: 'Pista GP R' },
+    { Norma: 'ECE 22 05' },
+    { Tipo: 'Integral' },
+    { Edad: 'Adulto' }
+  ];
 
   const [ImgProduct, setImgProduct] = useState(imgPrueba.img1);
   const [qty, Setqty] = useState(1);
@@ -213,19 +226,55 @@ const Product = () => {
               <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
                 Informacion del producto
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="subtitle1">Caracteristicas</Typography>
-                {/* <Divider /> */}
-                <Typography variant="body2" sx={{ marginBottom: '1rem' }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam rem molestiae iste dolorum quo rerum
-                  velit quibusdam harum perspiciatis omnis. Aspernatur odit quam ad iste quibusdam beatae et, ipsa sint!
+              <AccordionDetails sx={{ width: '700px', margin: 'auto' }}>
+                <Typography variant="subtitle1" sx={{ marginBottom: '.5rem' }}>
+                  Caracteristicas
                 </Typography>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    width: '500px',
+                    height: 'auto',
+                    margin: 'auto'
+                  }}
+                >
+                  <List>
+                    {caracteristicasTabla.map((item, index) => {
+                      const [feature, value] = Object.entries(item)[0];
+                      return (
+                        <ListItem
+                          key={index}
+                          sx={{
+                            display: 'flex',
+                            justifyContent: 'space-evenly',
+                            alignItems: 'center',
+                            background: `${index % 2 === 0 ? '#E6E6E6' : 'none'}`
+                          }}
+                        >
+                          <ListItemText sx={{ width: '50%', height: 'auto' }}>
+                            <Typography variant="body2">{feature}</Typography>
+                          </ListItemText>
+                          <ListItemText sx={{ width: '50%', height: 'auto' }}>
+                            <Typography variant="body2" sx={{ fontWeight: 'lighter' }}>
+                              {value}
+                            </Typography>
+                          </ListItemText>
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </Box>
 
                 <Divider sx={{ margin: '2rem 0rem' }} />
 
-                <Typography variant="body1">Descripcion</Typography>
-                {/* <Divider /> */}
-                <Typography variant="body2" align="justify">
+                <Typography variant="body1" sx={{ marginBottom: '.5rem' }}>
+                  Descripcion
+                </Typography>
+
+                <Typography variant="body2" align="justify" sx={{ fontWeight: 'lighter' }}>
                   Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
                   classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
                   professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
@@ -240,15 +289,6 @@ const Product = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            {/* <Accordion defaultExpanded={true}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>Descripcion</AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam rem molestiae iste dolorum quo rerum
-                  velit quibusdam harum perspiciatis omnis. Aspernatur odit quam ad iste quibusdam beatae et, ipsa sint!
-                </Typography>
-              </AccordionDetails>
-            </Accordion> */}
           </div>
           <div className="pregunta">preguntas</div>
           <div className="calificacion">calificaciones</div>
