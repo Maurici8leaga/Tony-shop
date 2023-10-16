@@ -1,5 +1,6 @@
 .bg-container-grid {
   margin-top: 100px;
+  margin-bottom: 100px;
   padding-top: 50px;
   overflow-y: auto;
   height: 'auto';
@@ -29,6 +30,8 @@
   grid-area: m;
 
   background-color: blue;
+
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }

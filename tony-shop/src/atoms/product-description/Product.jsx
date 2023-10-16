@@ -41,6 +41,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import TextField from '@mui/material/TextField';
 import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 
+// static file
+import { rangeCalification } from '@services/utils/static.data';
 // css
 import '../product-description/Product.scss';
 
@@ -359,7 +361,31 @@ const Product = () => {
               </AccordionDetails>
             </Accordion>
           </div>
-          <div className="calificacion">calificaciones</div>
+          <div className="calificacion">
+            <Accordion defaultExpanded={true}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
+                Calificaciones
+              </AccordionSummary>
+              <AccordionDetails sx={{ width: '250px', height: 'auto', margin: 'auto' }}>
+                <List>
+                  {rangeCalification.map((item) => (
+                    <ListItem key={item.id} alignItems="center">
+                      <ListItemIcon>
+                        <Rating name="rating-product" value={item.value} readOnly />
+                      </ListItemIcon>
+
+                      <ListItemText>
+                        <Typography sx={{ fontSize: '14px', fontWeight: 400, color: 'grey', marginLeft: 1 }}>
+                          {' '}
+                          ({item.mount})
+                        </Typography>
+                      </ListItemText>
+                    </ListItem>
+                  ))}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         </div>
       </Container>
     </div>
