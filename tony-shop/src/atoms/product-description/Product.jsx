@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+// component
+import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
 
 import Container from '@mui/material/Container';
 
@@ -387,6 +389,13 @@ const Product = () => {
             </Accordion>
           </div>
         </div>
+
+        <Stack direction={'column'} sx={{ marginTop: '2rem' }}>
+          <Typography variant="h6" sx={{ marginBottom: '1rem' }}>
+            Sugerencias de interes
+          </Typography>
+          <SliderGrid />
+        </Stack>
       </Container>
     </div>
   );
