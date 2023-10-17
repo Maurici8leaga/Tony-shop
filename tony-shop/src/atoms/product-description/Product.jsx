@@ -86,7 +86,7 @@ const Product = () => {
   };
 
   return (
-    <div className="bg-container-grid">
+    <div className="bg-container-grid-prueba">
       <Container fixed>
         <div className="container-prueba ">
           <div className="img-product">
@@ -151,7 +151,7 @@ const Product = () => {
               </Stack>
             </AspectRatio>
           </div>
-          <div className="menu">
+          <aside className="menu">
             <Card variant="outline" color="neutral" sx={{ height: 'auto', width: '100%' }}>
               <Stack
                 direction={'row'}
@@ -229,7 +229,7 @@ const Product = () => {
                 </Button>
               </CardActions>
             </Card>
-          </div>
+          </aside>
           <div className="info">
             <Accordion defaultExpanded={true}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
