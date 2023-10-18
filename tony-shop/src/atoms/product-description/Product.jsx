@@ -232,12 +232,158 @@ const Product = () => {
               </CardActions>
             </Card>
           </aside>
+          <div className="menu-card">
+            <Card variant="outline" color="neutral" sx={{ minHeight: 'auto', width: '100%' }}>
+              <Stack
+                direction={'row'}
+                justifyContent="space-between"
+                alignItems="center"
+                spacing={2}
+                sx={{
+                  marginBottom: '1rem'
+                }}
+              >
+                <Typography variant="h6">
+                  {idProduct} Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </Typography>
+              </Stack>
+
+              <AspectRatio objectFit="contain" minHeight={380}>
+                <img srcSet={ImgProduct} alt="image of product" />
+                <Stack
+                  direction={'row'}
+                  justifyContent="center"
+                  alignItems="center"
+                  gap={2}
+                  sx={{ marginTop: '.5rem', position: 'absolute', bottom: '5px', left: '50%', right: '50%' }}
+                >
+                  <Avatar
+                    // OJO agregar el nombre del producto al ALT
+                    alt="Image product Sharp"
+                    variant="outlined"
+                    src={imgPrueba.img1}
+                    size="lg"
+                    sx={{
+                      cursor: 'pointer',
+                      border: `${ImgProduct === imgPrueba.img1 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                      '&:hover': { border: '1px solid var(--red)' }
+                    }}
+                    onClick={() => showImgProduct(imgPrueba.img1)}
+                  />
+                  <Avatar
+                    alt="Remy Sharp"
+                    variant="outlined"
+                    src={imgPrueba.img2}
+                    size="lg"
+                    sx={{
+                      cursor: 'pointer',
+                      border: `${ImgProduct === imgPrueba.img2 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                      '&:hover': { border: '1px solid var(--red)' }
+                    }}
+                    onClick={() => showImgProduct(imgPrueba.img2)}
+                  />
+                  <Avatar
+                    alt="Remy Sharp"
+                    variant="outlined"
+                    src={imgPrueba.img3}
+                    size="lg"
+                    sx={{
+                      cursor: 'pointer',
+                      border: `${ImgProduct === imgPrueba.img3 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                      '&:hover': { border: '1px solid var(--red)' }
+                    }}
+                    onClick={() => showImgProduct(imgPrueba.img3)}
+                  />
+                  <Avatar
+                    alt="Remy Sharp"
+                    variant="outlined"
+                    src={imgPrueba.img4}
+                    size="lg"
+                    sx={{
+                      cursor: 'pointer',
+                      border: `${ImgProduct === imgPrueba.img4 ? '1px solid var(--red)' : '1px solid #bdbdbd'}`,
+                      '&:hover': { border: '1px solid var(--red)' }
+                    }}
+                    onClick={() => showImgProduct(imgPrueba.img4)}
+                  />
+                </Stack>
+              </AspectRatio>
+
+              <CardContent>
+                <Stack direction="row" justifyContent="space-between" alignItems="center">
+                  <Typography variant="h4" sx={{ marginBottom: '.5rem', fontWeight: 'lighter' }}>
+                    US$ 11.11
+                  </Typography>
+
+                  <IconButton
+                    aria-label="Like minimal photography"
+                    size="md"
+                    variant="solid"
+                    color="neutral"
+                    sx={{
+                      borderRadius: '50%',
+                      transform: 'translateY(0%)',
+                      '&:hover': { color: 'red' }
+                    }}
+                  >
+                    <Favorite />
+                  </IconButton>
+                </Stack>
+
+                <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={1}>
+                  <Typography variant="caption" sx={{ color: 'grey' }}>
+                    3.0
+                  </Typography>
+                  <Rating name="rating-product" value={3} readOnly />
+                  <Typography variant="caption" sx={{ color: 'grey' }}>
+                    (10)
+                  </Typography>
+                </Stack>
+
+                <Typography variant="body1" sx={{ marginTop: '.5rem' }}>
+                  Envio Gratis
+                </Typography>
+              </CardContent>
+
+              <CardActions orientation="vertical" className="action-card" sx={{ padding: '18px', zIndex: 10 }}>
+                <Stack direction="row" justifyContent="space-evenly" alignItems="center" spacing={1}>
+                  <Stack direction="column">
+                    <Stack
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="center"
+                      spacing={1}
+                      sx={{ marginBottom: '.5rem' }}
+                    >
+                      <IconButton size="small" color="primary" onClick={addProduct}>
+                        <AddCircleOutlineIcon />
+                      </IconButton>
+
+                      <Typography variant="body2">{qty}</Typography>
+                      {/* // OJO el max debe ir con respecto a lo que se tenga en la base de datos */}
+
+                      <IconButton size="small" color="primary" disabled={qty === 1 && true} onClick={minusProduct}>
+                        <RemoveCircleOutlineIcon />
+                      </IconButton>
+                    </Stack>
+                    <Typography variant="caption" sx={{ color: 'grey' }}>
+                      (10 disponibles)
+                    </Typography>
+                  </Stack>
+
+                  <Button variant="contained" size="large" sx={{ mb: 2 }} endIcon={<ShoppingCartIcon />}>
+                    Agregar al carrito
+                  </Button>
+                </Stack>
+              </CardActions>
+            </Card>
+          </div>
           <div className="info">
             <Accordion defaultExpanded={true}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
                 Informacion del producto
               </AccordionSummary>
-              <AccordionDetails sx={{ width: '700px', margin: 'auto' }}>
+              <AccordionDetails sx={{ width: '100%', margin: 'auto' }}>
                 <Typography variant="subtitle1" sx={{ marginBottom: '.5rem' }}>
                   Caracteristicas
                 </Typography>
@@ -247,7 +393,7 @@ const Product = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    width: '500px',
+                    width: '60%',
                     height: 'auto',
                     margin: 'auto'
                   }}
@@ -260,9 +406,10 @@ const Product = () => {
                           key={index}
                           sx={{
                             display: 'flex',
-                            justifyContent: 'space-evenly',
+                            justifyContent: 'space-between',
                             alignItems: 'center',
-                            background: `${index % 2 === 0 ? '#E6E6E6' : 'none'}`
+                            background: `${index % 2 === 0 ? '#E6E6E6' : 'none'}`,
+                            overflow: 'hidden'
                           }}
                         >
                           <ListItemText sx={{ width: '50%', height: 'auto' }}>
@@ -306,7 +453,7 @@ const Product = () => {
               <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
                 Preguntas y respuestas
               </AccordionSummary>
-              <AccordionDetails sx={{ width: '700px', margin: 'auto' }}>
+              <AccordionDetails sx={{ width: '100%', margin: 'auto' }}>
                 <Box
                   component="form"
                   direction={'row'}
@@ -314,7 +461,6 @@ const Product = () => {
                 >
                   <TextField
                     id="input-question"
-                    // label="Make Question"
                     value=""
                     variant="outlined"
                     type="text"
@@ -332,7 +478,7 @@ const Product = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    width: '500px',
+                    width: '100%',
                     height: 'auto',
                     margin: 'auto'
                   }}
