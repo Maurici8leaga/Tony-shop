@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
 import AspectRatio from '@mui/joy/AspectRatio';
@@ -11,7 +12,18 @@ import Button from '@mui/joy/Button';
 import Ratings from '@molecules/rating/Ratings';
 
 const CardItem = (prop) => {
-  const { imgProduct, nameProduct, priceProduct, descriptionProduct, customWidth, customHeight } = prop;
+  const {
+    idProduct,
+    imgProduct,
+    nameProduct,
+    priceProduct,
+    descriptionProduct,
+    customWidth,
+    customHeight,
+    disabledBtn
+  } = prop;
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,8 +33,10 @@ const CardItem = (prop) => {
           height: `${customHeight}`,
           maxWidth: '100%',
           boxShadow: 'lg',
-          borderRadius: 'none'
+          borderRadius: 'none',
+          cursor: 'pointer'
         }}
+        onClick={() => navigate(`/product/${idProduct}`)}
       >
         <CardOverflow>
           <AspectRatio sx={{ minWidth: 200 }}>
@@ -69,7 +83,7 @@ const CardItem = (prop) => {
           {/* las stars y el mount tiene que venir del back y pasarse como prop aca */}
         </CardContent>
 
-        <Button variant="outlined" size="lg">
+        <Button variant="outlined" size="lg" sx={{ display: `${disabledBtn ? 'none' : 'inline-flex'}` }}>
           Agregar al carrito
         </Button>
       </Card>
