@@ -1,10 +1,10 @@
-.bg-container-grid-prueba {
+.bg-container-product {
   margin-top: 100px;
   margin-bottom: 100px;
   padding-top: 50px;
 }
 
-.container-prueba {
+.container-grid-product {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
@@ -12,21 +12,16 @@
   grid-template-areas:
     'img img m'
     'i i m'
-    'p p m'
+    'qa qa m'
     'c c m';
 }
 
-.img-product {
+.img-product-section {
   grid-area: img;
-
-  background-color: green;
 }
 
-.menu {
+.card-product-description {
   grid-area: m;
-
-  background-color: blue;
-
   position: sticky;
   top: 145px;
   // la propiedad "align-self" por defecto es "strech" el cual estira el elemento tan largo como el grid mas largo
@@ -35,60 +30,46 @@
   padding-bottom: 10px;
 }
 
-.menu-card {
+.card-product-description-adaptive {
   grid-area: mc;
   display: none;
 }
 
-.action-card {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-}
-
-.info {
+.info-product-section {
   grid-area: i;
-
-  background-color: yellow;
 }
 
-.pregunta {
-  grid-area: p;
-
-  background-color: orange;
+.question-and-answers-section {
+  grid-area: qa;
 }
 
-.calificacion {
+.calification-product-section {
   grid-area: c;
-
-  background-color: red;
 }
 
 // querys
 
 // mobile
 @media (min-width: 350px) and (max-width: 600px) {
-  .container-prueba {
+  .container-grid-product {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
       'mc mc'
       'i i '
-      'p p'
+      'qa qa'
       'c c';
   }
 
-  .img-product {
+  .img-product-section {
     display: none;
   }
 
-  .menu {
+  .card-product-description {
     display: none;
   }
 
-  .menu-card {
+  .card-product-description-adaptive {
     display: flex;
     flex-direction: column;
   }
@@ -96,25 +77,25 @@
 
 // tablet
 @media (min-width: 600px) and (max-width: 1200px) {
-  .container-prueba {
+  .container-grid-product {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-template-areas:
       'mc mc'
       'i i '
-      'p p'
+      'qa qa'
       'c c';
   }
 
-  .img-product {
+  .img-product-section {
     display: none;
   }
 
-  .menu {
+  .card-product-description {
     display: none;
   }
 
-  .menu-card {
+  .card-product-description-adaptive {
     display: flex;
     flex-direction: column;
   }

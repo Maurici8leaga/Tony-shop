@@ -303,3 +303,28 @@ export const rangeCalification = [
   { mount: 6, value: 2, id: 4 },
   { mount: 0, value: 1, id: 5 }
 ];
+
+export const imgsProduct = [
+  { id: 1, img: 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275' },
+  {
+    id: 2,
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8vW2ZGX96EGYANmWC0lf5hMP15jAGuV-K9fb0GQoUhnwLNOybsrAuJBRp_YpPQNzP6Pk&usqp=CAU'
+  },
+  {
+    id: 3,
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO7xhvZAEtfZBmxQGVGHWGJRWBp3I0sFV3SYPn9zqjQofUerr6UYaFBQsyQ_N_lqWt3Z0&usqp=CAU'
+  },
+  {
+    id: 4,
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSyB0T6VoY4C2hudY6QUdpQTJVt2ppuCyjomDNqUJf20x3SrvQMxzU_FG8jQKdMFGr3E&usqp=CAU'
+  }
+];
+
+export const caracteristicasProductoTabla = [
+  { Marca: 'AGV' },
+  { Línea: 'K1' },
+  { Modelo: 'Pista GP R' },
+  { Norma: 'ECE 22 05' },
+  { Tipo: 'Integral' },
+  { Edad: 'Adulto' }
+];
