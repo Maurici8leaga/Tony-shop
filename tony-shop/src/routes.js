@@ -34,8 +34,14 @@ export const AppRouter = () => {
       element: <Product />
     },
     {
-      path: '/profile',
-      element: <Profile />
+      path: '/account',
+      children: [
+        {
+          path: 'profile',
+          element: <Profile />
+        },
+        {}
+      ]
     }
   ]);
 

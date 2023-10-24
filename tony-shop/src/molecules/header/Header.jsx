@@ -199,7 +199,7 @@ const Header = () => {
                   aria-haspopup="true"
                   color="inherit"
                   component="a"
-                  href="#Account"
+                  href="/account/profile"
                 >
                   <AccountCircle />
                 </IconButton>

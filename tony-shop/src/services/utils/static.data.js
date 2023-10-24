@@ -333,7 +333,7 @@ export const caracteristicasProductoTabla = [
 ];
 
 export const opcionMenuProfile = [
-  { id: 1, type: 'Mis datos', icon: <PersonOutlineOutlinedIcon />, url: '/profile' },
+  { id: 1, type: 'Mis datos', icon: <PersonOutlineOutlinedIcon />, url: '/account/profile' },
   { id: 2, type: 'Direcciones', icon: <MapOutlinedIcon />, url: '' },
   { id: 3, type: 'Compras', icon: <ShoppingBagOutlinedIcon />, url: '' },
   { id: 4, type: 'Favoritos', icon: <FavoriteBorderOutlinedIcon />, url: '' }
