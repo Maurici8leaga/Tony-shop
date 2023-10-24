@@ -18,7 +18,7 @@ const DirectionsModal = (prop) => {
       <Box
         sx={{
           position: 'absolute',
-          width: '500px',
+          width: { xs: '80%', sm: '500px' },
           height: 'auto',
           padding: '32px',
           top: '50%',
