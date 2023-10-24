@@ -6,6 +6,7 @@ import ProductsList from '@atoms/productsList/ProductsList';
 import MotorCycleMenu from '@atoms/menu-Category/MotorCycleMenu';
 import Product from '@atoms/product-description/Product';
 import Profile from '@atoms/profile/Profile';
+import MyAddresses from '@atoms/addresses/MyAddresses';
 
 export const AppRouter = () => {
   const elements = useRoutes([
@@ -40,7 +41,10 @@ export const AppRouter = () => {
           path: 'profile',
           element: <Profile />
         },
-        {}
+        {
+          path: 'myAddresses',
+          element: <MyAddresses />
+        }
       ]
     }
   ]);
