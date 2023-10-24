@@ -1,5 +1,4 @@
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 // static
@@ -21,6 +20,10 @@ import KeewayLogo from '@assets/img/KeewayLogo.webp';
 import HondaLogo from '@assets/img/HondaLogo.webp';
 import KawasakiLogo from '@assets/img/KawasakiLogo.webp';
 import SuzukiLogo from '@assets/img/SuzukiLogo.webp';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -327,4 +330,11 @@ export const caracteristicasProductoTabla = [
   { Norma: 'ECE 22 05' },
   { Tipo: 'Integral' },
   { Edad: 'Adulto' }
+];
+
+export const opcionMenuProfile = [
+  { id: 1, type: 'Mis datos', icon: <PersonOutlineOutlinedIcon />, url: '/profile' },
+  { id: 2, type: 'Direcciones', icon: <MapOutlinedIcon />, url: '' },
+  { id: 3, type: 'Compras', icon: <ShoppingBagOutlinedIcon />, url: '' },
+  { id: 4, type: 'Favoritos', icon: <FavoriteBorderOutlinedIcon />, url: '' }
 ];

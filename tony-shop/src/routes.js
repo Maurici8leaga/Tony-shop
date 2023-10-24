@@ -5,6 +5,7 @@ import Login from '@atoms/auth/login/Login';
 import ProductsList from '@atoms/productsList/ProductsList';
 import MotorCycleMenu from '@atoms/menu-Category/MotorCycleMenu';
 import Product from '@atoms/product-description/Product';
+import Profile from '@atoms/profile/Profile';
 
 export const AppRouter = () => {
   const elements = useRoutes([
@@ -25,12 +26,16 @@ export const AppRouter = () => {
       element: <ProductsList />
     },
     {
-      path: 'category-menu/motorcycle',
+      path: 'category-menu/motorcycle', // oOJO AQUI ESTO HAY QUE REVISAR
       element: <MotorCycleMenu />
     },
     {
-      path: 'product/:idProduct',
+      path: 'product/:idProduct', // oOJO AQUI ESTO HAY QUE REVISAR
       element: <Product />
+    },
+    {
+      path: '/profile',
+      element: <Profile />
     }
   ]);
 
