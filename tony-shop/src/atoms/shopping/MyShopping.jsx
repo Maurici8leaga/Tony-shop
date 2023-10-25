@@ -40,11 +40,11 @@ const MyShopping = () => {
             <List sx={{ width: '100%', overflowY: 'scroll' }}>
               <ListItem>
                 <Card color="neutral" orientation="horizontal" variant="soft" sx={{ width: '100%' }}>
-                  <AspectRatio ratio="1" sx={{ width: 90, height: '90%' }}>
+                  <AspectRatio ratio="1" sx={{ width: 90, alignSelf: 'center' }}>
                     <img
                       srcSet="https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275"
                       loading="lazy"
-                      alt="img-product"
+                      alt="img-product" // colorcar un alt org
                     />
                   </AspectRatio>
 

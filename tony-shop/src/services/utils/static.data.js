@@ -336,5 +336,5 @@ export const opcionMenuProfile = [
   { id: 1, type: 'Mis datos', icon: <PersonOutlineOutlinedIcon />, url: '/account/profile' },
   { id: 2, type: 'Direcciones', icon: <MapOutlinedIcon />, url: '/account/myAddresses' },
   { id: 3, type: 'Compras', icon: <ShoppingBagOutlinedIcon />, url: '/account/myShopping' },
-  { id: 4, type: 'Favoritos', icon: <FavoriteBorderOutlinedIcon />, url: '' }
+  { id: 4, type: 'Favoritos', icon: <FavoriteBorderOutlinedIcon />, url: '/account/favorites' }
 ];

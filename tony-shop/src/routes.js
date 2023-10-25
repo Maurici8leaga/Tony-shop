@@ -8,6 +8,7 @@ import Product from '@atoms/product-description/Product';
 import Profile from '@atoms/profile/Profile';
 import MyAddresses from '@atoms/addresses/MyAddresses';
 import MyShopping from '@atoms/shopping/MyShopping';
+import FavoriteList from '@atoms/favorite-list/FavoriteList';
 
 export const AppRouter = () => {
   const elements = useRoutes([
@@ -49,6 +50,10 @@ export const AppRouter = () => {
         {
           path: 'myShopping',
           element: <MyShopping />
+        },
+        {
+          path: 'favorites',
+          element: <FavoriteList />
         }
       ]
     }
