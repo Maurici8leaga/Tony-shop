@@ -54,44 +54,19 @@ const MyAddresses = () => {
                 overflowY: 'scroll'
               }}
             >
+              {/* este stack va a multiplicarse por la cantidad que tenga el user en la DB */}
               <Stack
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
                 sx={{ width: '100%', height: '60px', backgroundColor: '#eeee', marginY: '.5rem', padding: '10px' }}
               >
-                {/* este stack va a multiplicarse por la cantidad que tenga el user en la DB */}
                 <Stack direction="row" gap={1} alignItems="center" sx={{ width: '90%' }}>
                   <LocationOnOutlinedIcon />
 
                   <Typography variant="body2">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor.
                   </Typography>
-                </Stack>
-
-                <Stack direction="row">
-                  <IconButton color="warning" onClick={handleOpen}>
-                    {/* falta crear un modal especifico para editar la direccion */}
-                    <CreateOutlinedIcon />
-                  </IconButton>
-
-                  <IconButton color="error">
-                    <DeleteOutlineOutlinedIcon />
-                  </IconButton>
-                </Stack>
-              </Stack>
-
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{ width: '100%', height: '60px', backgroundColor: '#eeee', marginY: '.5rem', padding: '10px' }}
-              >
-                {/* este stack va a multiplicarse por la cantidad que tenga el user en la DB */}
-                <Stack direction="row" gap={1} alignItems="center" sx={{ width: '90%' }}>
-                  <LocationOnOutlinedIcon />
-
-                  <Typography variant="body2">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</Typography>
                 </Stack>
 
                 <Stack direction="row">

@@ -56,7 +56,7 @@ const FavoriteList = () => {
             <Stack direction="row" justifyContent="start" alignItems="center" sx={{ width: '100%', marginY: '1rem' }}>
               <Typography variant="h5" sx={{ marginY: '1rem' }}>
                 {' '}
-                Mis de favoritos
+                Mis favoritos
               </Typography>
             </Stack>
 
