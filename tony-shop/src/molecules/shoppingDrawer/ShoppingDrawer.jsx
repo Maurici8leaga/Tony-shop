@@ -30,74 +30,74 @@ const ShopingDrawer = (prop) => {
   return (
     <>
       <Drawer open={openShoppingDrawer} anchor="right" onClose={() => setOpenShoppingDrawer(false)}>
-        <Box sx={{ width: '350px' }}>
-          <nav>
-            <List>
-              <ListItem>
-                <IconButton onClick={() => setOpenShoppingDrawer(false)}>
-                  <CloseIcon />
-                </IconButton>
-              </ListItem>
+        <Box component="nav" sx={{ width: '350px' }}>
+          <List>
+            <ListItem>
+              <IconButton onClick={() => setOpenShoppingDrawer(false)}>
+                <CloseIcon />
+              </IconButton>
+            </ListItem>
 
-              <ListItem sx={{ display: 'block' }}>
-                <Typography variant="h6" align="center" sx={{ color: `${darkBlue}` }}>
-                  Tu carro de compras
-                </Typography>
-              </ListItem>
-              <Divider sx={{ my: 2 }} />
+            <ListItem sx={{ display: 'block' }}>
+              <Typography variant="h6" align="center" sx={{ color: `${darkBlue}` }}>
+                Tu carro de compras
+              </Typography>
+            </ListItem>
+            <Divider sx={{ my: 2 }} />
 
-              <Container fixed sx={{ my: 2 }}>
-                {/* possible products */}
-                <HorizontalCard
-                  inputRef={inputRef}
-                  imgProduct={imgPruebaProduct}
-                  nameProduct={'Caja'}
-                  priceProduct={20}
-                />
+            <Container fixed sx={{ my: 2 }}>
+              {/* possible products */}
+              <HorizontalCard
+                inputRef={inputRef}
+                imgProduct={imgPruebaProduct}
+                nameProduct={'Casco'}
+                priceProduct={11.11}
+              />
 
-                {/* botom de pago */}
-                <Stack sx={{ width: '85%', position: 'absolute' }} direction={'column'} spacing={10}>
-                  <BottomNavigation>
-                    {/* BottomNavigaation permite centrar el elemento en el medio del drawer para asi poder colocar
+              {/* botom de pago */}
+              <Stack sx={{ width: '85%', position: 'absolute' }} direction={'column'} spacing={10}>
+                <BottomNavigation>
+                  {/* BottomNavigaation permite centrar el elemento en el medio del drawer para asi poder colocar
                   el elemento al fondo del drawer */}
-                    <Box
-                      sx={{
-                        width: '100%',
-                        display: 'block',
-                        position: 'relative',
-                        top: 30,
-                        bottom: 0,
-                        left: 0,
-                        right: 0
-                      }}
-                    >
-                      <Stack direction={'row'} sx={{ py: 2, color: `${lightBlue}` }}>
-                        {/* subtotal */}
-                        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                          Subtotal:
-                        </Typography>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      display: 'block',
+                      position: 'relative',
+                      top: 30,
+                      bottom: 0,
+                      left: 0,
+                      right: 0
+                    }}
+                  >
+                    <Stack direction={'row'} sx={{ py: 2, color: `${lightBlue}` }}>
+                      {/* subtotal */}
+                      <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                        Subtotal:
+                      </Typography>
 
-                        {/* aqui debe ir el monto total de lo que tenga en el carrito */}
-                        <Typography variant="h6"> $$$ </Typography>
-                      </Stack>
+                      {/* aqui debe ir el monto total de lo que tenga en el carrito */}
+                      <Typography variant="h6"> $$$ </Typography>
+                    </Stack>
 
-                      <Stack spacing={2}>
-                        <Button
-                          variant="contained"
-                          size="large"
-                          sx={{ mb: 2 }}
-                          color="success"
-                          endIcon={<ShoppingCartIcon />}
-                        >
-                          Ir a pagar
-                        </Button>
-                      </Stack>
-                    </Box>
-                  </BottomNavigation>
-                </Stack>
-              </Container>
-            </List>
-          </nav>
+                    <Stack spacing={2}>
+                      <Button
+                        component="a"
+                        variant="contained"
+                        size="large"
+                        href="/checkout"
+                        sx={{ mb: 2 }}
+                        color="success"
+                        endIcon={<ShoppingCartIcon />}
+                      >
+                        Ir a pagar
+                      </Button>
+                    </Stack>
+                  </Box>
+                </BottomNavigation>
+              </Stack>
+            </Container>
+          </List>
         </Box>
       </Drawer>
     </>

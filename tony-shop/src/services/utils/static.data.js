@@ -81,7 +81,7 @@ export const bykeModels = [
   { title: 'Yamaha' }
 ];
 
-export const imgPruebaProduct = 'https://static.thenounproject.com/png/1375593-200.png';
+export const imgPruebaProduct = 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275';
 
 // las imagenes se tiene que ver si se van a dejar local en el proyecto o se va llevar a cloudinary
 export const dataCarousel = [
