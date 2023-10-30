@@ -118,42 +118,6 @@ const Header = () => {
           >
             {/* AQUI VAN LA LISTA DE ELEMENTOS DEL MENU  */}
             <Box sx={{ display: { xs: 'none', md: 'none', lg: 'flex' } }}>
-              <Button
-                id="category-btn"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                sx={{
-                  my: 2,
-                  color: 'inherit',
-                  '&:hover': {
-                    color: `${strongRed}`
-                  },
-                  display: 'flex'
-                }}
-                endIcon={<KeyboardArrowDownIcon />}
-                // href="category-menu/motorcycle"
-              >
-                Modelos
-              </Button>
-
-              <Menu
-                id="category-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'category-btn'
-                }}
-              >
-                {bykeModels.map((item) => (
-                  <MenuItem key={`bike_${item.title}`} onClick={handleClose}>
-                    {item.title}
-                  </MenuItem>
-                ))}
-              </Menu>
-
               {navLinks.map((link) => (
                 <Button
                   component="a"

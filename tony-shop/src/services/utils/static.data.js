@@ -48,6 +48,7 @@ export const tonyShopDataInfo = {
 };
 
 export const navLinks = [
+  { title: 'Modelos', path: '/category-menu/motorcycle' },
   { title: 'Productos', path: '/#listCatg' },
   { title: 'Registrate', path: '/register' },
   { title: 'Ingresar', path: '/login' }
