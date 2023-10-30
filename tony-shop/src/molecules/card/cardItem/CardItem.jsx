@@ -11,6 +11,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/joy/Button';
 import Ratings from '@molecules/rating/Ratings';
 
+import Link from '@mui/joy/Link';
+
 const CardItem = (prop) => {
   const {
     idProduct,
@@ -33,13 +35,11 @@ const CardItem = (prop) => {
           height: `${customHeight}`,
           maxWidth: '100%',
           boxShadow: 'lg',
-          borderRadius: 'none',
-          cursor: 'pointer'
+          borderRadius: 'none'
         }}
-        onClick={() => navigate(`/product/${idProduct}`)}
       >
         <CardOverflow>
-          <AspectRatio sx={{ minWidth: 200 }}>
+          <AspectRatio sx={{ minWidth: 200, cursor: 'pointer' }} onClick={() => navigate(`/product/${idProduct}`)}>
             <img src={imgProduct} loading="lazy" alt="" style={{ opacity: 1 }} />
           </AspectRatio>
 
