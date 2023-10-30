@@ -45,27 +45,22 @@ const Footer = () => {
               <ListSubheader>Productos</ListSubheader>
               <List sx={{ alignItems: 'center' }}>
                 <ListItem>
-                  <ListItemButton component="a" href="#">
-                    Accesorios
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton component="a" href="#">
+                  <ListItemButton component="a" href="/category-menu/motorcycle">
                     Modelos
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton component="a" href="#">
+                  <ListItemButton component="a" href="/#listSale">
                     En ofertas
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton component="a" href="#">
+                  <ListItemButton component="a" href="/#listPopular">
                     Popular
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton component="a" href="#">
+                  <ListItemButton component="a" href="/#listCatg">
                     Categorias
                   </ListItemButton>
                 </ListItem>
@@ -86,8 +81,9 @@ const Footer = () => {
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton component="a" href="#">
-                    Compras
+                  <ListItemButton component="a" href="/account/profile">
+                    {/* pero hay que colocar logica para que si no esta logeado no entre */}
+                    Mi perfil
                   </ListItemButton>
                 </ListItem>
               </List>
@@ -97,21 +93,21 @@ const Footer = () => {
               <ListSubheader>Contacto</ListSubheader>
               <List sx={{ alignItems: 'center' }}>
                 <ListItem>
-                  <ListItemButton component="a" href={instagram}>
+                  <ListItemButton component="a" href={instagram} target="_blank">
                     <InstagramIcon />
                     Tony's moto shop
                   </ListItemButton>
                 </ListItem>
 
                 <ListItem>
-                  <ListItemButton component="a" href="#" sx={{ flexGrow: 1 }}>
+                  <ListItemButton component="a" href="#" target="_blank" sx={{ flexGrow: 1 }}>
                     <WhatsAppIcon sx={{ color: 'green' }} />
                     Consultas
                   </ListItemButton>
                 </ListItem>
 
                 <ListItem>
-                  <ListItemButton component="a" href={googleMaps}>
+                  <ListItemButton component="a" href={googleMaps} target="_blank">
                     <FmdGoodIcon sx={{ color: 'red' }} />
                     Tienda
                   </ListItemButton>
@@ -139,7 +135,12 @@ const Footer = () => {
             </ListItem>
             <Divider orientation="vertical" />
             <ListItem nested sx={{ width: { xs: '100%', md: 250 }, alignItems: 'center' }}>
-              <ListItemButton component="a" href="#" sx={{ justifyContent: 'center' }}>
+              <ListItemButton
+                component="a"
+                href="https://github.com/Maurici8leaga"
+                target="_blank" // este sirve para renderizar a otra pag con otro tab
+                sx={{ justifyContent: 'center' }}
+              >
                 Web Services desing
               </ListItemButton>
             </ListItem>

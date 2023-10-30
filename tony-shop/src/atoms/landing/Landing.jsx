@@ -21,7 +21,7 @@ const Landing = () => {
       </div>
 
       <Container fixed>
-        <section className="mg-slider">
+        <section id="listSale" className="mg-slider">
           <Typography variant="h6" sx={{ mb: 2 }}>
             Productos en ofertas
           </Typography>
@@ -29,7 +29,7 @@ const Landing = () => {
           <SliderGrid />
         </section>
 
-        <section className="mg-slider">
+        <section id="listPopular" className="mg-slider">
           <Typography variant="h6" sx={{ mb: 2 }}>
             Lo mas vendido
           </Typography>
