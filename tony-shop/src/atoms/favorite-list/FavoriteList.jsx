@@ -63,7 +63,7 @@ const FavoriteList = () => {
             <List sx={{ width: '80%', height: '100%', overflowY: 'scroll' }}>
               {/* este listitem se va a repetir por cada elemento en  favoritos */}
               <ListItem>
-                <Card color="neutral" orientation="horizontal" variant="soft" sx={{ width: '100%' }}>
+                <Card color="neutral" orientation="horizontal" variant="outlined" sx={{ width: '100%' }}>
                   <AspectRatio ratio="1" sx={{ width: 90, alignSelf: 'center' }}>
                     <img
                       srcSet="https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275"
