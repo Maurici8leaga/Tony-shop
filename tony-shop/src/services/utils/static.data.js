@@ -93,7 +93,10 @@ export const dataCarousel = [
     titleh1: 'Tonys Moto Shop',
     titleh2: null,
     subtitle: 'Tenemos tienda fisica',
-    btnText: 'VISITAR'
+    btnText: 'VISITAR',
+    href:
+      // eslint-disable-next-line quotes
+      "https://www.google.com/maps/place/Tony's+Moto+Shop/@10.5147383,-66.9340293,19.83z/data=!4m13!1m7!3m6!1s0x8c2a5ef21782a55b:0x18763fb9daae6e9f!2sCalle+1ra+El+Caribe+%26+Av.+Sucre,+Caracas+1030,+Distrito+Capital!3b1!8m2!3d10.516114!4d-66.9405432!3m4!1s0x8c2a5f1f46436b0b:0x3d3fc3deeab140d!8m2!3d10.5147111!4d-66.9336983?hl=es"
   },
   {
     id: 2,
@@ -102,7 +105,8 @@ export const dataCarousel = [
     title: null,
     titleh2: 'Tenemos variedad de productos y repuestos',
     subtitle: null,
-    btnText: 'VER PRODUCTOS'
+    btnText: 'VER PRODUCTOS',
+    href: '/#listCatg'
   },
   {
     id: 3,
@@ -111,7 +115,8 @@ export const dataCarousel = [
     titleh1: null,
     titleh2: 'Contamos con delivery por toda Caracas',
     subtitle: null,
-    btnText: 'PEDIR DELIVERY'
+    btnText: 'PEDIR DELIVERY',
+    href: '#'
   }
 ];
 

@@ -28,6 +28,7 @@ const Slider = () => {
             titleh2={slide.titleh2}
             subtitle={slide.subtitle}
             btnText={slide.btnText}
+            href={slide.href}
           />
         ))}
       </Splide>
