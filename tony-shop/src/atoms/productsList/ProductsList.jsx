@@ -18,6 +18,8 @@ import { listaProductosPrueba } from '@services/utils/static.data';
 // css
 import '../productsList/ProductsList.scss';
 
+import Typography from '@mui/material/Typography';
+
 const ProductsList = () => {
   // de esta forma se puede obtener el nombre de la lista de productos
   const { id } = useParams();
@@ -40,7 +42,9 @@ const ProductsList = () => {
   const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
 
   // handle para cambiar las paginas
-  const handleChange = (value) => {
+
+  const handleChange = (event, value) => {
+    // OJO DEJAR "event" PORQUE SI NO DA ERROR
     setPage(value);
   };
 
@@ -138,7 +142,8 @@ const ProductsList = () => {
             >
               {/* hay que crear una funcionalidad para colocar cuantos productos va a desplegar por pagina y asi saber cuantas paginass
               tendra y asi poder colocar el count real */}
-              <Pagination count={10} siblingCount={0} page={page} onChange={handleChange} color="primary" />
+              <Pagination count={10} page={page} onChange={handleChange} color="primary" />
+              {/* <Pagination count={10} siblingCount={0} page={page} onChange={handleChange} color="primary" /> */}
             </Stack>
           </div>
         </div>
