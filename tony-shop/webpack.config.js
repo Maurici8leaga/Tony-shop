@@ -27,6 +27,14 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // Inyecta los estilos en la página
+          'css-loader', // Carga archivos CSS
+          'sass-loader' // Compila archivos SCSS a CSS
+        ]
+      },
+      {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           'file-loader',
@@ -56,7 +64,16 @@ module.exports = {
   ],
   // resolve: es donde dejo registradas todas las extensiones que estoy resolviendo de cara al build
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.png']
+    extensions: ['.js', '.jsx', '.css', '.png'],
+    alias: {
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@atoms': path.resolve(__dirname, 'src/atoms'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@molecules': path.resolve(__dirname, 'src/molecules'),
+      '@redux-toolkit': path.resolve(__dirname, 'src/redux-toolkit'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@root': path.resolve(__dirname, 'src')
+    }
   },
   // me permite habilitar recomendaciones, manejo de errores, warnings, etc para añadir configuraciones y mejorar mi build en temas de performance
   performance: {
