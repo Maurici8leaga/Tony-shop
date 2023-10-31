@@ -18,8 +18,6 @@ import { listaProductosPrueba } from '@services/utils/static.data';
 // css
 import '../productsList/ProductsList.scss';
 
-import Typography from '@mui/material/Typography';
-
 const ProductsList = () => {
   // de esta forma se puede obtener el nombre de la lista de productos
   const { id } = useParams();
