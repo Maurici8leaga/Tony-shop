@@ -23,6 +23,7 @@ const Slider = () => {
         {dataCarousel.map((slide) => (
           <SliderElement
             key={slide.id}
+            id={slide.id}
             img={slide.img}
             titleh1={slide.titleh1}
             titleh2={slide.titleh2}

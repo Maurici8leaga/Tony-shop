@@ -5,18 +5,18 @@ import './SliderElement.scss';
 import '@splidejs/react-splide/css';
 
 const SliderElement = (prop) => {
-  const { img, titleImg, titleh1, titleh2, subtitle, subtitleSize, btnText, href } = prop;
+  const { id, img, titleImg, titleh1, titleh2, subtitle, btnText, href } = prop;
   return (
     <>
       <SplideSlide>
-        <a href={href}>
+        <figure>
           <img src={img} alt={`${titleImg}_img`} />
           <div className="splide__body">
             {titleh1 ? <h1>{titleh1}</h1> : <h2>{titleh2}</h2>}
-            {subtitle ? <p className={subtitleSize}>{subtitle}</p> : <></>}
-            <ButtonSlider text={btnText} />
+            {subtitle ? <p>{subtitle}</p> : <></>}
+            <ButtonSlider text={btnText} id={id} href={href} />
           </div>
-        </a>
+        </figure>
       </SplideSlide>
     </>
   );

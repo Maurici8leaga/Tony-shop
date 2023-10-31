@@ -4,7 +4,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
 const ButtonSlider = (prop) => {
-  const { text } = prop;
+  const { text, id, href } = prop;
 
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -48,26 +48,30 @@ const ButtonSlider = (prop) => {
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity')
   }));
+
   return (
     <>
       <ImageButton
         focusRipple
-        key="prrueba"
+        key={`btn-slider-${id}`}
         style={{
-          width: '20px'
+          width: '20px',
+          marginTop: '1rem'
         }}
       >
         <Image>
           <Typography
-            component="span"
+            component="a"
             variant="subtitle1"
             color="inherit"
             sx={{
               position: 'relative',
               p: 4,
               pt: 2,
-              pb: (theme) => `calc(${theme.spacing(1)} + 6px)`
+              pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+              textDecoration: 'none'
             }}
+            href={href}
           >
             {text}
             <ImageMarked className="MuiImageMarked-root" />
