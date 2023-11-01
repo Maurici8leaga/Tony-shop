@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import * as React from 'react';
-// components
 import Sheet from '@mui/joy/Sheet';
 import Box from '@mui/joy/Box';
 import List from '@mui/joy/List';
@@ -12,7 +11,6 @@ import Typography from '@mui/joy/Typography';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// static
 import { mainColors, tonyShopDataInfo } from '@services/utils/static.data';
 
 const Footer = () => {
@@ -82,7 +80,6 @@ const Footer = () => {
                 </ListItem>
                 <ListItem>
                   <ListItemButton component="a" href="/account/profile">
-                    {/* pero hay que colocar logica para que si no esta logeado no entre */}
                     Mi perfil
                   </ListItemButton>
                 </ListItem>
@@ -94,7 +91,6 @@ const Footer = () => {
               <List sx={{ alignItems: 'center' }}>
                 <ListItem>
                   <ListItemButton component="a" href={instagram} target="_blank">
-                    {/* OJO HAY QUE CAMBIAR TARGET POR UNA FUNCION YA QUE LOS BROWSER YA NO LA USAN MAS */}
                     <InstagramIcon />
                     Tony's moto shop
                   </ListItemButton>
@@ -102,7 +98,6 @@ const Footer = () => {
 
                 <ListItem>
                   <ListItemButton component="a" href="#" target="_blank" sx={{ flexGrow: 1 }}>
-                    {/* OJO HAY QUE CAMBIAR TARGET POR UNA FUNCION YA QUE LOS BROWSER YA NO LA USAN MAS */}
                     <WhatsAppIcon sx={{ color: 'green' }} />
                     Consultas
                   </ListItemButton>
@@ -110,7 +105,6 @@ const Footer = () => {
 
                 <ListItem>
                   <ListItemButton component="a" href={googleMaps} target="_blank">
-                    {/* OJO HAY QUE CAMBIAR TARGET POR UNA FUNCION YA QUE LOS BROWSER YA NO LA USAN MAS */}
                     <FmdGoodIcon sx={{ color: 'red' }} />
                     Tienda
                   </ListItemButton>
@@ -138,11 +132,10 @@ const Footer = () => {
             </ListItem>
             <Divider orientation="vertical" />
             <ListItem nested sx={{ width: { xs: '100%', md: 250 }, alignItems: 'center' }}>
-              {/* OJO HAY QUE CAMBIAR TARGET POR UNA FUNCION YA QUE LOS BROWSER YA NO LA USAN MAS */}
               <ListItemButton
                 component="a"
                 href="https://github.com/Maurici8leaga"
-                target="_blank" // este sirve para renderizar a otra pag con otro tab
+                target="_blank"
                 sx={{ justifyContent: 'center' }}
               >
                 Web Services desing

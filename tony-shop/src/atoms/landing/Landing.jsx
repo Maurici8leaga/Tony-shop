@@ -1,16 +1,12 @@
-// component UI
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/joy/Box';
 import Grid from '@mui/material/Grid';
-// component jssx
 import Slider from '@molecules/slider/Slider';
 import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
 import SliderBrand from '@molecules/slider/sliderBrand/SliderBrand';
 import ListCategory from '@molecules/listCategory/ListCategory';
-// static data
 import { listCategory } from '@services/utils/static.data';
-// scss
 import '@atoms/landing/Landing.scss';
 
 const Landing = () => {

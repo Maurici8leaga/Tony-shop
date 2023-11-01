@@ -2,16 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  // mode: defines el entorno para el cual estamos configurando el build
-  mode: 'production', // none, // development, production
-  // entry: apuntas al archivo de entrada a la aplicación
+  mode: 'production',
   entry: './src/index.js',
-  // output: defines donde alojarás los archivos estáticos generados y puedes personalizar el nombre del archivo estático del js
   output: {
-    path: path.join(__dirname, 'public'), // tmdb-app-webpack/public
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
-  // module rules: defines las configuraciones y reglas para la carga de las extensiones que tengan tus archivos
   module: {
     rules: [
       {
@@ -28,11 +24,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader', // Inyecta los estilos en la página
-          'css-loader', // Carga archivos CSS
-          'sass-loader' // Compila archivos SCSS a CSS
-        ]
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -41,8 +33,8 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true, // primero, leerá el recurso y verá si es un recurso seguro y lo sanitiza
-              disable: true // no lea el recurso de forma inmediata
+              bypassOnDebug: true,
+              disable: true
             }
           }
         ]
@@ -56,13 +48,11 @@ module.exports = {
       }
     ]
   },
-  // plugins: son características que me permiten darle soporte a mi configuración con webpack
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react'
     })
   ],
-  // resolve: es donde dejo registradas todas las extensiones que estoy resolviendo de cara al build
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.png'],
     alias: {
@@ -75,35 +65,24 @@ module.exports = {
       '@root': path.resolve(__dirname, 'src')
     }
   },
-  // me permite habilitar recomendaciones, manejo de errores, warnings, etc para añadir configuraciones y mejorar mi build en temas de performance
   performance: {
-    hints: process.env.NODE_ENV === 'production' ? 'error' : false, // error (red), warning (yellow), false (no quieres que haga nada),
-    // no quiere decir que para procesar los recursos tenga que ocupar todo la memoria del buffer disponible
-    maxEntrypointSize: 580000, // el buffer de entrada de los archivos que se van a procesar para el build: js y css
-    maxAssetSize: 580000 // el buffer de entrada para cada recurso que no sea js ni css, por ej: images, json, etc...
-    /* assetFilter: function(assetFilename) { // sirve para excluir un recurso de la estimación del buffer, para no agregarlo al presupuesto
-      return !assetFilename.endsWith('.jpg');
-    }, */
+    hints: process.env.NODE_ENV === 'production' ? 'error' : false,
+    maxEntrypointSize: 580000,
+    maxAssetSize: 580000
   },
-  // me permite crear y configurar un servidor proxy reverso para saber como se está comportando mi proyecto que se va ir a producción a partir del build
   devServer: {
     proxy: {
       '/api': {
-        // habilitar una ruta de direccionamiento de este servidor proxy vs el de desarrollo
-        target: 'http://127.0.0.1:8080', // el puerto en el cual levantaremos el servidor proxy de webpack
-        changeOrigin: true, // habilitar este ecosistema nuevo desde el origen específicado
-        secure: false, // que no me pida ssl
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+        secure: false,
         pathRewrite: {
-          // toma el código del build para ese código levantarlo en el server proxy de webpack
           '^/api': '/api'
         }
       }
     },
-    // doble check en caliente para verificar que las definiciones del performance se hayan gestionado correctamente para el dev-server
     hot: true,
-    // static: define la ruta obsoluta para el directorio donde van a caer los recursos con sus importaciones correctamente, para que se reflejen bien en el dev-server
-    static: path.resolve(__dirname, 'public') // c://bootcamp-mern/tmdb-app-webpack/public
+    static: path.resolve(__dirname, 'public')
   },
-  // devtool-source:map: es el inspector de recomendaciones y errores en la generación del build para producción
   devtool: 'source-map'
 };

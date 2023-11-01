@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import DoorFrontOutlinedIcon from '@mui/icons-material/DoorFrontOutlined';
-// static data
 import { opcionMenuProfile } from '@services/utils/static.data';
 
 function MenuProfileAdaptive() {

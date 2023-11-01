@@ -1,7 +1,6 @@
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-// static
 import BreakIcon from '@assets/icons/breakIcon.svg';
 import LubricIcon1 from '@assets/icons/lubricIcon.svg';
 import NeumaticIcon from '@assets/icons/neumaticIcon.svg';
@@ -24,6 +23,8 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+
+// in this file there are some fake data for BETA purposes only
 
 export const mainColors = {
   darkBlue: '#041562',
@@ -73,7 +74,6 @@ export const drawerLinks = [
   { title: 'Contacto', path: '#', icon: <PhoneIphoneIcon /> }
 ];
 
-// temporal porque esto va a cambiar con la base de datos y el backend
 export const bykeModels = [
   { title: 'Bera' },
   { title: 'Honda' },
@@ -84,7 +84,6 @@ export const bykeModels = [
 
 export const imgPruebaProduct = 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275';
 
-// las imagenes se tiene que ver si se van a dejar local en el proyecto o se va llevar a cloudinary
 export const dataCarousel = [
   {
     id: 1,
@@ -290,7 +289,6 @@ export const listMotorcycleBrand = [
   }
 ];
 
-// fake data para categoria del menu de filtros
 export const categoryMenuData = [
   { data: 'Lubricantes', num: 12, id: 1 },
   { data: 'Repuesto', num: 20, id: 2 },
@@ -298,7 +296,6 @@ export const categoryMenuData = [
   { data: 'Otros', num: 9, id: 4 }
 ];
 
-// fake data para rango de precioss del menu del filtros
 export const rangePrice = [
   { range: 'Hasta 5 USD$', mount: 5, id: 1 },
   { range: '1USD$ a 8 USD$', mount: 12, id: 2 },

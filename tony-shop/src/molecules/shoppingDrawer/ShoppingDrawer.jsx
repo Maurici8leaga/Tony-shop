@@ -1,7 +1,5 @@
 import * as React from 'react';
-// components
 import HorizontalCard from '@molecules/card/horizontalCard/HorizontalCard';
-// material UI components
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -14,7 +12,6 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-// static data
 import { mainColors, imgPruebaProduct } from '@services/utils/static.data';
 
 const ShopingDrawer = (prop) => {
@@ -22,9 +19,7 @@ const ShopingDrawer = (prop) => {
 
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
 
-  // DUDAS SOBRE USAR ESTE HOOk
   const inputRef = React.useRef(null);
-  // el hook useRef permite tener consistencia con el valor del input en que se implemente despues de cada renderizado
 
   return (
     <Drawer open={openShoppingDrawer} anchor="right" onClose={() => setOpenShoppingDrawer(false)}>
@@ -44,7 +39,6 @@ const ShopingDrawer = (prop) => {
         <Divider sx={{ my: 2 }} />
 
         <List sx={{ height: { xs: '450px', sm: '500px', md: '600px' }, overflowY: 'scroll' }}>
-          {/* aqui se va a repetir esto por cada item que se anada */}
           <ListItem>
             <HorizontalCard
               inputRef={inputRef}
@@ -55,7 +49,6 @@ const ShopingDrawer = (prop) => {
           </ListItem>
         </List>
 
-        {/* botom de pago */}
         <Stack sx={{ width: '85%', position: 'absolute', marginY: '1rem' }}>
           <Box
             sx={{
@@ -66,12 +59,10 @@ const ShopingDrawer = (prop) => {
             }}
           >
             <Stack direction={'row'} sx={{ py: 2, color: `${lightBlue}` }}>
-              {/* falta gregar logica para calcular todo el valor total del producto */}
               <Typography variant="h6" sx={{ flexGrow: 1 }}>
                 Subtotal:
               </Typography>
 
-              {/* aqui debe ir el monto total de lo que tenga en el carrito */}
               <Typography variant="h6"> $ 11.11</Typography>
             </Stack>
 

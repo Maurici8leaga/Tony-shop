@@ -1,10 +1,8 @@
 import React from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import AspectRatio from '@mui/joy/AspectRatio';
-// static data
 import { useSplide } from '@hooks/useSplide';
 import { listMotorcycleBrand } from '@services/utils/static.data';
-// scss
 import '@splidejs/react-splide/css';
 
 const SliderBrand = () => {

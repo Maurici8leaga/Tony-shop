@@ -1,5 +1,4 @@
 import React from 'react';
-// component material ui
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/joy/Divider';
@@ -11,9 +10,7 @@ import TextField from '@mui/material/TextField';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ListItemButton from '@mui/joy/ListItemButton';
 import Rating from '@mui/material/Rating';
-// component jsx
 import ProductStockLink from '@molecules/link/ProductStockLink';
-// static data
 import { categoryMenuData, rangePrice, rangeCalification, mainColors } from '@services/utils/static.data';
 
 const MenuFilters = (prop) => {
@@ -43,14 +40,12 @@ const MenuFilters = (prop) => {
             {' '}
             Resultados
           </Typography>
-          {/* el numero debe venir del back con la cantidad exacta de lo encontrado */}
         </Box>
       </Box>
 
       <Divider />
 
       <Box sx={{ marginTop: '15px', marginBottom: '15px' }}>
-        {/* space para los filtros seleccionados */}
         {filterSelected ? (
           <Box sx={{ marginTop: '15px', marginBottom: '20px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -78,7 +73,6 @@ const MenuFilters = (prop) => {
                 flexWrap: 'wrap'
               }}
             >
-              {/* se debe crear funcionalidad para poder agregar cada button con su nombre en este espacio */}
               <Button
                 variant="outlined"
                 size="small"
@@ -86,7 +80,6 @@ const MenuFilters = (prop) => {
                 endIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}
                 sx={{ textTransform: 'inherit' }}
               >
-                {/* aqui debe ir el nombre de cada filtro */}
                 Hasta 5$
               </Button>
             </Box>
@@ -122,7 +115,6 @@ const MenuFilters = (prop) => {
               />
             ))}
           </List>
-          {/* custom filter by price */}
           <Box
             component="form"
             autoComplete="off"
@@ -133,7 +125,6 @@ const MenuFilters = (prop) => {
             <TextField
               id="input-price-range-min"
               label="Desde"
-              // variant="outlined"
               value={minPrice}
               type="num"
               placeholder="Desde"
@@ -145,7 +136,6 @@ const MenuFilters = (prop) => {
             <TextField
               id="input-price-range-max"
               label="Hasta"
-              // variant="outlined"
               value={maxPrice}
               type="num"
               placeholder="Desde"

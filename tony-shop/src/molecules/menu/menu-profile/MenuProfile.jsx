@@ -10,9 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import DoorFrontOutlinedIcon from '@mui/icons-material/DoorFrontOutlined';
-// static data
 import { opcionMenuProfile } from '@services/utils/static.data';
-// css
 import '../menu-profile/MenuProfile.scss';
 
 const MenuProfile = () => {

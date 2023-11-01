@@ -11,8 +11,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/joy/Button';
 import Ratings from '@molecules/rating/Ratings';
 
-import Link from '@mui/joy/Link';
-
 const CardItem = (prop) => {
   const {
     idProduct,
@@ -65,7 +63,6 @@ const CardItem = (prop) => {
         <CardContent>
           <Stack direction={'row'} sx={{ alignItems: 'center' }}>
             <Typography level="body-sm" variant="subtitle" sx={{ fontWeight: 'bold', color: 'black', flexGrow: 1 }}>
-              {/* insertar logica para nombres largos */}
               {nameProduct}
             </Typography>
 
@@ -74,13 +71,9 @@ const CardItem = (prop) => {
             </Typography>
           </Stack>
 
-          <Typography level="body-xs">
-            {/* insertar logica para resumir el texto y supere cierta cantidad de caracteres */}
-            {descriptionProduct}
-          </Typography>
+          <Typography level="body-xs">{descriptionProduct}</Typography>
 
           <Ratings stars={3} mount={1} />
-          {/* las stars y el mount tiene que venir del back y pasarse como prop aca */}
         </CardContent>
 
         <Button variant="outlined" size="lg" sx={{ display: `${disabledBtn ? 'none' : 'inline-flex'}` }}>

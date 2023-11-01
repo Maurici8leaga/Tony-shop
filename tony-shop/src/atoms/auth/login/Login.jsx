@@ -11,18 +11,14 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Button from '@mui/joy/Button';
-// static
 import { mainColors } from '@services/utils/static.data';
-// scss
 import '@root/index.scss';
 
 const Login = () => {
   const { lightBlue, strongRed } = mainColors;
 
-  // state para el password input
   const [showPassword, setShowPassword] = useState(false);
 
-  // handlers para el password input
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -31,21 +27,17 @@ const Login = () => {
   // state del form
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  // state for checkbox
   const [checked, setChecked] = useState(false);
+
+  const [hasError, setHasError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleCheckBox = (event) => {
     setChecked(event.target.checked);
   };
-
-  // state para mensaje error en los inputs
-  const [hasError, setHasError] = useState(false);
-  // state para convertir el input en error
-  const [errorMessage, setErrorMessage] = useState(false);
 
   const loginUser = (event) => {
     event.preventDefault();
@@ -115,7 +107,6 @@ const Login = () => {
             value={email}
             type="email"
             placeholder="Tu correo"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={emailError}
             onChange={(event) => setEmail(event.target.value)}
@@ -142,7 +133,6 @@ const Login = () => {
                 </InputAdornment>
               )
             }}
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={passwordError}
             onChange={(event) => setPassword(event.target.value)}

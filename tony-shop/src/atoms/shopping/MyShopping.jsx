@@ -9,24 +9,19 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import CardContent from '@mui/joy/CardContent';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/joy/Chip';
-// component
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
-// css
 import '../profile/Profile.scss';
 
-// OJO FALTA INCORPORAR LA DATA DE LA DB AQUI
 const MyShopping = () => {
   return (
     <div className="container-profile">
       <Container fixed>
         <div className="container-grid-profile">
           <div className="menu-profile">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfile />
           </div>
           <div className="menu-profile-adaptive">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfileAdaptive />
           </div>
           <div className="profile-content">
@@ -44,7 +39,7 @@ const MyShopping = () => {
                     <img
                       srcSet="https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275"
                       loading="lazy"
-                      alt="img-product" // colorcar un alt org
+                      alt="img-product"
                     />
                   </AspectRatio>
 

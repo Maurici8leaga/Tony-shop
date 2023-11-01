@@ -6,19 +6,15 @@
 // carousel
 .splide__slide {
   height: 'auto';
-  // height: 45vh;
 }
 
 .splide__arrow {
-  // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
   top: 40%;
-  // top: 50%;
 }
 
 // card
 .splide__slide .MuiCard-root {
   width: 100%;
-  // OJO PUEDA QUE HAYA QUE COLOCAR HEIGTH PARA EL CARD
   height: 'auto';
 }
 

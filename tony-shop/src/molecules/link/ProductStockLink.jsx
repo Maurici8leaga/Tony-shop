@@ -1,7 +1,6 @@
 import React from 'react';
 import ListItemButton from '@mui/joy/ListItemButton';
 import Typography from '@mui/material/Typography';
-// static data
 import { mainColors } from '@services/utils/static.data';
 
 const ProductStockLink = (prop) => {

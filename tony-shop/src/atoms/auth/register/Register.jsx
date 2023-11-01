@@ -9,25 +9,20 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/joy/Button';
-// static
 import { mainColors } from '@services/utils/static.data';
-// css
 import '@root/index.scss';
 import '../register/Register.scss';
 
 const Register = () => {
   const { lightBlue, strongRed } = mainColors;
 
-  // state para el password input
   const [showPassword, setShowPassword] = useState(false);
 
-  // handlers para el password input
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
-  // state del form
   const [name, setName] = useState('');
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,12 +37,10 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
-  // state para mensaje error en los inputs
   const [hasError, setHasError] = useState(false);
-  // state para convertir el input en error
   const [errorMessage, setErrorMessage] = useState(false);
 
-  // para validar numero nacionales nada mas
+  // regular expression for validated phone numbers
   const phoneNumberRE = /^(0414|0412|0416|0212)[0-9]{7}$/;
 
   const registerUser = (event) => {
@@ -61,7 +54,6 @@ const Register = () => {
     setPasswordError(false);
     setConfirmPasswordError(false);
 
-    // agregar validaciones del back con JOY
     if (name === '') {
       setNameError(true);
     }
@@ -143,7 +135,6 @@ const Register = () => {
             value={name}
             type="text"
             placeholder="Tu nombre"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={nameError}
             onChange={(event) => setName(event.target.value)}
@@ -155,7 +146,6 @@ const Register = () => {
             value={lastname}
             type="text"
             placeholder="Tu apellido"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={lastnameError}
             onChange={(event) => setLastName(event.target.value)}
@@ -167,7 +157,6 @@ const Register = () => {
             value={email}
             type="email"
             placeholder="Tu correo"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={emailError}
             onChange={(event) => setEmail(event.target.value)}
@@ -179,7 +168,6 @@ const Register = () => {
             value={phoneNumber}
             type="tel"
             placeholder="04161234567"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={phoneNumberError}
             onChange={(event) => setPhoneNumber(event.target.value)}
@@ -205,7 +193,6 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={passwordError}
             onChange={(event) => setPassword(event.target.value)}
@@ -232,7 +219,6 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={confirmPasswordError}
             onChange={(event) => setConfirmPassword(event.target.value)}

@@ -8,18 +8,15 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from '@mui/material/Button';
-// component
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
 import DirectionsModal from '@molecules/modal/directions-modal/DirectionsModal';
-// css
 import '../profile/Profile.scss';
 
 const MyAddresses = () => {
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');
 
-  // psra abrir y cerrar los modal
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -28,11 +25,9 @@ const MyAddresses = () => {
       <Container fixed>
         <div className="container-grid-profile">
           <div className="menu-profile">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfile />
           </div>
           <div className="menu-profile-adaptive">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfileAdaptive />
           </div>
           <div className="profile-content">
@@ -54,7 +49,6 @@ const MyAddresses = () => {
                 overflowY: 'scroll'
               }}
             >
-              {/* este stack va a multiplicarse por la cantidad que tenga el user en la DB */}
               <Stack
                 direction="row"
                 justifyContent="space-between"
@@ -71,7 +65,6 @@ const MyAddresses = () => {
 
                 <Stack direction="row">
                   <IconButton color="warning" onClick={handleOpen}>
-                    {/* falta crear un modal especifico para editar la direccion */}
                     <CreateOutlinedIcon />
                   </IconButton>
 

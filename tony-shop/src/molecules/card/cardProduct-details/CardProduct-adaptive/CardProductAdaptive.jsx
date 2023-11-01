@@ -1,7 +1,5 @@
 import React from 'react';
-// component
 import ImageGallery from '@molecules/image-Gallery/ImageGallery';
-// cosas para el menu
 import Card from '@mui/joy/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -14,7 +12,6 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-// css
 import '../CardProduct-adaptive/CardProductAdaptive.scss';
 
 const CardProductAdaptive = (prop) => {
@@ -23,7 +20,6 @@ const CardProductAdaptive = (prop) => {
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
-    // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
   };
 
   const minusProduct = () => {
@@ -101,7 +97,6 @@ const CardProductAdaptive = (prop) => {
               </IconButton>
 
               <Typography variant="body2">{qtySelected}</Typography>
-              {/* // OJO el max debe ir con respecto a lo que se tenga en la base de datos */}
 
               <IconButton size="small" color="primary" disabled={qtySelected === 1 && true} onClick={minusProduct}>
                 <RemoveCircleOutlineIcon />

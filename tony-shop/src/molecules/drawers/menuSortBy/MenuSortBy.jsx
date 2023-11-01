@@ -1,5 +1,4 @@
 import React from 'react';
-// component mui
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/joy/Box';
 import List from '@mui/joy/List';
@@ -8,10 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Radio from '@mui/material/Radio';
-// static data
 import { mainColors } from '@services/utils/static.data';
 
-// OJO HAY QUE AGREGAR FUNCIONALIDAD PARA QUE ORDENE LOS ELEMENTOS DEL CONTENIDO
 const MenuSortBy = (prop) => {
   const { openDrawer, closeDrawer, checked, setChecked } = prop;
 

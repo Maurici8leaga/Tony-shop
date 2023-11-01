@@ -9,13 +9,8 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import IconButton from '@mui/material/IconButton';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
-// component
 import CardDetailsCheckout from '@molecules/card/card-details-checkout/CardDetailsCheckout';
-// css
 import '../checkout/Checkout.scss';
-
-// OJO FALTA AGREGAR LOGICA PARA SELECCIONAR SOLO UN METODO DE RETIRO, INCORPORAR DATA DE LA DB
-// LOGICA PARA METODO DE PAGO
 
 const Checkout = () => {
   const [cashBtn, setCashBtn] = useState(false);
@@ -61,11 +56,10 @@ const Checkout = () => {
                 <Box
                   sx={{
                     px: 0.2,
-                    writingMode: 'vertical-rl', // este hace que el checkbox quede mejor verticalmente
+                    writingMode: 'vertical-rl',
                     textAlign: 'center'
                   }}
                 >
-                  {/* hay que agregar logica para que solo pueda hacer click a una checkbox */}
                   <Checkbox />
                 </Box>
               </Stack>
@@ -82,7 +76,6 @@ const Checkout = () => {
                   <LocationOnOutlinedIcon />
 
                   <Typography variant="body2">
-                    {/* esta debe venir de las direcciones guardadas de la db, si no existe una debe agregar una */}
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor.
                   </Typography>
                 </Stack>
@@ -90,11 +83,10 @@ const Checkout = () => {
                 <Box
                   sx={{
                     px: 0.2,
-                    writingMode: 'vertical-rl', // este hace que el checkbox quede mejor verticalmente
+                    writingMode: 'vertical-rl',
                     textAlign: 'center'
                   }}
                 >
-                  {/* hay que agregar logica para que solo pueda hacer click a una checkbox */}
                   <Checkbox />
                 </Box>
               </Stack>
@@ -122,7 +114,6 @@ const Checkout = () => {
           </div>
           <aside className="details-list ">
             <CardDetailsCheckout
-              // esta data debe venir de la db
               imgProduct={'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275'}
               titleProduct={'Casco Integral Hro518 Cremer...'}
               qtyProduct={1}

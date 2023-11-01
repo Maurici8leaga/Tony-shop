@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-// cosas para el grid
 import Container from '@mui/material/Container';
 import Dropdown from '@mui/joy/Dropdown';
 import MenuButton from '@mui/joy/MenuButton';
@@ -10,50 +9,36 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CardItem from '@molecules/card/cardItem/CardItem';
 import Stack from '@mui/material/Stack';
 import Pagination from '@mui/material/Pagination';
-// component jsx
 import MenuFilters from '@molecules/menu/MenuFilters';
 import MiniHeader from '@molecules/header/miniHeader/MiniHeader';
-// static data
 import { listaProductosPrueba } from '@services/utils/static.data';
-// css
 import '../productsList/ProductsList.scss';
 
 const ProductsList = () => {
-  // de esta forma se puede obtener el nombre de la lista de productos
   const { id } = useParams();
 
-  // state para el filtro de ordenar por
-  const [checked, setChecked] = useState(null); // hay que crear una funcion para que filtre los elementos y se establezca con este state
+  const [checked, setChecked] = useState(null);
 
-  // State para el rango de precio
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
 
-  // state para filtros seleccionados
   const [filterSelected, setFilterSelected] = useState(false);
 
-  // state para las pages
   const [page, setPage] = useState(1);
 
-  // state para los drawer
   const [openDrawerFilter, setOpenDrawerFilter] = useState(false);
   const [openDrawerSortBy, setOpenDrawerSortBy] = useState(false);
 
-  // handle para cambiar las paginas
-
   const handleChange = (event, value) => {
-    // OJO DEJAR "event" PORQUE SI NO DA ERROR
     setPage(value);
   };
 
-  // submit form
   const filterPrice = (event) => {
     event.preventDefault();
     setMinPrice('');
     setMaxPrice('');
   };
 
-  // handle for set checkbox
   const handleSetSortBy = (event) => {
     setChecked(event.target.value);
   };
@@ -138,10 +123,7 @@ const ProductsList = () => {
               spacing={1}
               sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}
             >
-              {/* hay que crear una funcionalidad para colocar cuantos productos va a desplegar por pagina y asi saber cuantas paginass
-              tendra y asi poder colocar el count real */}
               <Pagination count={10} page={page} onChange={handleChange} color="primary" />
-              {/* <Pagination count={10} siblingCount={0} page={page} onChange={handleChange} color="primary" /> */}
             </Stack>
           </div>
         </div>

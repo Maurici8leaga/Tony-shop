@@ -8,19 +8,16 @@ import IconButton from '@mui/joy/IconButton';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-// static data
 import { mainColors } from '@services/utils/static.data';
 
 const HorizontalCard = (prop) => {
   const { darkBlue } = mainColors;
   const { inputRef, imgProduct, nameProduct, priceProduct } = prop;
 
-  // state for qty product selected
   const [qtySelected, SetqtySelected] = useState(1);
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
-    // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
   };
 
   const minusProduct = () => {
@@ -49,12 +46,10 @@ const HorizontalCard = (prop) => {
       <CardContent>
         <Stack direction={'row'} sx={{ alignItems: 'center' }}>
           <Typography level="title-lg" id="card-description" sx={{ flexGrow: 1 }}>
-            {/* colocar logica para recortar el nombre y no se extienda tanto */}
             {nameProduct}
           </Typography>
 
           <IconButton color="danger" size="sm" variant="plain">
-            {/* falta logica para eliminar elemento */}
             <DeleteOutlineOutlinedIcon />
           </IconButton>
         </Stack>

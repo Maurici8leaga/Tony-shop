@@ -49,15 +49,12 @@ const AccordionQA = () => {
             margin: 'auto'
           }}
         >
-          {/* OJO ESTO DEBE CAMBIAR PARA HACERLO DINAMICO */}
           <List>
-            {/* pregunta */}
             <ListItem>
               <ListItemText>
                 <Typography variant="body2">Lorem ipsum dolor sit amet consectetur, adipisicing elit?</Typography>
               </ListItemText>
             </ListItem>
-            {/* respuesta */}
             <ListItem>
               <ListItemIcon>
                 <SubdirectoryArrowRightIcon />

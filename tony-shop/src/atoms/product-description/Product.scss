@@ -24,8 +24,6 @@
   grid-area: m;
   position: sticky;
   top: 145px;
-  // la propiedad "align-self" por defecto es "strech" el cual estira el elemento tan largo como el grid mas largo
-  // al pasarlo a "start" este se va a reducir a su tamaño orig y coloca el elemento al inicio
   align-self: start;
   padding-bottom: 10px;
 }

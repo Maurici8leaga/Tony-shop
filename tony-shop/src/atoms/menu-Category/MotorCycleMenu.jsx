@@ -3,9 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/joy/Box';
 import Grid from '@mui/material/Grid';
-// component jssx
 import ListCategory from '@molecules/listCategory/ListCategory';
-// static data
 import { listMotorcycleBrand } from '@services/utils/static.data';
 
 const MotorCycleMenu = () => {

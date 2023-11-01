@@ -1,5 +1,4 @@
 import React from 'react';
-// component mui
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/joy/Box';
 import List from '@mui/joy/List';
@@ -14,9 +13,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Rating from '@mui/material/Rating';
-// component jsx
 import ProductStockLink from '@molecules/link/ProductStockLink';
-// static data
 import { categoryMenuData, rangePrice, rangeCalification, mainColors } from '@services/utils/static.data';
 
 const MenuFilter = (prop) => {
@@ -44,7 +41,6 @@ const MenuFilter = (prop) => {
             </Typography>
           </ListItem>
 
-          {/* space para los filtros seleccionados */}
           {filterSelected ? (
             <Accordion defaultExpanded={true}>
               <AccordionSummary expandIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}>
@@ -62,7 +58,6 @@ const MenuFilter = (prop) => {
                   my: 2
                 }}
               >
-                {/* se debe crear funcionalidad para poder agregar cada button con su nombre en este espacio */}
                 <Button
                   variant="outlined"
                   size="small"
@@ -70,7 +65,6 @@ const MenuFilter = (prop) => {
                   endIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}
                   sx={{ textTransform: 'inherit' }}
                 >
-                  {/* aqui debe ir el nombre de cada filtro */}
                   Hasta 5$
                 </Button>
               </Box>
@@ -114,7 +108,6 @@ const MenuFilter = (prop) => {
 
             <AccordionDetails>
               <ProductStockLink data={'Desde 5% OFF'} amount={1} click={true} functionOnClick={selectingFilter} />
-              {/* aqui el click es true pero la funcion DEBE CAMBIARRSE CUANDO SE CREE LA FUNCIONALIDADES DE LOS FILTROS */}
             </AccordionDetails>
           </Accordion>
 

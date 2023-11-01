@@ -15,21 +15,15 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Checkbox from '@mui/material/Checkbox';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from '@mui/material/Button';
-// component
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
-// css
 import '../profile/Profile.scss';
 
-// OJO FALTA AGREGAR LOGICA PARA AGREGAR LOS ELEMENTOS AL CARRO Y ELEMINAR ELEMENTOS
-
 const FavoriteList = () => {
-  // state for qty product selected
   const [qtySelected, SetqtySelected] = useState(1);
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
-    // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
   };
 
   const minusProduct = () => {
@@ -45,11 +39,9 @@ const FavoriteList = () => {
       <Container fixed>
         <div className="container-grid-profile">
           <div className="menu-profile">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfile />
           </div>
           <div className="menu-profile-adaptive">
-            {/* a este component a futuro se le debe pasar data para tener acceso al user */}
             <MenuProfileAdaptive />
           </div>
           <div className="profile-content">
@@ -61,14 +53,13 @@ const FavoriteList = () => {
             </Stack>
 
             <List sx={{ width: '80%', height: '100%', overflowY: 'scroll' }}>
-              {/* este listitem se va a repetir por cada elemento en  favoritos */}
               <ListItem>
                 <Card color="neutral" orientation="horizontal" variant="outlined" sx={{ width: '100%' }}>
                   <AspectRatio ratio="1" sx={{ width: 90, alignSelf: 'center' }}>
                     <img
                       srcSet="https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275"
                       loading="lazy"
-                      alt="img-product" // colorcar un alt org
+                      alt="img-product"
                     />
                   </AspectRatio>
 
@@ -80,7 +71,6 @@ const FavoriteList = () => {
                       gap={1}
                     >
                       <Typography variant="subtitle2" align="justify">
-                        {/* Incorporar logica para reducir el titulo */}
                         Casco Integral Hro518 Cremer...
                       </Typography>
                       <Typography variant="subtitle2" sx={{ color: 'grey' }}>
@@ -117,12 +107,11 @@ const FavoriteList = () => {
                   <CardOverflow
                     sx={{
                       px: 0.2,
-                      writingMode: 'vertical-rl', // este hace que el checkbox quede mejor verticalmente
+                      writingMode: 'vertical-rl',
                       textAlign: 'center'
                     }}
                   >
                     <Checkbox />
-                    {/* OJO FALTA AGREGAR LOGICA  */}
 
                     <IconButton color="error">
                       <DeleteOutlineOutlinedIcon />

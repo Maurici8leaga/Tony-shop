@@ -8,8 +8,6 @@ import Button from '@mui/material/Button';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 import TextField from '@mui/material/TextField';
 
-// OJO FALTA AGREGAR LOGICA PARA GUARDAR LA NEW DIRECCION
-
 const DirectionsModal = (prop) => {
   const { open, handleClose, address, setAddress } = prop;
 

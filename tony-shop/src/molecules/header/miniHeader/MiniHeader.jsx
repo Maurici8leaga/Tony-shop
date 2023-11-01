@@ -1,12 +1,10 @@
 import React from 'react';
-// component Material UI
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Divider from '@mui/joy/Divider';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
-// component jsx
 import MenuFilter from '@molecules/drawers/menuFilter/MenuFilter';
 import MenuSortBy from '@molecules/drawers/menuSortBy/MenuSortBy';
 

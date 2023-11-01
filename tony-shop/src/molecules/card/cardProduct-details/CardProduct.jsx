@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '@mui/joy/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -17,7 +17,6 @@ const CardProduct = (prop) => {
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
-    // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
   };
 
   const minusProduct = () => {
@@ -88,7 +87,6 @@ const CardProduct = (prop) => {
           </IconButton>
 
           <Typography variant="body2">{qtySelected}</Typography>
-          {/* // OJO el max debe ir con respecto a lo que se tenga en la base de datos */}
 
           <IconButton size="small" color="primary" disabled={qtySelected === 1 && true} onClick={minusProduct}>
             <RemoveCircleOutlineIcon />

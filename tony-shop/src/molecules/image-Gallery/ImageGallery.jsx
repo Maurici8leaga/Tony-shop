@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import AspectRatio from '@mui/joy/AspectRatio';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/joy/Avatar';
@@ -7,7 +6,7 @@ import Avatar from '@mui/joy/Avatar';
 const ImageGallery = (prop) => {
   const { images } = prop;
 
-  const [ImgProduct, setImgProduct] = useState(images[0].img); // aqui habria que cambiar por el primer nombre que tenga el objeto de la db
+  const [ImgProduct, setImgProduct] = useState(images[0].img);
 
   const showImgProduct = (img) => {
     setImgProduct(img);
@@ -25,8 +24,8 @@ const ImageGallery = (prop) => {
       >
         {images.map((e) => (
           <Avatar
-            key={e.id} // cambiar por unn verdadero ID
-            alt={`img-product-${e.id}`} // OJO cambiar por el nombre del producto al ALT
+            key={e.id}
+            alt={`img-product-${e.id}`}
             variant="outlined"
             src={e.img}
             size="lg"

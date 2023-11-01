@@ -30,11 +30,11 @@ export const AppRouter = () => {
       element: <ProductsList />
     },
     {
-      path: 'category-menu/motorcycle', // oOJO AQUI ESTO HAY QUE REVISAR
+      path: 'category-menu/motorcycle',
       element: <MotorCycleMenu />
     },
     {
-      path: 'product/:idProduct', // oOJO AQUI ESTO HAY QUE REVISAR
+      path: 'product/:idProduct',
       element: <Product />
     },
     {
