@@ -1,0 +1,44 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "jest": {
+      "version": "detect",
+      "globalAliases": {
+        "describe": ["context"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "semi": [2, "always"],
+    "quotes": ["error", "single"],
+    "space-before-function-paren": [0, { "anonymous": "always", "named": "always" }],
+    "camelcase": 2,
+    "no-return-assign": 0,
+    "react/react-in-jsx-scope": 0,
+    "react-display-name": 0,
+    "no-unused-vars": "warn",
+    "no-useless-return": "off"
+  }
+}

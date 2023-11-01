@@ -1,0 +1,35 @@
+.splide__slide img {
+  width: 100%;
+  height: auto;
+}
+
+// carousel
+.splide__slide {
+  height: 'auto';
+}
+
+.splide__arrow {
+  top: 40%;
+}
+
+// card
+.splide__slide .MuiCard-root {
+  width: 100%;
+  height: 'auto';
+}
+
+// querys
+
+// mobile
+@media (min-width: 0px) and (max-width: 599px) {
+  .splide__slide {
+    height: 60vh;
+  }
+}
+
+// tablet
+@media (min-width: 600px) and (max-width: 900px) {
+  .splide__arrow {
+    top: 35%;
+  }
+}
