@@ -35,7 +35,10 @@
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }], // que el eslint trabaje con el prettier y que si el prettier hay cosas que no están bien formateadas las tome como error
     "semi": [2, "always"], // Si no hay ; al final de las sentencias lo tome como error
     "quotes": ["error", "single"], // especificar trabajar con comillas simples por obligación
-    "space-before-function-paren": [0, { "anonymous": "always", "named": "always" }], // le especifico que los paréntesis puedan quedar al lado de las funciones ya sean nombradas o no
+    "space-before-function-paren": [
+      0,
+      { "anonymous": "always", "named": "always" }
+    ], // le especifico que los paréntesis puedan quedar al lado de las funciones ya sean nombradas o no
     "camelcase": 2, // definir que las variables y funciones deben ser descritas en camelCase
     "no-return-assign": 0, // que no de error si retornas directamente una asignación
     "react/react-in-jsx-scope": 0, // me permite no tener que de manera obligatoria en mis componentes agregar la importación por default de React
