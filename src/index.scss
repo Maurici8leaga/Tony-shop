@@ -1,42 +1,26 @@
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap';
-$suzuki-bg: url('https://res.cloudinary.com/maurici8leaga/image/upload/v1694633522/suzuki-moto_ayo1vp.webp');
-
-:root {
-  --darkBlue: #041562;
-  --blue: #11468f;
-  --red: #da1212;
-  --white: #eeeeee;
-  --font_bold: 500;
-}
+@import '../src/scss/variables.scss';
 
 * {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: unquote($main-font);
+  // funcion unquote permite quitar las comillas del parametro pasado dejandolo libre, esto se usa mucho para casos de fonts
+  // ya que en las variables las colocamos en comillas y la propiedad para compilarla la debe ver sin ellass
+  scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--white);
-}
-
-// backgrounds
-.bg-mt-img {
-  width: 100vw;
+  margin: 0;
+  width: 100%;
   height: 100vh;
-  background-image: $suzuki-bg;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.glass-bg {
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(12.5px);
-  -webkit-backdrop-filter: blur(12.5px);
-  border-radius: 10px;
+  background-color: var(--white);
 }

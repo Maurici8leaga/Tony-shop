@@ -11,14 +11,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Button from '@mui/joy/Button';
-// static
-import { mainColors } from '@services/utils/static.data';
 // scss
 import '@root/index.scss';
 
 const Login = () => {
-  const { lightBlue, strongRed } = mainColors;
-
   // state para el password input
   const [showPassword, setShowPassword] = useState(false);
 
@@ -95,13 +91,13 @@ const Login = () => {
               No tienes una cuenta?
             </Typography>
 
-            <Link variant="body2" underline="none" href="/register" sx={{ color: lightBlue }}>
+            <Link variant="body2" underline="none" href="/register" sx={{ color: 'var(--blue)' }}>
               Registrarse
             </Link>
           </Box>
 
           {hasError && errorMessage ? (
-            <Typography variant="body2" sx={{ color: strongRed }}>
+            <Typography variant="body2" sx={{ color: 'var(--red)' }}>
               {errorMessage}
             </Typography>
           ) : (
@@ -115,7 +111,6 @@ const Login = () => {
             value={email}
             type="email"
             placeholder="Tu correo"
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={emailError}
             onChange={(event) => setEmail(event.target.value)}
@@ -142,7 +137,6 @@ const Login = () => {
                 </InputAdornment>
               )
             }}
-            // required
             sx={{ marginY: 1, width: '100%' }}
             error={passwordError}
             onChange={(event) => setPassword(event.target.value)}

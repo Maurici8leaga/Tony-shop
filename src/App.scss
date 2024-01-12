@@ -1,10 +1,20 @@
-// .auth-inner {
-//   width: 450px;
-//   min-height: 380px;
-//   margin: auto;
-//   background: var(--white-1);
-//   padding: 40px 55px 45px;
-//   border-bottom-left-radius: 15px;
-//   border-bottom-right-radius: 15px;
-//   transition: all 0.3s;
-// }
+$suzuki-bg: url('https://res.cloudinary.com/maurici8leaga/image/upload/v1694633522/suzuki-moto_ayo1vp.webp');
+
+// backgrounds
+.bg-mt-img {
+  width: 100vw;
+  height: 100vh;
+  background-image: $suzuki-bg;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  .glass-bg {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
+    border-radius: 10px;
+  }
+}
