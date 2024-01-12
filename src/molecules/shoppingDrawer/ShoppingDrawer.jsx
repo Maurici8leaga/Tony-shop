@@ -15,11 +15,9 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // static data
-import { mainColors, imgPruebaProduct } from '@services/utils/static.data';
+import { imgPruebaProduct } from '@services/utils/static.data';
 
 const ShopingDrawer = (prop) => {
-  const { darkBlue, lightBlue } = mainColors;
-
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
 
   // DUDAS SOBRE USAR ESTE HOOk
@@ -36,7 +34,7 @@ const ShopingDrawer = (prop) => {
             </IconButton>
           </Stack>
 
-          <Typography variant="h6" align="center" sx={{ color: `${darkBlue}` }}>
+          <Typography variant="h6" align="center" sx={{ color: 'var(--darkBlue)' }}>
             Tu carro de compras
           </Typography>
         </Stack>
@@ -65,7 +63,7 @@ const ShopingDrawer = (prop) => {
               left: { xs: 3, sm: 0 }
             }}
           >
-            <Stack direction={'row'} sx={{ py: 2, color: `${lightBlue}` }}>
+            <Stack direction={'row'} sx={{ py: 2, color: 'var(--blue)' }}>
               {/* falta gregar logica para calcular todo el valor total del producto */}
               <Typography variant="h6" sx={{ flexGrow: 1 }}>
                 Subtotal:

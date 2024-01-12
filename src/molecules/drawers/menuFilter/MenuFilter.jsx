@@ -17,12 +17,10 @@ import Rating from '@mui/material/Rating';
 // component jsx
 import ProductStockLink from '@molecules/link/ProductStockLink';
 // static data
-import { categoryMenuData, rangePrice, rangeCalification, mainColors } from '@services/utils/static.data';
+import { categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
 const MenuFilter = (prop) => {
   const { openDrawer, closeDrawer, filterSelected, setFilterSelected } = prop;
-
-  const { darkBlue } = mainColors;
 
   const selectingFilter = () => {
     setFilterSelected(true);
@@ -39,7 +37,7 @@ const MenuFilter = (prop) => {
           </ListItem>
 
           <ListItem>
-            <Typography variant="h6" sx={{ color: darkBlue }}>
+            <Typography variant="h6" sx={{ color: 'var(--darkBlue)' }}>
               Filtrar por:
             </Typography>
           </ListItem>
@@ -48,7 +46,7 @@ const MenuFilter = (prop) => {
           {filterSelected ? (
             <Accordion defaultExpanded={true}>
               <AccordionSummary expandIcon={<CloseIcon onClick={() => setFilterSelected(false)} />}>
-                <Typography sx={{ color: darkBlue }}>Filtros seleccionados</Typography>
+                <Typography sx={{ color: 'var(--darkBlue)' }}>Filtros seleccionados</Typography>
               </AccordionSummary>
 
               <Box
@@ -81,7 +79,7 @@ const MenuFilter = (prop) => {
 
           <Accordion defaultExpanded={true}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography sx={{ color: darkBlue }}>Categorias</Typography>
+              <Typography sx={{ color: 'var(--darkBlue)' }}>Categorias</Typography>
             </AccordionSummary>
             <AccordionDetails>
               {categoryMenuData.map((item) => (
@@ -92,7 +90,7 @@ const MenuFilter = (prop) => {
 
           <Accordion defaultExpanded={true}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography sx={{ color: darkBlue }}>Precios</Typography>
+              <Typography sx={{ color: 'var(--darkBlue)' }}>Precios</Typography>
             </AccordionSummary>
             <AccordionDetails>
               {rangePrice.map((item) => (
@@ -109,7 +107,7 @@ const MenuFilter = (prop) => {
 
           <Accordion defaultExpanded={true}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography sx={{ color: darkBlue }}>Descuentos</Typography>
+              <Typography sx={{ color: 'var(--darkBlue)' }}>Descuentos</Typography>
             </AccordionSummary>
 
             <AccordionDetails>
@@ -120,7 +118,7 @@ const MenuFilter = (prop) => {
 
           <Accordion defaultExpanded={true}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography sx={{ color: darkBlue }}>Calificacion</Typography>
+              <Typography sx={{ color: 'var(--darkBlue)' }}>Calificacion</Typography>
             </AccordionSummary>
 
             <AccordionDetails>

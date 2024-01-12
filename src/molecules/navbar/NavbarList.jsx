@@ -10,10 +10,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
-import { mainColors, drawerLinks, secondaryColor } from '@services/utils/static.data';
+import { drawerLinks, secondaryColor } from '@services/utils/static.data';
 
 const NavbarList = (prop) => {
-  const { darkBlue, lightBlue, lightWhite } = mainColors;
   const { grey400, grey700 } = secondaryColor;
 
   const { openDrawer, setOpenDrawer } = prop;
@@ -35,13 +34,13 @@ const NavbarList = (prop) => {
                 <Button
                   variant="outlined"
                   sx={{
-                    color: `${darkBlue}`,
+                    color: 'var(--darkBlue)',
                     bgcolor: 'none',
                     '&:hover': {
-                      color: `${lightWhite}`,
-                      bgcolor: `${lightBlue}`
+                      color: 'var(--white)',
+                      bgcolor: 'var(--blue)'
                     },
-                    borderColor: `${darkBlue}`
+                    borderColor: 'var(--darkBlue)'
                   }}
                 >
                   Buscar
@@ -52,7 +51,7 @@ const NavbarList = (prop) => {
                 <div key={item.title}>
                   <ListItem>
                     <IconButton>{item.icon}</IconButton>
-                    <ListItemButton component="a" href={`${item.path}`} sx={{ color: `${darkBlue}` }}>
+                    <ListItemButton component="a" href={`${item.path}`} sx={{ color: 'var(--darkBlue)' }}>
                       {item.title}
                     </ListItemButton>
                   </ListItem>

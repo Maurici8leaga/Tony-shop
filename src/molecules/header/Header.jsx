@@ -20,14 +20,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 // static files
-import { navLinks, mainColors, secondaryColor, bykeModels } from '@services/utils/static.data';
+import { navLinks, secondaryColor, bykeModels } from '@services/utils/static.data';
 // assets
 import logoStore from '@assets/img/tonys-logo2.png';
 // css
 import './Header.scss';
 
 const Header = () => {
-  const { lightBlue, strongRed } = mainColors;
   const { white025, white015 } = secondaryColor;
 
   const navigate = useNavigate();
@@ -64,7 +63,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: `${lightBlue}`, display: 'flex' }}>
+    <AppBar position="fixed" style={{ backgroundColor: 'var(--blue)', display: 'flex' }}>
       <Container maxWidth="xl">
         <Toolbar
           sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center' }}
@@ -126,7 +125,7 @@ const Header = () => {
                     my: 2,
                     color: 'inherit',
                     '&:hover': {
-                      color: `${strongRed}`
+                      color: 'var(--red)'
                     },
                     display: 'block'
                   }}

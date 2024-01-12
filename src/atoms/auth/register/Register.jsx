@@ -9,15 +9,11 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/joy/Button';
-// static
-import { mainColors } from '@services/utils/static.data';
 // css
 import '@root/index.scss';
 import '../register/Register.scss';
 
 const Register = () => {
-  const { lightBlue, strongRed } = mainColors;
-
   // state para el password input
   const [showPassword, setShowPassword] = useState(false);
 
@@ -123,13 +119,13 @@ const Register = () => {
               Ya tienes una cuenta?
             </Typography>
 
-            <Link variant="body2" underline="none" href="/login" sx={{ color: lightBlue }}>
+            <Link variant="body2" underline="none" href="/login" sx={{ color: 'var(--blue)' }}>
               Ingresar
             </Link>
           </Box>
 
           {hasError && errorMessage ? (
-            <Typography variant="body2" sx={{ color: strongRed }}>
+            <Typography variant="body2" sx={{ color: 'var(--red)' }}>
               {errorMessage}
             </Typography>
           ) : (

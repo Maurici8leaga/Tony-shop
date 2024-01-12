@@ -8,14 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Radio from '@mui/material/Radio';
-// static data
-import { mainColors } from '@services/utils/static.data';
 
 // OJO HAY QUE AGREGAR FUNCIONALIDAD PARA QUE ORDENE LOS ELEMENTOS DEL CONTENIDO
 const MenuSortBy = (prop) => {
   const { openDrawer, closeDrawer, checked, setChecked } = prop;
-
-  const { darkBlue } = mainColors;
 
   const settingCheckbox = (event) => {
     setChecked(event.target.value);
@@ -32,7 +28,7 @@ const MenuSortBy = (prop) => {
           </ListItem>
 
           <ListItem>
-            <Typography variant="h6" sx={{ color: darkBlue }}>
+            <Typography variant="h6" sx={{ color: 'var(--darkBlue)' }}>
               Ordenar por:
             </Typography>
           </ListItem>
@@ -49,7 +45,7 @@ const MenuSortBy = (prop) => {
                   inputProps={{ 'aria-label': 'sortBy-MayorPrice' }}
                 />
               }
-              sx={{ height: '60px', color: darkBlue }}
+              sx={{ height: '60px', color: 'var(--darkBlue)' }}
             >
               Menor precio
             </ListItem>
@@ -64,7 +60,7 @@ const MenuSortBy = (prop) => {
                   inputProps={{ 'aria-label': 'sortBy-MinorPrice' }}
                 />
               }
-              sx={{ height: '60px', color: darkBlue }}
+              sx={{ height: '60px', color: 'var(--darkBlue)' }}
             >
               Mayor precio
             </ListItem>
@@ -79,7 +75,7 @@ const MenuSortBy = (prop) => {
                   inputProps={{ 'aria-label': 'sortBy- Calification' }}
                 />
               }
-              sx={{ height: '60px', color: darkBlue }}
+              sx={{ height: '60px', color: 'var(--darkBlue)' }}
             >
               Calificacion
             </ListItem>

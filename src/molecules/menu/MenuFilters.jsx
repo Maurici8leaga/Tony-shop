@@ -14,7 +14,7 @@ import Rating from '@mui/material/Rating';
 // component jsx
 import ProductStockLink from '@molecules/link/ProductStockLink';
 // static data
-import { categoryMenuData, rangePrice, rangeCalification, mainColors } from '@services/utils/static.data';
+import { categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
 const MenuFilters = (prop) => {
   const {
@@ -29,7 +29,6 @@ const MenuFilters = (prop) => {
     setMaxPrice
   } = prop;
 
-  const { darkBlue } = mainColors;
   return (
     <>
       <Box sx={{ marginBottom: '10px' }}>
@@ -39,7 +38,7 @@ const MenuFilters = (prop) => {
             ({amountResults}){' '}
           </Typography>
 
-          <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400, color: darkBlue }}>
+          <Typography variant="p" sx={{ fontSize: '14px', fontWeight: 400, color: 'var(--darkBlue)' }}>
             {' '}
             Resultados
           </Typography>

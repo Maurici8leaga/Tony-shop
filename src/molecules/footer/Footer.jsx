@@ -13,10 +13,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 // static
-import { mainColors, tonyShopDataInfo } from '@services/utils/static.data';
+import { tonyShopDataInfo } from '@services/utils/static.data';
 
 const Footer = () => {
-  const { lightBlue, lightWhite } = mainColors;
   const { instagram, googleMaps } = tonyShopDataInfo;
 
   return (
@@ -25,7 +24,7 @@ const Footer = () => {
         variant="solid"
         invertedColors
         sx={{
-          bgcolor: lightBlue,
+          bgcolor: 'var(--blue)',
           flexGrow: 1,
           p: 2
         }}
@@ -132,7 +131,7 @@ const Footer = () => {
         >
           <List size="sm" orientation="horizontal" wrap sx={{ flexGrow: 0, alignContent: 'center' }}>
             <ListItem nested sx={{ width: { xs: '100%', md: 400 }, alignItems: 'center' }}>
-              <Typography variant="p" sx={{ color: lightWhite }}>
+              <Typography variant="p" sx={{ color: 'var(--white)' }}>
                 ©Tony's Motos Shop 2023. All Rights Reserved.
               </Typography>
             </ListItem>

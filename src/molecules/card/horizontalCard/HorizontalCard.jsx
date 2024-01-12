@@ -8,11 +8,8 @@ import IconButton from '@mui/joy/IconButton';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-// static data
-import { mainColors } from '@services/utils/static.data';
 
 const HorizontalCard = (prop) => {
-  const { darkBlue } = mainColors;
   const { inputRef, imgProduct, nameProduct, priceProduct } = prop;
 
   // state for qty product selected
@@ -38,7 +35,7 @@ const HorizontalCard = (prop) => {
       color="neutral"
       sx={{
         width: 300,
-        '&:hover': { boxShadow: 'md', borderColor: `${darkBlue}` },
+        '&:hover': { boxShadow: 'md', borderColor: 'var(--darkBlue)' },
         my: 2
       }}
     >

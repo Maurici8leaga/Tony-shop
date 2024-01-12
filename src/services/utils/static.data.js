@@ -25,13 +25,6 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
-export const mainColors = {
-  darkBlue: '#041562',
-  lightBlue: '#11468f',
-  strongRed: '#da1212',
-  lightWhite: '#eeeeee'
-};
-
 export const secondaryColor = {
   grey400: 'rgb(189, 189, 189, 0.25)',
   grey700: 'rgb(97, 97, 97, 0.15)',
