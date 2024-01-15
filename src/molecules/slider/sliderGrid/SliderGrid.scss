@@ -1,3 +1,5 @@
+@import '../../../scss/variables.scss';
+
 .splide__slide img {
   width: 100%;
   height: auto;
@@ -6,13 +8,21 @@
 // carousel
 .splide__slide {
   height: 'auto';
-  // height: 45vh;
+
+  // mobile breakpoint
+  @include responsiveness(0px, 599px) {
+    height: 60vh;
+  }
 }
 
 .splide__arrow {
   // para flechas del carousel, HAY QUE CREARLE QUERYS  esto
   top: 40%;
-  // top: 50%;
+
+  // tablet brekpoint
+  @include responsiveness(600px, 900px) {
+    top: 35%;
+  }
 }
 
 // card
@@ -20,20 +30,4 @@
   width: 100%;
   // OJO PUEDA QUE HAYA QUE COLOCAR HEIGTH PARA EL CARD
   height: 'auto';
-}
-
-// querys
-
-// mobile
-@media (min-width: 0px) and (max-width: 599px) {
-  .splide__slide {
-    height: 60vh;
-  }
-}
-
-// tablet
-@media (min-width: 600px) and (max-width: 900px) {
-  .splide__arrow {
-    top: 35%;
-  }
 }

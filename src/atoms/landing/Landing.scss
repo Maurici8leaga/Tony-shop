@@ -1,50 +1,40 @@
-// desktop
-@media (min-width: 1200px) {
-  .mg-slider {
-    margin-top: 7vh;
-    margin-bottom: 7vh;
-  }
+@import '../../scss/variables.scss';
 
-  .mg-listCatg {
-    margin-top: 9vh;
-    margin-bottom: 9vh;
-  }
-}
+.mg-slider {
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 
-// tablet
-@media (min-width: 900px) and (max-width: 1200px) {
-  .mg-slider {
+  // tablet breakpoint
+  @include responsiveness(900px, 1200px) {
     margin-top: 5vh;
     margin-bottom: 5vh;
   }
 
-  .mg-listCatg {
-    margin-top: 7vh;
-    margin-bottom: 7vh;
-  }
-}
-
-// mobile and tablet
-@media (min-width: 600px) and (max-width: 900px) {
-  .mg-slider {
+  // mobile and tablet breakpoint
+  @include responsiveness(600px, 900px) {
     margin-top: 3vh;
     margin-bottom: 3vh;
   }
 
-  .mg-listCatg {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-  }
-}
-
-// mobile
-@media (min-width: 0px) and (max-width: 600px) {
-  .mg-slider {
+  // mobile breakpoint
+  @include responsiveness(0px, 600px) {
     margin-top: 0px;
     margin-bottom: 0px;
   }
+}
 
-  .mg-listCatg {
+.mg-listCatg {
+  margin-top: 9vh;
+  margin-bottom: 9vh;
+
+  // tablet breakpoint
+  @include responsiveness(900px, 1200px) {
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+  }
+
+  // mobile and tablet breakpoint
+  @include responsiveness(0px, 900px) {
     margin-top: 5vh;
     margin-bottom: 5vh;
   }

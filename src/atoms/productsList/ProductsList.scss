@@ -1,134 +1,107 @@
+@import '../../scss/variables.scss';
+
 .bg-container-grid {
   margin-top: 100px;
   padding-top: 50px;
   overflow-y: auto;
-}
 
-.container-grid {
-  height: 100vh;
-
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 50px auto 100px;
-  grid-template-areas:
-    'm h h h'
-    'm c c c'
-    'm f f f';
-}
-
-.bar-sortBy {
-  grid-area: h;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.bar-filters {
-  grid-area: mh;
-  display: none;
-}
-
-.menu-filters {
-  grid-area: m;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 15px;
-}
-
-.content-grid {
-  grid-area: c;
-
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  justify-content: space-evenly;
-  padding: 15px;
-}
-
-.pagination-grid {
-  grid-area: f;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-// querys
-
-// mobile
-@media (min-width: 350px) and (max-width: 600px) {
-  .bg-container-grid {
+  // mobile / tablet breakpoint
+  @include responsiveness(350px, 1200px) {
     padding-top: 20px;
   }
 
   .container-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 135px auto 100px;
+    height: 100vh;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50px auto 100px;
     grid-template-areas:
-      'mh mh mh'
-      'c c c'
-      'f f f';
-  }
+      'm h h h'
+      'm c c c'
+      'm f f f';
 
-  .bar-sortBy {
-    display: none;
-  }
+    // mobile / tablet breakpoint
+    @include responsiveness(350px, 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 135px auto 100px;
+      grid-template-areas:
+        'mh mh mh'
+        'c c c'
+        'f f f';
+    }
 
-  .bar-filters {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+    .bar-sortBy {
+      grid-area: h;
 
-  .content-grid {
-    grid-template-columns: repeat(auto-fit, 270px);
-    grid-gap: 20px;
-  }
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
-  .menu-filters {
-    display: none;
-  }
-}
+      // mobile / tablet breakpoint
+      @include responsiveness(350px, 1200px) {
+        display: none;
+      }
+    }
 
-// tablet
-@media (min-width: 600px) and (max-width: 1200px) {
-  .bg-container-grid {
-    padding-top: 20px;
-  }
+    .bar-filters {
+      grid-area: mh;
+      display: none;
 
-  .container-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 135px auto 100px;
-    grid-template-areas:
-      'mh mh mh'
-      'c c c'
-      'f f f';
-  }
+      // mobile / tablet breakpoint
+      @include responsiveness(350px, 1200px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    }
 
-  .bar-sortBy {
-    display: none;
-  }
+    .menu-filters {
+      grid-area: m;
 
-  .bar-filters {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 15px;
 
-  .content-grid {
-    grid-template-columns: repeat(auto-fit, 253px);
-  }
+      // mobile / tablet breakpoint
+      @include responsiveness(350px, 1200px) {
+        display: none;
+      }
+    }
 
-  .menu-filters {
-    display: none;
+    .content-grid {
+      grid-area: c;
+
+      display: grid;
+      grid-gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      justify-content: space-evenly;
+      padding: 15px;
+
+      // mobile breakpoint
+      @include responsiveness(350px, 600px) {
+        grid-template-columns: repeat(auto-fit, 270px);
+        grid-gap: 20px;
+      }
+
+      // tablet breakpoint
+      @include responsiveness(600px, 1200px) {
+        grid-template-columns: repeat(auto-fit, 253px);
+      }
+    }
+
+    .pagination-grid {
+      grid-area: f;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

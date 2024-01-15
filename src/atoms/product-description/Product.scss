@@ -1,102 +1,88 @@
+@import '../../scss/variables.scss';
+
 .bg-container-product {
   margin-top: 100px;
   margin-bottom: 100px;
   padding-top: 50px;
-}
 
-.container-grid-product {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 500px auto auto auto auto;
-  grid-template-areas:
-    'img img m'
-    'i i m'
-    'qa qa m'
-    'c c m';
-}
-
-.img-product-section {
-  grid-area: img;
-}
-
-.card-product-description {
-  grid-area: m;
-  position: sticky;
-  top: 145px;
-  // la propiedad "align-self" por defecto es "strech" el cual estira el elemento tan largo como el grid mas largo
-  // al pasarlo a "start" este se va a reducir a su tamaño orig y coloca el elemento al inicio
-  align-self: start;
-  padding-bottom: 10px;
-}
-
-.card-product-description-adaptive {
-  grid-area: mc;
-  display: none;
-}
-
-.info-product-section {
-  grid-area: i;
-}
-
-.question-and-answers-section {
-  grid-area: qa;
-}
-
-.calification-product-section {
-  grid-area: c;
-}
-
-// querys
-
-// mobile
-@media (min-width: 350px) and (max-width: 600px) {
   .container-grid-product {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 500px auto auto auto auto;
     grid-template-areas:
-      'mc mc'
-      'i i '
-      'qa qa'
-      'c c';
-  }
+      'img img m'
+      'i i m'
+      'qa qa m'
+      'c c m';
 
-  .img-product-section {
-    display: none;
-  }
+    // mobile breakpoint
+    @include responsiveness(350px, 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'mc mc'
+        'i i '
+        'qa qa'
+        'c c';
+    }
 
-  .card-product-description {
-    display: none;
-  }
+    // tablet breakpoint
+    @include responsiveness(600px, 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'mc mc'
+        'i i '
+        'qa qa'
+        'c c';
+    }
 
-  .card-product-description-adaptive {
-    display: flex;
-    flex-direction: column;
-  }
-}
+    .img-product-section {
+      grid-area: img;
 
-// tablet
-@media (min-width: 600px) and (max-width: 1200px) {
-  .container-grid-product {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-template-areas:
-      'mc mc'
-      'i i '
-      'qa qa'
-      'c c';
-  }
+      // mobile /tablet breakpoint
+      @include responsiveness(350px, 1200px) {
+        display: none;
+      }
+    }
 
-  .img-product-section {
-    display: none;
-  }
+    .card-product-description {
+      grid-area: m;
+      position: sticky;
+      top: 145px;
+      // la propiedad "align-self" por defecto es "strech" el cual estira el elemento tan largo como el grid mas largo
+      // al pasarlo a "start" este se va a reducir a su tamaño orig y coloca el elemento al inicio
+      align-self: start;
+      padding-bottom: 10px;
 
-  .card-product-description {
-    display: none;
-  }
+      // mobile / tablet breakpoint
+      @include responsiveness(350px, 1200px) {
+        display: none;
+      }
 
-  .card-product-description-adaptive {
-    display: flex;
-    flex-direction: column;
+      &-adaptive {
+        grid-area: mc;
+        display: none;
+
+        // mobile / tablet breakpoint
+        @include responsiveness(350px, 1200px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .info-product-section {
+      grid-area: i;
+    }
+
+    .question-and-answers-section {
+      grid-area: qa;
+    }
+
+    .calification-product-section {
+      grid-area: c;
+    }
   }
 }

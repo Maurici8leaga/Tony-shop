@@ -1,67 +1,47 @@
+@import '../../scss/variables.scss';
+
 .container-checkout {
   height: 100vh;
   margin-top: 100px;
   margin-bottom: 100px;
   padding-top: 50px;
-}
 
-.container-grid-checkout {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 1fr 0.7fr;
-  grid-template-rows: 750px;
-  grid-template-areas: 'ic dl';
-}
+  @include responsiveness(350px, 1200px) {
+    height: auto;
+  }
 
-.details-list {
-  grid-area: dl;
-}
-
-.info-checkout {
-  grid-area: ic;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  width: 100%;
-  height: auto;
-  padding: 20px;
-}
-
-// querys
-
-// mobile
-@media (min-width: 350px) and (max-width: 600px) {
   .container-grid-checkout {
     display: grid;
     grid-gap: 40px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 400px auto;
-    grid-template-areas:
-      'ic'
-      'dl';
-  }
+    grid-template-columns: 1fr 0.7fr;
+    grid-template-rows: 750px;
+    grid-template-areas: 'ic dl';
 
-  .container-checkout {
-    height: auto;
-  }
-}
+    @include responsiveness(350px, 1200px) {
+      display: grid;
+      grid-gap: 40px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 400px auto;
+      grid-template-areas:
+        'ic'
+        'dl';
+    }
 
-// tablet
-@media (min-width: 600px) and (max-width: 1200px) {
-  .container-grid-checkout {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 400px auto;
-    grid-template-areas:
-      'ic'
-      'dl';
-  }
+    .info-checkout {
+      grid-area: ic;
 
-  .container-checkout {
-    height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+
+    .details-list {
+      grid-area: dl;
+    }
   }
 }
