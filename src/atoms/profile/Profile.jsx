@@ -6,9 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import Box from '@mui/joy/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 // component
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
+import ReusableModal from '@molecules/modal/ReusableModal';
 
 // ccss
 import '../profile/Profile.scss';
@@ -23,6 +25,13 @@ const Profile = () => {
   const [bankName, setBankName] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [bankAccountType, setBankAccountType] = useState('');
+
+  // state for modal
+  const [open, setOpen] = useState(false);
+
+  // para abrir y cerrar los modal
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="container-profile">
@@ -48,7 +57,7 @@ const Profile = () => {
                 Datos personales
               </Typography>
 
-              <IconButton aria-label="edit" color="primary">
+              <IconButton aria-label="edit" color="primary" onClick={handleOpen}>
                 <CreateOutlinedIcon />
               </IconButton>
             </Stack>
@@ -113,6 +122,66 @@ const Profile = () => {
                 />
               </Box>
             </Box>
+
+            <ReusableModal open={open} handleClose={handleClose} title={'Actualizar mis datos'}>
+              <Box
+                component="form"
+                autoComplete="off"
+                sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', marginBottom: '1rem' }}
+                gap={4}
+              >
+                <TextField
+                  id="input-name"
+                  label="Nombre"
+                  variant="standard"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+
+                <TextField
+                  id="input-lastname"
+                  label="Apellido"
+                  variant="standard"
+                  type="text"
+                  value={lastname}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+
+                <TextField
+                  id="input-document-number"
+                  label="Nº Documento"
+                  variant="standard"
+                  type="number"
+                  value={nId}
+                  onChange={(e) => setNId(e.target.value)}
+                />
+
+                <TextField
+                  id="input-phone-number"
+                  label="Telefono"
+                  variant="standard"
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+
+                <TextField
+                  id="input-email"
+                  label="Correo"
+                  variant="standard"
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEMail(e.target.value)}
+                />
+
+                <Stack direction="row" justifyContent="end">
+                  <Button type="submit" variant="outlined">
+                    Guardar{' '}
+                  </Button>
+                </Stack>
+              </Box>
+            </ReusableModal>
 
             <Stack
               direction="row"
