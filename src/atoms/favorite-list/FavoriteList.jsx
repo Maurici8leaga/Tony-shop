@@ -27,6 +27,8 @@ const FavoriteList = () => {
   // state for qty product selected
   const [qtySelected, SetqtySelected] = useState(1);
 
+  const [checked, setChecked] = useState([]);
+
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
     // aqui hay que agregar logica para que tampoco supere el limite que hay en el stock de la db
@@ -38,6 +40,18 @@ const FavoriteList = () => {
     } else {
       SetqtySelected(1);
     }
+  };
+
+  // se crea esta funcion para poder controlar los product seleccionados y asi poder enviarlos al carrito
+  const handleChange = (event) => {
+    let arrProduct = [...checked];
+    if (event.target.checked) {
+      arrProduct = [...checked, event.target.value];
+    } else {
+      arrProduct.splice(checked.indexOf(event.target.value), 1);
+      // el splice va eliminar el element que acaba de ser unchecked, con indexOf optiene el index del elemento y lo saca del arrproduct
+    }
+    setChecked(arrProduct);
   };
 
   return (
@@ -121,8 +135,8 @@ const FavoriteList = () => {
                       textAlign: 'center'
                     }}
                   >
-                    <Checkbox />
-                    {/* OJO FALTA AGREGAR LOGICA  */}
+                    <Checkbox value={'id-prueba-01'} onChange={handleChange} />
+                    {/* IMPORTANTE se debe usarse el id del elemento como value para asi pueda usarse para buscar en el carrito */}
 
                     <IconButton color="error">
                       <DeleteOutlineOutlinedIcon />
@@ -133,7 +147,13 @@ const FavoriteList = () => {
             </List>
 
             <Stack direction="row" justifyContent="end" sx={{ width: '100%', marginY: '1rem' }}>
-              <Button variant="contained">Agregar al carro </Button>
+              {checked.length > 0 ? (
+                <Button variant="contained">Agregar al carro </Button>
+              ) : (
+                <Button variant="contained" disabled>
+                  Agregar al carro{' '}
+                </Button>
+              )}
             </Stack>
           </div>
         </div>
