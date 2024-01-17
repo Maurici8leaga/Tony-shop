@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import List from '@mui/joy/List';
+import Skeleton from '@mui/material/Skeleton';
 import TextField from '@mui/material/TextField';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ListItemButton from '@mui/joy/ListItemButton';
@@ -99,9 +100,17 @@ const MenuFilters = (prop) => {
             Categorias
           </Typography>
           <List>
-            {categoryMenuData.map((item) => (
-              <ProductStockLink key={item.id} data={item.data} amount={item.num} href={item.href} click={false} />
-            ))}
+            {/* falta incorporar loading a este condicional */}
+            {categoryMenuData.length > 0
+              ? categoryMenuData.map((item) => (
+                  <ProductStockLink key={item.id} data={item.data} amount={item.num} href={item.href} click={false} />
+                ))
+              : Array.from(new Array(5)).map((x, index) => (
+                  // OJO duda sobre la x sin implementar, estara bien dejar asi ???
+                  <div key={index}>
+                    <Skeleton />
+                  </div>
+                ))}
           </List>
         </Box>
 

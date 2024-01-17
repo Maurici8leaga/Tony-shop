@@ -8,6 +8,8 @@ import Menu from '@mui/joy/Menu';
 import MenuItem from '@mui/joy/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CardItem from '@molecules/card/cardItem/CardItem';
+import Box from '@mui/joy/Box';
+import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Pagination from '@mui/material/Pagination';
 // component jsx
@@ -120,19 +122,34 @@ const ProductsList = () => {
             />
           </div>
           <div className="content-grid">
-            {listaProductosPrueba.map((item) => (
-              <div key={`product_item_${item.id}`}>
-                <CardItem
-                  imgProduct={item.imgProduct}
-                  nameProduct={item.nameProduct}
-                  priceProduct={item.priceProduct}
-                  descriptionProduct={item.descriptionProduct}
-                  customWidth={'270px'}
-                  customHeight={'320px'}
-                />
-              </div>
-            ))}
+            {/* falta incorporar loading a este condicional */}
+            {listaProductosPrueba.length > 0
+              ? listaProductosPrueba.map((item) => (
+                  <div key={`product_item_${item.id}`}>
+                    <CardItem
+                      imgProduct={item.imgProduct}
+                      nameProduct={item.nameProduct}
+                      priceProduct={item.priceProduct}
+                      descriptionProduct={item.descriptionProduct}
+                      customWidth={'270px'}
+                      customHeight={'320px'}
+                    />
+                  </div>
+                ))
+              : Array.from(new Array(9)).map((x, index) => (
+                  // OJO duda sobre la x sin implementar, estara bien dejar asi ???
+                  <div key={index}>
+                    <Box width={270} height={320}>
+                      <Skeleton variant="rectangular" width="100%" height={157} />
+                      <Box sx={{ pt: 0.5 }}>
+                        <Skeleton />
+                        <Skeleton />
+                      </Box>
+                    </Box>
+                  </div>
+                ))}
           </div>
+
           <div className="pagination-grid">
             <Stack
               spacing={1}
