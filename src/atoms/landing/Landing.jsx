@@ -13,8 +13,14 @@ import { listCategory } from '@services/utils/static.data';
 // scss
 import '@atoms/landing/Landing.scss';
 
+import Spinner from '@molecules/loader/Spinner';
+
 const Landing = () => {
-  return (
+  const loading = true;
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <div>
       <div style={{ marginTop: '100px', marginBottom: '80px' }}>
         <Slider />

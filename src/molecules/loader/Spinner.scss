@@ -1,0 +1,68 @@
+@import '../../scss/variables.scss';
+
+.loader {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 30%;
+  padding-bottom: 30%;
+
+  // tablet breakpoint
+  @include responsiveness(600px, 1200px) {
+    padding-top: 40%;
+    padding-bottom: 40%;
+    margin-top: 100px;
+  }
+
+  // mobil breakpoint
+  @include responsiveness(350px, 600px) {
+    padding-top: 50%;
+    padding-bottom: 50%;
+    margin-top: 100px;
+  }
+
+  .container {
+    position: relative;
+    height: 110px;
+    overflow: hidden;
+  }
+
+  .wheel {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    animation: rolling 1s linear infinite;
+
+    @include responsiveness(350px, 600px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .road {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 5em;
+    background-color: rgb(55, 55, 55);
+    animation: road-move 2s linear infinite;
+  }
+}
+
+// animations
+
+@keyframes rolling {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes road-move {
+  from {
+    transform: translateX(-140%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
