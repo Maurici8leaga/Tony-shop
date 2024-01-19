@@ -3,7 +3,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/joy/Box';
 import Grid from '@mui/material/Grid';
-// component jssx
+// component jsx
+import Spinner from '@molecules/loader/Spinner';
 import Slider from '@molecules/slider/Slider';
 import SliderGrid from '@molecules/slider/sliderGrid/SliderGrid';
 import SliderBrand from '@molecules/slider/sliderBrand/SliderBrand';
@@ -13,11 +14,10 @@ import { listCategory } from '@services/utils/static.data';
 // scss
 import '@atoms/landing/Landing.scss';
 
-import Spinner from '@molecules/loader/Spinner';
-
 const Landing = () => {
-  const loading = true;
+  const loading = false; // temporal
 
+  // falta incorporar el loading para que muestre el spinner cuando carga
   return loading ? (
     <Spinner />
   ) : (
@@ -32,6 +32,7 @@ const Landing = () => {
             Productos en ofertas
           </Typography>
 
+          {/* falta agregarlo prop de la data del DB a este component */}
           <SliderGrid />
         </section>
 
@@ -40,6 +41,7 @@ const Landing = () => {
             Lo mas vendido
           </Typography>
 
+          {/* falta agregarlo prop de la data del DB a este component */}
           <SliderGrid />
         </section>
 
