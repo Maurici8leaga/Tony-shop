@@ -4,14 +4,13 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Card from '@mui/joy/Card';
-import AspectRatio from '@mui/joy/AspectRatio';
-import CardContent from '@mui/joy/CardContent';
-import Divider from '@mui/material/Divider';
-import Chip from '@mui/joy/Chip';
 // component
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
+import CardProductShopping from '@molecules/card/card-product-shopping/CardProductShopping';
+import EmptyList from '@molecules/empty-message/empty-list/EmptyList';
+// static data
+import { arrayFakeMyShopping } from '../../services/utils/static.data';
 // css
 import '../profile/Profile.scss';
 
@@ -38,48 +37,29 @@ const MyShopping = () => {
             </Stack>
 
             <List sx={{ width: '100%', overflowY: 'scroll' }}>
-              <ListItem>
-                <Card color="neutral" orientation="horizontal" variant="outlined" sx={{ width: '100%' }}>
-                  <AspectRatio ratio="1" sx={{ width: 90, alignSelf: 'center' }}>
-                    <img
-                      srcSet="https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275"
-                      loading="lazy"
-                      alt="img-product" // colorcar un alt org
+              {/* OJO FALTA sustituid condicional para cuando no tenga data */}
+              {/* daata debe venir del store o db del user */}
+              {arrayFakeMyShopping.length > 0 ? (
+                arrayFakeMyShopping.map((e) => (
+                  <ListItem key={`product-shopping-item${e.id}`}>
+                    <CardProductShopping
+                      idProduct={e.id}
+                      imgProduct={e.img}
+                      titleProduct={e.title}
+                      purchased={e.purchased}
+                      delivered={e.delivered}
+                      direction={e.direction}
+                      status={e.status}
                     />
-                  </AspectRatio>
-
-                  <CardContent>
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                      <Typography variant="subtitle2">Titulo producto</Typography>
-
-                      <Typography variant="body2" sx={{ fontWeight: 'lighter' }}>
-                        Nº 123456789
-                      </Typography>
-                    </Stack>
-                    <Divider sx={{ marginY: '.5rem' }} />
-
-                    <Stack
-                      direction="row"
-                      justifyContent="space-between"
-                      alignItems="center"
-                      sx={{ marginBottom: '.5rem' }}
-                    >
-                      <Typography variant="body2">Fecha de compra: 01/02/2023</Typography>
-
-                      <Divider orientation="vertical" sx={{ marginX: '.5rem' }} />
-
-                      <Typography variant="body2">Fecha de entrega: 03/02/2023</Typography>
-                    </Stack>
-
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                      <Typography variant="body2">Vereda Garza, 24, Hab. 9</Typography>
-                      <Chip variant="outlined" color="success" size="sm" sx={{ pointerEvents: 'none' }}>
-                        Entregado
-                      </Chip>
-                    </Stack>
-                  </CardContent>
-                </Card>
-              </ListItem>
+                  </ListItem>
+                ))
+              ) : (
+                <EmptyList
+                  title={'Historial vacio'}
+                  subtitle={'Parece que no haz comprado nada aun'}
+                  btnText={'Ir a comprar'}
+                />
+              )}
             </List>
           </div>
         </div>

@@ -1,6 +1,4 @@
 import * as React from 'react';
-// components
-import HorizontalCard from '@molecules/card/horizontalCard/HorizontalCard';
 // material UI components
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -14,8 +12,11 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// components
+import HorizontalCard from '@molecules/card/horizontalCard/HorizontalCard';
+import EmptyShoppingCar from '@molecules/empty-message/empty-shopping-car/EmptyShoppingCar';
 // static data
-import { imgPruebaProduct } from '@services/utils/static.data';
+import { arrayFakeShoppingCar } from '@services/utils/static.data';
 
 const ShopingDrawer = (prop) => {
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
@@ -41,53 +42,63 @@ const ShopingDrawer = (prop) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <List sx={{ height: { xs: '450px', sm: '500px', md: '600px' }, overflowY: 'scroll' }}>
-          {/* aqui se va a repetir esto por cada item que se anada */}
-          <ListItem>
-            <HorizontalCard
-              inputRef={inputRef}
-              imgProduct={imgPruebaProduct}
-              nameProduct={'Casco'}
-              priceProduct={11.11}
-            />
-          </ListItem>
+        {/* OJO sustituir tambien aca */}
+        <List
+          sx={{
+            height: { xs: '450px', sm: '500px', md: '600px' },
+            overflowY: `${arrayFakeShoppingCar.length > 0 ? 'scroll' : 'hidden'}`
+          }}
+        >
+          {/* actualizar este condicional con la data que debe venir del store o de la db */}
+          {arrayFakeShoppingCar.length > 0 ? (
+            arrayFakeShoppingCar.map((e) => (
+              <ListItem key={e.id}>
+                <HorizontalCard inputRef={inputRef} imgProduct={e.img} nameProduct={'Casco'} priceProduct={e.price} />
+              </ListItem>
+            ))
+          ) : (
+            <EmptyShoppingCar />
+          )}
         </List>
 
         {/* botom de pago */}
-        <Stack sx={{ width: '85%', position: 'absolute', marginY: '1rem' }}>
-          <Box
-            sx={{
-              display: 'block',
-              position: 'relative',
-              top: 30,
-              left: { xs: 3, sm: 0 }
-            }}
-          >
-            <Stack direction={'row'} sx={{ py: 2, color: 'var(--blue)' }}>
-              {/* falta gregar logica para calcular todo el valor total del producto */}
-              <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                Subtotal:
-              </Typography>
+        {/* OJO IGUAL sustituir por la verdadera data que viene del store o db */}
+        {arrayFakeShoppingCar.length > 0 ? (
+          <Stack sx={{ width: '85%', position: 'absolute', marginY: '1rem' }}>
+            <Box
+              sx={{
+                display: 'block',
+                position: 'relative',
+                top: 30,
+                left: { xs: 3, sm: 0 }
+              }}
+            >
+              <Stack direction={'row'} sx={{ py: 2, color: 'var(--blue)' }}>
+                {/* falta gregar logica para calcular todo el valor total del producto */}
+                <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                  Subtotal:
+                </Typography>
 
-              {/* aqui debe ir el monto total de lo que tenga en el carrito */}
-              <Typography variant="h6"> $ 11.11</Typography>
-            </Stack>
+                {/* aqui debe ir el monto total de lo que tenga en el carrito */}
+                <Typography variant="h6"> $ 11.11</Typography>
+              </Stack>
 
-            <Stack spacing={2}>
-              <Button
-                component="a"
-                variant="contained"
-                size="large"
-                href="/checkout"
-                sx={{ mb: 2 }}
-                color="success"
-                endIcon={<ShoppingCartIcon />}
-              >
-                Ir a pagar
-              </Button>
-            </Stack>
-          </Box>
-        </Stack>
+              <Stack spacing={2}>
+                <Button
+                  component="a"
+                  variant="contained"
+                  size="large"
+                  href="/checkout"
+                  sx={{ mb: 2 }}
+                  color="success"
+                  endIcon={<ShoppingCartIcon />}
+                >
+                  Ir a pagar
+                </Button>
+              </Stack>
+            </Box>
+          </Stack>
+        ) : null}
       </Container>
     </Drawer>
   );

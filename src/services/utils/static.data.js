@@ -337,3 +337,24 @@ export const opcionMenuProfile = [
   { id: 3, type: 'Compras', icon: <ShoppingBagOutlinedIcon />, url: '/account/myShopping' },
   { id: 4, type: 'Favoritos', icon: <FavoriteBorderOutlinedIcon />, url: '/account/favorites' }
 ];
+
+export const arrayFakeMyShopping = [
+  {
+    id: 123456789,
+    img: 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275',
+    title: 'Titulo producto',
+    purchased: '01/02/2023',
+    delivered: '03/02/2023',
+    direction: 'Vereda Garza, 24, Hab. 9',
+    status: true // debe ser true o false dependiendo si esta entregado o no
+  }
+];
+
+export const arrayFakeShoppingCar = [
+  {
+    id: 12345,
+    img: 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275',
+    title: 'Casco Integral Hro518 Cremer...',
+    price: '11.11'
+  }
+];
