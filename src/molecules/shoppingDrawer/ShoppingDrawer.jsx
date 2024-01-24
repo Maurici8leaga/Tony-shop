@@ -17,6 +17,8 @@ import HorizontalCard from '@molecules/card/horizontalCard/HorizontalCard';
 import EmptyShoppingCar from '@molecules/empty-message/empty-shopping-car/EmptyShoppingCar';
 // static data
 import { arrayFakeShoppingCar } from '@services/utils/static.data';
+// css
+import '../shoppingDrawer/ShoppingDrawer.scss';
 
 const ShopingDrawer = (prop) => {
   const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
@@ -45,7 +47,7 @@ const ShopingDrawer = (prop) => {
         {/* OJO sustituir tambien aca */}
         <List
           sx={{
-            height: { xs: '450px', sm: '500px', md: '600px' },
+            height: { xs: '60vh', sm: '70vh', md: '65vh' },
             overflowY: `${arrayFakeShoppingCar.length > 0 ? 'scroll' : 'hidden'}`
           }}
         >
@@ -64,15 +66,8 @@ const ShopingDrawer = (prop) => {
         {/* botom de pago */}
         {/* OJO IGUAL sustituir por la verdadera data que viene del store o db */}
         {arrayFakeShoppingCar.length > 0 ? (
-          <Stack sx={{ width: '85%', position: 'absolute', marginY: '1rem' }}>
-            <Box
-              sx={{
-                display: 'block',
-                position: 'relative',
-                top: 30,
-                left: { xs: 3, sm: 0 }
-              }}
-            >
+          <Stack sx={{ position: 'relative', top: { xs: 30, sm: 20, md: 30 } }}>
+            <Box className="subtotal-container">
               <Stack direction={'row'} sx={{ py: 2, color: 'var(--blue)' }}>
                 {/* falta gregar logica para calcular todo el valor total del producto */}
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
