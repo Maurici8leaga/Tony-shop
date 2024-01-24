@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
@@ -6,8 +7,8 @@ import Button from '@mui/material/Button';
 // static
 import EmptyBox from '../../../assets/img/empty-box.png';
 
-const EmptyList = (prop) => {
-  const { title, subtitle, btnText } = prop;
+const EmptyList = (props) => {
+  const { title, subtitle, btnText } = props;
   const navigate = useNavigate();
 
   return (
@@ -36,6 +37,14 @@ const EmptyList = (prop) => {
       </Button>
     </Box>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+EmptyList.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  title: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  subtitle: PropTypes.string.isRequired,
+  btnText: PropTypes.string.isRequired
 };
 
 export default EmptyList;

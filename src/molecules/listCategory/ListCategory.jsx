@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Grid from '@mui/material/Grid';
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
@@ -7,8 +8,10 @@ import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 
 // este componente cumple con el principio SOLID OPEN/CLOSE
-const ListCategory = (prop) => {
-  const { width, href, image, name, bpXs, bpSm, bpMd, bpLg, objectFit } = prop;
+const ListCategory = (props) => {
+  const { width, href, image, name, bpXs, bpSm, bpMd, bpLg, objectFit } = props;
+  // los props bpXs, bpSm, bpMd, bpLg son por si se quiere personalizar los breakpoints
+
   return (
     <>
       <Grid
@@ -40,6 +43,20 @@ const ListCategory = (prop) => {
       </Grid>
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+ListCategory.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  width: PropTypes.number,
+  href: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  bpXs: PropTypes.number,
+  bpSm: PropTypes.number,
+  bpMd: PropTypes.number,
+  bpLg: PropTypes.number,
+  objectFit: PropTypes.string
 };
 
 export default ListCategory;

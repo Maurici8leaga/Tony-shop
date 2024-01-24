@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Modal from '@mui/material/Modal';
 import Box from '@mui/joy/Box';
 import Stack from '@mui/material/Stack';
@@ -10,8 +11,8 @@ import TextField from '@mui/material/TextField';
 
 // OJO FALTA AGREGAR LOGICA PARA GUARDAR LA NEW DIRECCION
 
-const DirectionsModal = (prop) => {
-  const { open, handleClose, address, setAddress } = prop;
+const DirectionsModal = (props) => {
+  const { open, handleClose, address, setAddress } = props;
 
   return (
     <Modal open={open} onClose={handleClose} aria-labelledby="directions modal" aria-describedby="modal for directions">
@@ -60,6 +61,16 @@ const DirectionsModal = (prop) => {
       </Box>
     </Modal>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+DirectionsModal.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  open: PropTypes.bool.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  handleClose: PropTypes.func,
+  // si no se le coloca "isRequired" hace que sea opcional el prop
+  address: PropTypes.string,
+  setAddress: PropTypes.func
 };
 
 export default DirectionsModal;

@@ -1,8 +1,8 @@
-// querys
+@import '../../../scss/variables.scss';
 
-// mobile
-@media (min-width: 0px) and (max-width: 599px) {
-  .bg-mt-img {
+.bg-mt-img {
+  // mobile brekpoint
+  @include responsiveness(0px, 599px) {
     overflow-y: auto;
   }
 }

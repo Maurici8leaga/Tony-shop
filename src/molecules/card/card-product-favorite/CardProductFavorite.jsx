@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Card from '@mui/joy/Card';
 import AspectRatio from '@mui/joy/AspectRatio';
 import CardContent from '@mui/joy/CardContent';
@@ -12,9 +13,9 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Checkbox from '@mui/material/Checkbox';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const CardProductFavorite = (prop) => {
+const CardProductFavorite = (props) => {
   // Falta agregar logica para eliminar elemento de la lista
-  const { img, title, price, addProduct, minusProduct, qtySelected, handleChange } = prop;
+  const { img, title, price, addProduct, minusProduct, qtySelected, handleChange } = props;
 
   return (
     <Card color="neutral" orientation="horizontal" variant="outlined" sx={{ width: '100%' }}>
@@ -80,6 +81,19 @@ const CardProductFavorite = (prop) => {
       </CardOverflow>
     </Card>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+CardProductFavorite.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  img: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  addProduct: PropTypes.func,
+  // si no se le coloca "isRequired" hace que sea opcional el prop
+  minusProduct: PropTypes.func,
+  qtySelected: PropTypes.number,
+  handleChange: PropTypes.func
 };
 
 export default CardProductFavorite;

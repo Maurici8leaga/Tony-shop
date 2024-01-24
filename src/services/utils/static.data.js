@@ -355,6 +355,6 @@ export const arrayFakeShoppingCar = [
     id: 12345,
     img: 'https://edgehelmets.com/cdn/shop/files/CAPITAN_AMERICA_ZOOM.jpg?v=1687202275',
     title: 'Casco Integral Hro518 Cremer...',
-    price: '11.11'
+    price: 11.11
   }
 ];

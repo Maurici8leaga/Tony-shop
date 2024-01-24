@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
@@ -10,8 +11,8 @@ import Button from '@mui/material/Button';
 // css
 import '../card-details-checkout/CardDetailsCheckout.scss';
 
-const CardDetailsCheckout = (prop) => {
-  const { imgProduct, titleProduct, qtyProduct, priceProduct } = prop;
+const CardDetailsCheckout = (props) => {
+  const { imgProduct, titleProduct, qtyProduct, priceProduct } = props;
 
   return (
     <div className="card-details-checkout">
@@ -72,6 +73,15 @@ const CardDetailsCheckout = (prop) => {
       </Stack>
     </div>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+CardDetailsCheckout.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  imgProduct: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  titleProduct: PropTypes.string.isRequired,
+  qtyProduct: PropTypes.number.isRequired,
+  priceProduct: PropTypes.number.isRequired
 };
 
 export default CardDetailsCheckout;
