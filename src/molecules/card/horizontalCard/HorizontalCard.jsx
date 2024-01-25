@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Card from '@mui/joy/Card';
 import AspectRatio from '@mui/joy/AspectRatio';
 import CardContent from '@mui/joy/CardContent';
@@ -9,8 +10,8 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-const HorizontalCard = (prop) => {
-  const { inputRef, imgProduct, nameProduct, priceProduct } = prop;
+const HorizontalCard = (props) => {
+  const { inputRef, imgProduct, nameProduct, priceProduct } = props;
 
   // state for qty product selected
   const [qtySelected, SetqtySelected] = useState(1);
@@ -76,6 +77,15 @@ const HorizontalCard = (prop) => {
       </CardContent>
     </Card>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+HorizontalCard.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  imgProduct: PropTypes.string.isRequired,
+  nameProduct: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  priceProduct: PropTypes.number.isRequired,
+  inputRef: PropTypes.any // OJO ESTE PUEDE ELIMINARSE SI NO SE DEFINE BIEN SU FUNCION
 };
 
 export default HorizontalCard;

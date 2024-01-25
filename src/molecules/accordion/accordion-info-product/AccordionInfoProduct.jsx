@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -10,8 +11,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/joy/Divider';
 
-const AccordionInfoProduct = (prop) => {
-  const { characteristicsProduct, descriptionProduct } = prop;
+const AccordionInfoProduct = (props) => {
+  const { characteristicsProduct, descriptionProduct } = props;
 
   return (
     <Accordion defaultExpanded={true}>
@@ -73,6 +74,13 @@ const AccordionInfoProduct = (prop) => {
       </AccordionDetails>
     </Accordion>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+AccordionInfoProduct.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  characteristicsProduct: PropTypes.array.isRequired,
+  descriptionProduct: PropTypes.string.isRequired //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
 };
 
 export default AccordionInfoProduct;

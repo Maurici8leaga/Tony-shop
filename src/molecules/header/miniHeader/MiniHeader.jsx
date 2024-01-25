@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // component Material UI
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
@@ -10,7 +11,7 @@ import SwapVertIcon from '@mui/icons-material/SwapVert';
 import MenuFilter from '@molecules/drawers/menuFilter/MenuFilter';
 import MenuSortBy from '@molecules/drawers/menuSortBy/MenuSortBy';
 
-const MiniHeader = (prop) => {
+const MiniHeader = (props) => {
   const {
     titleSection,
     amountResults,
@@ -22,7 +23,9 @@ const MiniHeader = (prop) => {
     setOpenDrawerSortBy,
     checked,
     setChecked
-  } = prop;
+  } = props;
+
+  // OJO hay que tener por defecto un checked de manera que tenga un orden principal y luego user pueda cambiarlo si quiere
 
   return (
     <>
@@ -96,6 +99,22 @@ const MiniHeader = (prop) => {
       />
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+MiniHeader.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  titleSection: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  amountResults: PropTypes.number.isRequired,
+  openDrawerFilter: PropTypes.bool,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  setOpenDrawerFilter: PropTypes.func,
+  filterSelected: PropTypes.bool,
+  setFilterSelected: PropTypes.func,
+  openDrawerSortBy: PropTypes.bool,
+  setOpenDrawerSortBy: PropTypes.func,
+  checked: PropTypes.string,
+  setChecked: PropTypes.func
 };
 
 export default MiniHeader;

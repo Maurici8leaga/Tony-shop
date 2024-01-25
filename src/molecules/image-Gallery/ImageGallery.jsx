@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import AspectRatio from '@mui/joy/AspectRatio';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/joy/Avatar';
 
-const ImageGallery = (prop) => {
-  const { images } = prop;
-
+const ImageGallery = ({ images }) => {
   const [ImgProduct, setImgProduct] = useState(images[0].img); // aqui habria que cambiar por el primer nombre que tenga el objeto de la db
 
   const showImgProduct = (img) => {
@@ -41,6 +39,13 @@ const ImageGallery = (prop) => {
       </Stack>
     </AspectRatio>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+ImageGallery.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  images: PropTypes.array.isRequired
+  //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
 };
 
 export default ImageGallery;

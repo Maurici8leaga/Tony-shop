@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // component mui
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/joy/Box';
@@ -10,8 +11,10 @@ import Typography from '@mui/material/Typography';
 import Radio from '@mui/material/Radio';
 
 // OJO HAY QUE AGREGAR FUNCIONALIDAD PARA QUE ORDENE LOS ELEMENTOS DEL CONTENIDO
-const MenuSortBy = (prop) => {
-  const { openDrawer, closeDrawer, checked, setChecked } = prop;
+const MenuSortBy = (props) => {
+  const { openDrawer, closeDrawer, checked, setChecked } = props;
+
+  // OJO hay que tener por defecto un checked de manera que tenga un orden principal y luego user pueda cambiarlo si quiere
 
   const settingCheckbox = (event) => {
     setChecked(event.target.value);
@@ -84,6 +87,16 @@ const MenuSortBy = (prop) => {
       </Box>
     </Drawer>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+MenuSortBy.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  openDrawer: PropTypes.bool,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  closeDrawer: PropTypes.func,
+  checked: PropTypes.string,
+  setChecked: PropTypes.func
 };
 
 export default MenuSortBy;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // component
 import ImageGallery from '@molecules/image-Gallery/ImageGallery';
 // cosas para el menu
@@ -17,9 +18,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // css
 import '../CardProduct-adaptive/CardProductAdaptive.scss';
 
-const CardProductAdaptive = (prop) => {
+const CardProductAdaptive = (props) => {
   const { titleProduct, productPrice, avgRate, qtyProduct, priceDelivery, imgsProduct, qtySelected, SetqtySelected } =
-    prop;
+    props;
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
@@ -119,6 +120,20 @@ const CardProductAdaptive = (prop) => {
       </CardActions>
     </Card>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+CardProductAdaptive.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  titleProduct: PropTypes.string.isRequired,
+  productPrice: PropTypes.number.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  avgRate: PropTypes.number.isRequired,
+  qtyProduct: PropTypes.number.isRequired,
+  priceDelivery: PropTypes.number || PropTypes.string,
+  imgsProduct: PropTypes.array.isRequired,
+  qtySelected: PropTypes.number,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  SetqtySelected: PropTypes.func
 };
 
 export default CardProductAdaptive;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Accordion from '@mui/material/Accordion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -10,9 +11,7 @@ import Rating from '@mui/material/Rating';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
-const AccordionRateProduct = (prop) => {
-  const { rangeCalification } = prop;
-
+const AccordionRateProduct = ({ rangeCalification }) => {
   return (
     <Accordion defaultExpanded={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ fontSize: '20px' }}>
@@ -38,6 +37,13 @@ const AccordionRateProduct = (prop) => {
       </AccordionDetails>
     </Accordion>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+AccordionRateProduct.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  rangeCalification: PropTypes.array.isRequired
+  //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
 };
 
 export default AccordionRateProduct;

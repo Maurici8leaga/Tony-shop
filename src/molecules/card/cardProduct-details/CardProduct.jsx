@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import Card from '@mui/joy/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -12,8 +13,8 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CardProduct = (prop) => {
-  const { titleProduct, productPrice, avgRate, qtyProduct, priceDelivery, qtySelected, SetqtySelected } = prop;
+const CardProduct = (props) => {
+  const { titleProduct, productPrice, avgRate, qtyProduct, priceDelivery, qtySelected, SetqtySelected } = props;
 
   const addProduct = () => {
     SetqtySelected(qtySelected + 1);
@@ -105,6 +106,19 @@ const CardProduct = (prop) => {
       </CardActions>
     </Card>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+CardProduct.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  titleProduct: PropTypes.string.isRequired,
+  productPrice: PropTypes.number.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  avgRate: PropTypes.number.isRequired,
+  qtyProduct: PropTypes.number.isRequired,
+  priceDelivery: PropTypes.number || PropTypes.string,
+  qtySelected: PropTypes.number,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  SetqtySelected: PropTypes.func
 };
 
 export default CardProduct;

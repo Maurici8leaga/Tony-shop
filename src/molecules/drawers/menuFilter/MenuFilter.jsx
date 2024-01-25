@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // component mui
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/joy/Box';
@@ -19,8 +20,8 @@ import ProductStockLink from '@molecules/link/ProductStockLink';
 // static data
 import { categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
-const MenuFilter = (prop) => {
-  const { openDrawer, closeDrawer, filterSelected, setFilterSelected } = prop;
+const MenuFilter = (props) => {
+  const { openDrawer, closeDrawer, filterSelected, setFilterSelected } = props;
 
   const selectingFilter = () => {
     setFilterSelected(true);
@@ -137,6 +138,16 @@ const MenuFilter = (prop) => {
       </Box>
     </Drawer>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+MenuFilter.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  openDrawer: PropTypes.bool,
+  closeDrawer: PropTypes.func,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  filterSelected: PropTypes.bool,
+  setFilterSelected: PropTypes.func
 };
 
 export default MenuFilter;

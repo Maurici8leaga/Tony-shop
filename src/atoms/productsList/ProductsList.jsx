@@ -96,8 +96,8 @@ const ProductsList = () => {
           </div>
           <div className="menu-filters">
             <MenuFilters
-              titleSection={id}
-              amountResults={100}
+              titleSection={id} // es id sera el nombre que viene del querys
+              amountResults={100} // este num debe venir de la db
               filterSelected={filterSelected}
               setFilterSelected={setFilterSelected}
               filterPrice={filterPrice}
@@ -109,8 +109,8 @@ const ProductsList = () => {
           </div>
           <div className="bar-filters">
             <MiniHeader
-              titleSection={id}
-              amountResults={100}
+              titleSection={id} // es id sera el nombre que viene del querys
+              amountResults={100} // este num debe venir de la db
               openDrawerFilter={openDrawerFilter}
               setOpenDrawerFilter={setOpenDrawerFilter}
               filterSelected={filterSelected}

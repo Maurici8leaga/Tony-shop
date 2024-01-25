@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // component material ui
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
@@ -17,7 +18,7 @@ import ProductStockLink from '@molecules/link/ProductStockLink';
 // static data
 import { categoryMenuData, rangePrice, rangeCalification } from '@services/utils/static.data';
 
-const MenuFilters = (prop) => {
+const MenuFilters = (props) => {
   const {
     titleSection,
     amountResults,
@@ -28,7 +29,7 @@ const MenuFilters = (prop) => {
     setMinPrice,
     maxPrice,
     setMaxPrice
-  } = prop;
+  } = props;
 
   return (
     <>
@@ -209,6 +210,21 @@ const MenuFilters = (prop) => {
       </Box>
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observer
+MenuFilters.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ellos
+  titleSection: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  amountResults: PropTypes.number.isRequired,
+  filterSelected: PropTypes.bool,
+  setFilterSelected: PropTypes.func,
+  filterPrice: PropTypes.func,
+  minPrice: PropTypes.string,
+  // si el prop no lleva isRequired, significa que su presencia en el component puede ser opcional
+  setMinPrice: PropTypes.func,
+  maxPrice: PropTypes.string,
+  setMaxPrice: PropTypes.func
 };
 
 export default MenuFilters;
