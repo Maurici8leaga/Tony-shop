@@ -127,6 +127,7 @@ const ProductsList = () => {
               ? listaProductosPrueba.map((item) => (
                   <div key={`product_item_${item.id}`}>
                     <CardItem
+                      idProduct={item.id}
                       imgProduct={item.imgProduct}
                       nameProduct={item.nameProduct}
                       priceProduct={item.priceProduct}

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
-const ButtonSlider = (prop) => {
-  const { text, id, href } = prop;
+const ButtonSlider = (props) => {
+  const { text, id, href } = props;
 
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -80,6 +81,14 @@ const ButtonSlider = (prop) => {
       </ImageButton>
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+ButtonSlider.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ello
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  href: PropTypes.string.isRequired
 };
 
 export default ButtonSlider;

@@ -30,6 +30,7 @@ const Slider = () => {
             subtitle={slide.subtitle}
             btnText={slide.btnText}
             href={slide.href}
+            titleImg={slide.titleImg}
           />
         ))}
       </Splide>

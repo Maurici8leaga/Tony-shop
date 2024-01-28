@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de reac
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
 import AspectRatio from '@mui/joy/AspectRatio';
@@ -10,8 +11,6 @@ import Typography from '@mui/joy/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/joy/Button';
 import Ratings from '@molecules/rating/Ratings';
-
-import Link from '@mui/joy/Link';
 
 const CardItem = (prop) => {
   const {
@@ -89,6 +88,20 @@ const CardItem = (prop) => {
       </Card>
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+CardItem.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ello
+  idProduct: PropTypes.number.isRequired,
+  imgProduct: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  nameProduct: PropTypes.string.isRequired,
+  priceProduct: PropTypes.string.isRequired, // OJO PUEDE CAMBIAR A NUMBER EN LA DB
+  descriptionProduct: PropTypes.string.isRequired,
+  customWidth: PropTypes.string.isRequired,
+  customHeight: PropTypes.string.isRequired,
+  disabledBtn: PropTypes.bool
+  // los props que no tengan isRequired es porque pueden llegar hacer opcional para el component
 };
 
 export default CardItem;

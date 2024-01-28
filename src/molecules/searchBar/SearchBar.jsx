@@ -1,10 +1,11 @@
 import * as React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = (prop) => {
-  const { placeHolderText, colorbg1, colorbg2 } = prop;
+const SearchBar = (props) => {
+  const { placeHolderText, colorbg1, colorbg2 } = props;
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -53,6 +54,14 @@ const SearchBar = (prop) => {
       <StyledInputBase placeholder={placeHolderText} inputProps={{ 'aria-label': 'search' }} />
     </Search>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+SearchBar.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ello
+  placeHolderText: PropTypes.string.isRequired,
+  colorbg1: PropTypes.string.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  colorbg2: PropTypes.string.isRequired
 };
 
 export default SearchBar;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 // material UI components
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -20,8 +21,8 @@ import { arrayFakeShoppingCar } from '@services/utils/static.data';
 // css
 import '../shoppingDrawer/ShoppingDrawer.scss';
 
-const ShopingDrawer = (prop) => {
-  const { openShoppingDrawer, setOpenShoppingDrawer } = prop;
+const ShopingDrawer = (props) => {
+  const { openShoppingDrawer, setOpenShoppingDrawer } = props;
 
   // DUDAS SOBRE USAR ESTE HOOk
   const inputRef = React.useRef(null);
@@ -97,6 +98,13 @@ const ShopingDrawer = (prop) => {
       </Container>
     </Drawer>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+ShopingDrawer.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ello
+  openShoppingDrawer: PropTypes.bool.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  setOpenShoppingDrawer: PropTypes.func
 };
 
 export default ShopingDrawer;

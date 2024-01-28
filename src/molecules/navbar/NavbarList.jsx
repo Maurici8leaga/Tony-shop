@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import * as React from 'react';
+import PropTypes from 'prop-types'; // PropTypes debe implementarse asi ya que ya no viene implicito de react
 import SearchBar from '@molecules/searchBar/SearchBar';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -12,10 +13,8 @@ import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import { drawerLinks, secondaryColor } from '@services/utils/static.data';
 
-const NavbarList = (prop) => {
+const NavbarList = ({ openDrawer, setOpenDrawer }) => {
   const { grey400, grey700 } = secondaryColor;
-
-  const { openDrawer, setOpenDrawer } = prop;
 
   return (
     <>
@@ -64,6 +63,13 @@ const NavbarList = (prop) => {
       </Drawer>
     </>
   );
+};
+
+// Design Pattern Observer: https://refactoring.guru/es/design-patterns/observe
+NavbarList.propTypes = {
+  // se usa este patron para asi poder vigilar a los props y tener mayor seguridad de tipeo en ello
+  openDrawer: PropTypes.bool.isRequired, //  si el prop lleva isRequired es porque es fundamental para el componente, sin el fallaria
+  setOpenDrawer: PropTypes.func
 };
 
 export default NavbarList;
