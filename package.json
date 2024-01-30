@@ -69,6 +69,7 @@
 		"eslint-plugin-simple-import-sort": "10.0.0",
 		"file-loader": "6.2.0",
 		"image-webpack-loader": "8.1.0",
+		"json-server": "^1.0.0-alpha.23",
 		"msw": "1.2.1",
 		"prettier": "2.8.8",
 		"react-app-alias": "2.2.2",
