@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Sheet from '@mui/joy/Sheet';
 import Box from '@mui/joy/Box';
 import Typography from '@mui/material/Typography';
@@ -9,19 +10,16 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/joy/Button';
+// static
+import useLocalStorage from '@hooks/useLocalStorage';
+import { authService } from '@services/api/auth/auth.service';
+import { UtilsService } from '@services/utils/utils.service';
 // css
 import '@root/index.scss';
 import '../register/Register.scss';
 
 const Register = () => {
-  // state para el password input
-  const [showPassword, setShowPassword] = useState(false);
-
-  // handlers para el password input
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  const dispatch = useDispatch();
 
   // state del form
   const [name, setName] = useState('');
@@ -31,62 +29,63 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [nameError, setNameError] = useState(false);
-  const [lastnameError, setLastNameError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [phoneNumberError, setPhoneNumberError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [setStoredUsername] = useLocalStorage('username', 'set');
+  // de este  custom hook  el 1er parametro es el nombre del key y el 2do es la accion que tendra
+
+  // state para si el user esta logeado o no
+  const [user, setUser] = useState();
+
+  // state para el password input
+  const [showPassword, setShowPassword] = useState(false);
+
+  // OJO CUANDO SE INTEGRE EL BACK SE DECIDIRA SI ES ESENCIAL ESTOS STATES
+  // const [nameError, setNameError] = useState(false);
+  // const [lastnameError, setLastNameError] = useState(false);
+  // const [emailError, setEmailError] = useState(false);
+  // const [phoneNumberError, setPhoneNumberError] = useState(false);
+  // const [passwordError, setPasswordError] = useState(false);
+  // const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
   // state para mensaje error en los inputs
-  const [hasError, setHasError] = useState(false);
+  // const [hasError, setHasError] = useState(false); // OJO ACTIVAR CUANDO SE INTEGRE EL BACK
   // state para convertir el input en error
-  const [errorMessage, setErrorMessage] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState(false); // aqui ira el mensaje que mande el back si ocurre
 
   // para validar numero nacionales nada mas
-  const phoneNumberRE = /^(0414|0412|0416|0212)[0-9]{7}$/;
+  // const phoneNumberRE = /^(0414|0412|0416|0212)[0-9]{7}$/; //GUARDAR PARA VER SI SE NECESITA MAS ADELANTE
 
-  const registerUser = (event) => {
+  const registerUser = async (event) => {
     event.preventDefault();
-    setHasError(false);
-    setErrorMessage('');
-    setNameError(false);
-    setLastNameError(false);
-    setEmailError(false);
-    setPhoneNumberError(false);
-    setPasswordError(false);
-    setConfirmPasswordError(false);
 
-    // agregar validaciones del back con JOY
-    if (name === '') {
-      setNameError(true);
-    }
+    try {
+      const result = await authService.signup({
+        name,
+        lastname,
+        email,
+        phoneNumber,
+        password
+      });
+      console.log(result, 'esto es result');
 
-    if (lastname === '') {
-      setLastNameError(true);
+      setStoredUsername(email);
+      UtilsService.dispatchUser(result, dispatch, setUser);
+      // setHasError(false); // OJO activar cuando se integre el backend// OJO activar cuando se integre el backend
+      // setErrorMessage(''); // OJO activar cuando se integre el backend
+      // setNameError(false); // cuando se integre el back se decidira si es necesario o no
+      // setLastNameError(false); // cuando se integre el back se decidira si es necesario o no
+      // setEmailError(false); // cuando se integre el back se decidira si es necesario o no
+      // setPhoneNumberError(false); // cuando se integre el back se decidira si es necesario o no
+      // setPasswordError(false); // cuando se integre el back se decidira si es necesario o no
+      // setConfirmPasswordError(false); // cuando se integre el back se decidira si es necesario o no
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    if (email === '') {
-      setEmailError(true);
-    }
-
-    if (phoneNumber === '' || phoneNumberRE.test(phoneNumber) === false) {
-      setHasError(true);
-      setErrorMessage('Numero invalido');
-      setPhoneNumberError(true);
-    }
-
-    if (password === '' || password.length < 6) {
-      setHasError(true);
-      setErrorMessage('Contraseña invalida muy corta');
-      setPasswordError(true);
-    }
-
-    if (confirmPassword !== password || confirmPassword === '') {
-      setHasError(true);
-      setErrorMessage('La contraseña no coincide');
-      setConfirmPasswordError(true);
-    }
+  // handlers para el password input
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -124,13 +123,14 @@ const Register = () => {
             </Link>
           </Box>
 
-          {hasError && errorMessage ? (
+          {/* NO BORRAR, ESTO IRA CUANDO SE INTEGRE CON EL BACK */}
+          {/* {hasError && errorMessage ? (
             <Typography variant="body2" sx={{ color: 'var(--red)' }}>
               {errorMessage}
             </Typography>
           ) : (
             ''
-          )}
+          )} */}
 
           <TextField
             id="input-name-register"
@@ -139,9 +139,9 @@ const Register = () => {
             value={name}
             type="text"
             placeholder="Tu nombre"
-            // required
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={nameError}
+            // error={nameError}
             onChange={(event) => setName(event.target.value)}
           />
           <TextField
@@ -151,9 +151,9 @@ const Register = () => {
             value={lastname}
             type="text"
             placeholder="Tu apellido"
-            // required
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={lastnameError}
+            // error={lastnameError}
             onChange={(event) => setLastName(event.target.value)}
           />
           <TextField
@@ -163,9 +163,9 @@ const Register = () => {
             value={email}
             type="email"
             placeholder="Tu correo"
-            // required
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={emailError}
+            // error={emailError}
             onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
@@ -174,10 +174,16 @@ const Register = () => {
             variant="outlined"
             value={phoneNumber}
             type="tel"
-            placeholder="04161234567"
-            // required
+            InputProps={{
+              inputProps: {
+                minLength: '11',
+                maxLength: '11'
+              }
+            }}
+            placeholder="041X-123-45-67"
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={phoneNumberError}
+            // error={phoneNumberError}
             onChange={(event) => setPhoneNumber(event.target.value)}
           />
           <TextField
@@ -201,9 +207,9 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            // required
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={passwordError}
+            // error={passwordError}
             onChange={(event) => setPassword(event.target.value)}
           />
 
@@ -228,9 +234,9 @@ const Register = () => {
                 </InputAdornment>
               )
             }}
-            // required
+            required
             sx={{ marginY: 1, width: '100%' }}
-            error={confirmPasswordError}
+            // error={confirmPasswordError}
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
 

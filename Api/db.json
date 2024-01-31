@@ -1,3 +1,12 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "8356",
+      "name": "Mauricio",
+      "lastname": "Ole",
+      "email": "mao@gm.com",
+      "phoneNumber": "04126564759",
+      "password": "123456"
+    }
+  ]
 }

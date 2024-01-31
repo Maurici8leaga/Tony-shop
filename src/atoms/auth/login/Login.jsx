@@ -50,6 +50,8 @@ const Login = () => {
     setEmailError(false);
     setPasswordError(false);
 
+    // OJO ESTO ES TEMPORAAL va cambiar cuando se integre con el backend y solo pasara los errores que de el backend
+    // se creara un state para los mensajes el cual llevara los mensajes que de el back
     if (email === '') {
       setEmailError(true);
     }
