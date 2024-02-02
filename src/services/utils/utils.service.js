@@ -10,6 +10,6 @@ export class UtilsService {
         profile: result.data // OJO este va cambiar cuando se integre con el back
       })
     );
-    // setUser(result.data); // OJO este va cambiar cuando se integre con el back
+    setUser(result.data); // OJO result.data va cambiar cuando se integre con el back
   }
 }

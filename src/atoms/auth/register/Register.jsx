@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Sheet from '@mui/joy/Sheet';
 import Box from '@mui/joy/Box';
@@ -10,6 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/joy/Button';
+// component
+import Spinner from '@molecules/loader/Spinner';
 // static
 import useLocalStorage from '@hooks/useLocalStorage';
 import { authService } from '@services/api/auth/auth.service';
@@ -20,6 +23,7 @@ import '../register/Register.scss';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // state del form
   const [name, setName] = useState('');
@@ -34,6 +38,9 @@ const Register = () => {
 
   // state para si el user esta logeado o no
   const [user, setUser] = useState();
+
+  // state for spinner
+  const [loading, setLoading] = useState(false);
 
   // state para el password input
   const [showPassword, setShowPassword] = useState(false);
@@ -55,6 +62,7 @@ const Register = () => {
   // const phoneNumberRE = /^(0414|0412|0416|0212)[0-9]{7}$/; //GUARDAR PARA VER SI SE NECESITA MAS ADELANTE
 
   const registerUser = async (event) => {
+    setLoading(true); // para correr el spinner mientras el proceso
     event.preventDefault();
 
     try {
@@ -65,11 +73,10 @@ const Register = () => {
         phoneNumber,
         password
       });
-      console.log(result, 'esto es result');
 
       setStoredUsername(email);
       UtilsService.dispatchUser(result, dispatch, setUser);
-      // setHasError(false); // OJO activar cuando se integre el backend// OJO activar cuando se integre el backend
+      // setHasError(false); // OJO activar cuando se integre el backend
       // setErrorMessage(''); // OJO activar cuando se integre el backend
       // setNameError(false); // cuando se integre el back se decidira si es necesario o no
       // setLastNameError(false); // cuando se integre el back se decidira si es necesario o no
@@ -78,6 +85,7 @@ const Register = () => {
       // setPasswordError(false); // cuando se integre el back se decidira si es necesario o no
       // setConfirmPasswordError(false); // cuando se integre el back se decidira si es necesario o no
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -88,7 +96,15 @@ const Register = () => {
     event.preventDefault();
   };
 
-  return (
+  useEffect(() => {
+    // se tiene que pasar user y loading porque esto cada vez que cambie debe renderizar la pag
+    if (loading && !user) return;
+    if (user) navigate('/');
+  }, [user, navigate, loading]);
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <div className="bg-mt-img">
       <Sheet variant="plain" sx={{ pt: 10, background: 'none' }}>
         <Box
