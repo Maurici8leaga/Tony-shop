@@ -75,7 +75,7 @@ const Register = () => {
       });
 
       setStoredUsername(email);
-      UtilsService.dispatchUser(result, dispatch, setUser);
+      UtilsService.dispatchUser(result.data, dispatch, setUser);
       // setHasError(false); // OJO activar cuando se integre el backend
       // setErrorMessage(''); // OJO activar cuando se integre el backend
       // setNameError(false); // cuando se integre el back se decidira si es necesario o no
