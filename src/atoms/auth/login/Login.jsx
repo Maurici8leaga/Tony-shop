@@ -10,14 +10,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import Button from '@mui/joy/Button';
 // component
 import Spinner from '@molecules/loader/Spinner';
 // static
 import useLocalStorage from '@hooks/useLocalStorage';
-import useSessionStorage from '@hooks/useSessionStorage';
+// de este  custom hook  el 1er parametro es el nombre del key y el 2do es la accion que tendra
 import { authService } from '@services/api/auth/auth.service';
 import { UtilsService } from '@services/utils/utils.service';
 // scss
@@ -30,6 +28,9 @@ const Login = () => {
   // state para el password input
   const [showPassword, setShowPassword] = useState(false);
 
+  // state for spinner
+  const [loading, setLoading] = useState(false);
+
   // state del form
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,11 +39,11 @@ const Login = () => {
   // const [emailError, setEmailError] = useState(false);
   // const [passwordError, setPasswordError] = useState(false);
 
-  // state for checkbox
-  const [checked, setChecked] = useState(false);
-
   // state para si el user esta logeado o no
   const [user, setUser] = useState();
+
+  // state para el local storage
+  const [setStoredUsername] = useLocalStorage('username', 'set'); // este es un  custom hook
 
   // state para mensaje error en los inputs
   // const [hasError, setHasError] = useState(false); // OJO activar cuando se integre el backend
@@ -50,6 +51,7 @@ const Login = () => {
   // const [errorMessage, setErrorMessage] = useState(false); // OJO activar cuando se integre el backend
 
   const loginUser = async (event) => {
+    setLoading(true); // para correr el spinner mientras el proceso
     event.preventDefault();
 
     try {
@@ -64,11 +66,13 @@ const Login = () => {
 
       // validacion de email y password ingresado con los que estan guardados
       if (userData !== undefined && userData.password === password) {
+        setStoredUsername(userData.email); // establecer el local storage
         UtilsService.dispatchUser(userData, dispatch, setUser);
       } else {
         alert('Credenciales invalidas');
       }
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
     // setHasError(false); // OJO activar cuando se integre el backend
@@ -95,12 +99,15 @@ const Login = () => {
     event.preventDefault();
   };
 
-  // handlers para el check box
-  const handleCheckBox = (event) => {
-    setChecked(event.target.checked);
-  };
+  useEffect(() => {
+    if (loading && !user) return; // si esta cargando y no hay user entonces se quedara cargando
 
-  return (
+    if (user) navigate('/');
+  }, [user, navigate, loading]);
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <div className="bg-mt-img">
       <Sheet variant="plain" sx={{ pt: 10, background: 'none' }}>
         <Box
@@ -186,15 +193,6 @@ const Login = () => {
             // error={passwordError}
             onChange={(event) => setPassword(event.target.value)}
             required
-          />
-
-          <FormControlLabel
-            value={checked}
-            control={<Switch color="primary" id="checkbox" />}
-            label="Mantenerme conectado"
-            labelPlacement="end"
-            checked={checked}
-            onChange={handleCheckBox}
           />
 
           <Button variant="solid" size="lg" type="submit" sx={{ width: '100%', mt: 1 }}>
