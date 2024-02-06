@@ -7,6 +7,14 @@
       "email": "mau@gm.com",
       "phoneNumber": "04121234567",
       "password": "123456"
+    },
+    {
+      "id": "4a15",
+      "name": "leo",
+      "lastname": "ged",
+      "email": "leo@gm.com",
+      "phoneNumber": "04121234567",
+      "password": "123456"
     }
   ]
 }

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+// import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -11,11 +13,18 @@ import Button from '@mui/material/Button';
 import MenuProfile from '@molecules/menu/menu-profile/MenuProfile';
 import MenuProfileAdaptive from '@molecules/menu/menu-profile-adaptive/MenuProfileAdaptive';
 import ReusableModal from '@molecules/modal/ReusableModal';
-
+// static
+import useLocalStorage from '@hooks/useLocalStorage';
 // ccss
 import '../profile/Profile.scss';
 
 const Profile = () => {
+  // user data from store
+  // const user = useSelector((state) => state.user); // OJO FALTA IMPLEMENTAR
+  // useSelector es un hook  de react-redux que permite extraer data del state de store
+
+  const navigate = useNavigate();
+
   // OJO aqui la data debe venir por defecto debe venir del back
   const [name, setName] = useState('Mauricio');
   const [lastname, setLastName] = useState('Oleaga');
@@ -29,9 +38,16 @@ const Profile = () => {
   // state for modal
   const [open, setOpen] = useState(false);
 
+  // state para el local storage
+  const [setStoredUsername] = useLocalStorage('username', 'get'); // este es un  custom hook
+
   // para abrir y cerrar los modal
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (!setStoredUsername) return navigate('/');
+  }, [navigate, setStoredUsername]);
 
   return (
     <div className="container-profile">

@@ -7,21 +7,22 @@ const useLocalStorage = (key, type) => {
   try {
     if (type === 'get') {
       // para pedir el token ya establecido en localStorage
-      const item = window.localStorage.getItem(key);
+      const getValue = JSON.parse(window.localStorage.getItem(key));
       // se debe parsear lo que se traiga del get
-      return item ? JSON.parse(item) : '';
+      return [getValue]; // OJO IMPORTANTE ES NECESARIO LOS [] ya que para la destructuracion se espera estos
     } else if (type === 'set') {
       const setValue = (newValue) => {
         // para establecer el token en localStorage
         window.localStorage.setItem(key, JSON.stringify(newValue)); // se debe convertir a formato JSON
       };
-      return [setValue];
+
+      return [setValue]; // OJO IMPORTANTE ES NECESARIO LOS [] ya que para la destructuracion se espera estos
     } else if (type === 'delete') {
       const deleteValue = () => {
         // para eliminar el token del localStorage
         window.localStorage.removeItem(key);
       };
-      return [deleteValue];
+      return [deleteValue]; // OJO IMPORTANTE ES NECESARIO LOS [] ya que para la destructuracion se espera estos
     }
   } catch (error) {
     console.log(error);

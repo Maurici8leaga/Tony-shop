@@ -12,14 +12,23 @@ import Divider from '@mui/material/Divider';
 import DoorFrontOutlinedIcon from '@mui/icons-material/DoorFrontOutlined';
 // static data
 import { opcionMenuProfile } from '@services/utils/static.data';
+import useLocalStorage from '@hooks/useLocalStorage';
 // css
 import '../menu-profile/MenuProfile.scss';
 
 const MenuProfile = () => {
   const navigate = useNavigate();
 
+  // custom hook para delete del storel user logged
+  const [deleteStoredUser] = useLocalStorage('username', 'delete');
+
   const handleClick = (url) => {
     navigate(url);
+  };
+
+  const logOut = () => {
+    deleteStoredUser(); // aplicas el hook para eliminar el token
+    navigate('/');
   };
 
   return (
@@ -46,7 +55,7 @@ const MenuProfile = () => {
         <Divider />
 
         <ListItem disablePadding disableGutters>
-          <ListItemButton onClick={() => handleClick('/login')}>
+          <ListItemButton onClick={() => logOut()}>
             <ListItemIcon>
               <DoorFrontOutlinedIcon />
             </ListItemIcon>

@@ -12,4 +12,15 @@ export class UtilsService {
     );
     setUser(result); // OJO result.data va cambiar cuando se integre con el back
   }
+
+  // Funcion para buscar user en FAKEDB ES TEMPORAL HASTA INTEGRAR EL BACKEND
+  static findUserInDB(dataDB, user) {
+    // dataDB debe ser la data existente que este en el fake DB
+    //  user debe ser el usuario a buscar a ver si existe
+    const value = dataDB.find((item) => {
+      return item.email === user;
+    });
+
+    return value;
+  }
 }

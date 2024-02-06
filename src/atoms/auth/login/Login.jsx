@@ -60,18 +60,15 @@ const Login = () => {
       // OJO ESTE PROCESO DE VALIDACION ES TEMPORAL HASTA QUE SE CREE EL BACK
 
       // buscar si el email ingresado existe en la db
-      const userData = data.find((item) => {
-        return item.email === email;
-      });
+      const userData = UtilsService.findUserInDB(data, email);
 
       // validacion de email y password ingresado con los que estan guardados
       if (userData !== undefined && userData.password === password) {
         setStoredUsername(userData.email); // establecer el local storage
         UtilsService.dispatchUser(userData, dispatch, setUser);
-      } else {
-        alert('Credenciales invalidas');
       }
     } catch (error) {
+      alert('Credenciales invalidas');
       setLoading(false);
       console.error(error);
     }
